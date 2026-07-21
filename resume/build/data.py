@@ -2,8 +2,8 @@
 
 PROFILE = {
     "name": "Sudhanshu Bhatnagar",
-    "title": "Principal Technical Program Manager",
-    "tagline": "22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile.",
+    "title": "Principal Technical Program Manager @ Nike",
+    "tagline": "Principal TPM at Nike — Consumer Product & Innovation, Merchandising. 22+ years shipping cloud, composable commerce, and AI/ML programs. Previously Lululemon, Nordstrom, Amazon, and T-Mobile.",
     "location": "Seattle, WA",
     "email": "Bhatnagar.Sudhanshu31@gmail.com",
     "phone": "310-754-6162",
@@ -25,11 +25,25 @@ METRICS = [
 # Career log — reverse chronological. Dates for timeline math.
 ROLES = [
     {
+        "id": "nike",
+        "company": "Nike",
+        "role": "Principal Technical Program Manager",
+        "location": "Beaverton, OR",
+        "start": "2026-03", "end": None, "current": True,
+        "logo": "N",
+        "highlights": [
+            "Consumer Product & Innovation — Merchandising technology portfolio",
+            "Bringing composable-first, governance-forward TPM playbook to Nike's global consumer footprint",
+            "22+ years of program leadership across Lululemon, Nordstrom, Amazon, and T-Mobile applied to Nike's Merchandising platforms",
+            "Milestones and impact will appear as programs land",
+        ],
+    },
+    {
         "id": "lululemon",
         "company": "Lululemon",
         "role": "Principal Technical Program Manager",
         "location": "Seattle, WA",
-        "start": "2023-07", "end": None, "current": True,
+        "start": "2023-07", "end": "2026-02", "current": False,
         "logo": "L",
         "highlights": [
             "$5M+ B2B e-Commerce platform transformation; 30% improvement in onboarding",
@@ -290,13 +304,13 @@ QA = [
     (["b2b", "commerce", "ecommerce", "e-commerce"],
      "B2B e-commerce leadership across Lululemon ($5M+ platform transformation, 20+ teams), Amazon (VAP in 8 countries, $40M savings), T-Mobile (headless DCP), and Trimble. Composable + governance-first is the pattern I run."),
     (["pos", "point of sale", "retail store", "xstore", "xcenter"],
-     "Currently owning global POS infrastructure at Lululemon across 1000+ stores (NA, EMEA, APAC, CA) — Oracle Xstore/Xcenter version upgrades, security patching, vulnerability remediation, quarterly upgrade cadence with regional teams."),
+     "Owned global POS infrastructure at Lululemon across 1000+ stores (NA, EMEA, APAC, CA) — Oracle Xstore/Xcenter version upgrades, security patching, vulnerability remediation, quarterly upgrade cadence with regional teams."),
     (["identity", "iam", "ciam", "auth", "authentication", "fraud"],
      "Led CIAM at Nordstrom across Nordstrom, Nordstrom Rack, Store, and Credit — 35% reduction in support tickets, SOC 2 + ISO 27001 alignment, cross-brand credential unification."),
     (["scale", "large-scale", "global", "countries"],
      "Global scale delivery: 1000+ stores at Lululemon, 8-country rollout at Amazon (VAP), monolith→microservices at T-Mobile handling web-channel commerce."),
     (["team", "led", "people", "manage", "headcount"],
-     "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). At Lululemon and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."),
+     "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). Across Nike, Lululemon, and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."),
     (["agile", "scrum", "safe", "pmp", "pgmp"],
      "Certifications: PgMP · PMP · SAFe (Leading SAFe) · Scrum Master · Product Owner · AWS Solutions Architect · Azure Solutions Architect (70-535) · Product Manager (ISB). 15+ years running SAFe/Scrum/Kanban delivery at scale."),
     (["contact", "email", "phone", "reach"],
@@ -304,7 +318,9 @@ QA = [
     (["resume", "cv", "pdf", "download"],
      "PDF resume is one click away — <a href='assets/files/Sudhanshu-Bhatnagar.pdf' target='_blank'>Download PDF</a>."),
     (["role", "title", "position", "job", "looking"],
-     "Currently Principal Technical Program Manager at Lululemon. Open to Principal-/Director-level TPM roles in cloud platforms, composable commerce, and applied AI/ML — especially Seattle-based or remote-friendly."),
+     "Currently Principal Technical Program Manager at <b>Nike</b> — Consumer Product & Innovation, Merchandising (Beaverton, OR — Seattle-based, remote-friendly). Started March 2026. Prior: Lululemon, Nordstrom, Amazon, T-Mobile."),
+    (["nike"],
+     "Joined <b>Nike</b> in March 2026 as Principal Technical Program Manager in <em>Consumer Product & Innovation — Merchandising</em>. Bringing composable-commerce, cloud, and program-governance experience from Lululemon, Nordstrom, Amazon, and T-Mobile to Nike's global consumer digital footprint. Details on specific programs will surface here as milestones land."),
     (["education", "degree", "school", "university"],
      "PGP in AI/ML from McCombs School of Business (UT Austin), May 2024 – Feb 2025. Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998–2002)."),
 ]

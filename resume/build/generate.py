@@ -55,6 +55,11 @@ def render_hero():
       </div>
       <h1 class="hero-name">{PROFILE["name"]}</h1>
       <p class="hero-title">{PROFILE["title"]}</p>
+      <div class="hero-now">
+        <span class="now-dot" aria-hidden="true"></span>
+        <span class="now-text mono">Currently @ Nike</span>
+        <span class="now-detail">Consumer Product &amp; Innovation — Merchandising · Beaverton, OR</span>
+      </div>
       <p class="hero-tagline">{PROFILE["tagline"]}</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="assets/files/Sudhanshu-Bhatnagar.pdf" download>
@@ -530,6 +535,24 @@ body.view-classic .hero-name{color:var(--ink)}
 .hero-title{font-size:20px;color:var(--accent);font-weight:600;margin:0 0 12px;font-family:var(--mono)}
 body.view-classic .hero-title{font-family:var(--sans);color:var(--accent)}
 .hero-tagline{font-size:16.5px;color:var(--ink-2);max-width:780px;margin:0 0 26px}
+.hero-now{
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:8px 14px;background:color-mix(in oklab,var(--accent) 12%,transparent);
+  border:1px solid color-mix(in oklab,var(--accent) 40%,var(--line));
+  border-radius:999px;margin:0 0 18px;font-size:13px;
+}
+.hero-now .now-dot{
+  width:8px;height:8px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 0 color-mix(in oklab,var(--accent) 50%,transparent);
+  animation:now-pulse 1.6s ease-out infinite;
+}
+@keyframes now-pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--accent) 50%,transparent)}
+  70%{box-shadow:0 0 0 10px color-mix(in oklab,var(--accent) 0%,transparent)}
+  100%{box-shadow:0 0 0 0 color-mix(in oklab,var(--accent) 0%,transparent)}
+}
+.hero-now .now-text{font-weight:600;color:var(--accent);letter-spacing:.3px}
+.hero-now .now-detail{color:var(--ink-2)}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font:600 13.5px/1 var(--sans);cursor:pointer;transition:transform .12s,background .2s,border-color .2s;border:1px solid transparent}
 .btn:hover{transform:translateY(-1px);text-decoration:none}
@@ -931,7 +954,8 @@ const REPL = {{
         '<b>Sudhanshu Bhatnagar</b><br>'+
         'Principal Technical Program Manager · Seattle, WA<br>'+
         '22+ years delivering cloud, composable commerce, and AI/ML programs.<br>'+
-        'Currently: Lululemon (B2B e-Commerce + Global POS). Previously: Nordstrom, Amazon, T-Mobile.'
+        'Currently: <em>Nike</em> — Consumer Product &amp; Innovation, Merchandising (since Mar 2026).<br>'+
+        'Previously: Lululemon, Nordstrom, Amazon, T-Mobile.'
       );
       case 'experience':
       case 'exp': {{
@@ -1045,7 +1069,7 @@ def render_nav():
       <span class="b-avatar">SB</span>
       <div>
         <div>Sudhanshu Bhatnagar</div>
-        <div class="b-role">Principal TPM · Seattle</div>
+        <div class="b-role">Principal TPM · Nike · Seattle</div>
       </div>
     </div>
     <div class="tb-spacer"></div>
