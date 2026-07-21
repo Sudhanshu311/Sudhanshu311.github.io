@@ -3,7 +3,7 @@
 PROFILE = {
     "name": "Sudhanshu Bhatnagar",
     "title": "Principal Technical Program Manager @ Nike",
-    "tagline": "Principal TPM at Nike — Consumer Product & Innovation, Merchandising. 22+ years shipping cloud, composable commerce, and AI/ML programs. Previously Lululemon, Nordstrom, Amazon, and T-Mobile.",
+    "tagline": "Principal TPM at Nike — Global Merchandising (Consumer Product & Innovation). 22+ years shipping cloud, composable commerce, and AI/ML programs. Previously Lululemon, Nordstrom, Amazon, and T-Mobile.",
     "location": "Seattle, WA",
     "email": "Bhatnagar.Sudhanshu31@gmail.com",
     "phone": "310-754-6162",
@@ -27,15 +27,16 @@ ROLES = [
     {
         "id": "nike",
         "company": "Nike",
-        "role": "Principal Technical Program Manager",
+        "role": "Principal Technical Program Manager · Global Merchandising",
         "location": "Beaverton, OR",
         "start": "2026-03", "end": None, "current": True,
         "logo": "N",
         "highlights": [
-            "Consumer Product & Innovation — Merchandising technology portfolio",
-            "Bringing composable-first, governance-forward TPM playbook to Nike's global consumer footprint",
-            "22+ years of program leadership across Lululemon, Nordstrom, Amazon, and T-Mobile applied to Nike's Merchandising platforms",
-            "Milestones and impact will appear as programs land",
+            "<b>Strategic technical leadership</b> — end-to-end technical execution and architecture of high-scale enterprise programs within Global Merchandising; aligning technical roadmaps with Nike's consumer product innovation goals",
+            "<b>Cross-functional orchestration</b> — leading engineering and product teams to design, build, and deploy digital capabilities that optimize product line planning, assortment, and seasonal expression",
+            "<b>Scale & innovation</b> — driving integration of advanced data, analytics, and ML into merchandising systems for inventory efficiency, demand forecasting, and consumer-right product allocation",
+            "<b>Stakeholder management</b> — primary technical liaison between executive merchandising leadership and engineering; translating complex business vision into scalable, high-performance systems",
+            "<b>Process excellence & mentorship</b> — Agile/TPM governance frameworks that accelerate delivery velocity, manage dependencies, and mitigate risks across multi-million-dollar global initiatives; mentoring senior technical talent",
         ],
     },
     {
@@ -158,13 +159,29 @@ ROLES = [
     },
 ]
 
-# Flagship program case studies — top 5 by scale/recency.
+# Flagship program case studies — top by scale/recency.
 PROGRAMS = [
+    {
+        "id": "nike-merch",
+        "title": "Global Merchandising Technology — Consumer Product & Innovation",
+        "company": "Nike",
+        "period": "03/2026 – Present",
+        "problem": "Nike's Global Merchandising organization drives consumer-facing decisions on product line planning, assortment, and seasonal expression at massive global scale. The underlying technology needs a unifying strategic architecture, tighter alignment to consumer product innovation goals, and modern data + ML capabilities across inventory, demand forecasting, and consumer-right allocation.",
+        "approach": "Owning end-to-end technical execution and architecture for enterprise Merchandising programs. Standing up Agile/TPM governance to accelerate delivery velocity, manage dependencies, and mitigate risk on multi-million-dollar global initiatives. Serving as primary technical liaison between executive merchandising leadership and engineering. Orchestrating cross-functional engineering and product teams designing, building, and deploying digital capabilities across the merchandising lifecycle. Driving integration of advanced data, analytics, and ML into merchandising systems while mentoring senior technical talent.",
+        "outcome": [
+            "Technical roadmap aligned with Nike's consumer product innovation goals",
+            "Cross-functional orchestration across engineering, product, and executive merchandising leadership",
+            "Data + analytics + ML integration path defined for inventory efficiency, demand forecasting, and consumer-right allocation",
+            "Agile/TPM governance operationalized across global initiatives",
+            "In flight — outcomes will be updated as programs land",
+        ],
+        "tech": "Global Merchandising platforms · Product line planning · Assortment & seasonal-expression systems · Cloud · Data & Analytics · Machine Learning · Demand Forecasting · Agile/TPM governance",
+    },
     {
         "id": "lulu-b2b",
         "title": "B2B e-Commerce Platform + Global POS Infrastructure",
         "company": "Lululemon",
-        "period": "07/2023 – Present",
+        "period": "07/2023 – 02/2026",
         "problem": "Legacy B2B commerce and 1000+ store POS platforms lacked composable architecture, slowing new-market rollouts and creating operational risk across 4 global regions (NA, EMEA, APAC, CA).",
         "approach": "Established RACI · governance · change-request process. Built composable, API-first, headless commerce on Commercetools + Frontastic. Directed Oracle Xstore/Xcenter upgrades, security patching, and vulnerability remediation across 1000+ stores. Delivered GenAI Bulk Order Assistant on Amazon Bedrock + LangChain.",
         "outcome": [
@@ -259,6 +276,8 @@ TECH_HEATMAP = [
     ("Observability: Splunk · Datadog · New-Relic · AppDynamics", 10),
     ("Data: Python · SQL · Tableau · Grafana",       9),
     ("AI/ML: Bedrock · LangChain · RAG · LLM",        2),
+    ("Merchandising · Line Planning · Assortment",    1),
+    ("ML: Demand Forecasting · Inventory · Allocation", 1),
     ("Azure (Solutions Architect)",                   5),
     (".NET · C# · MVC · WCF",                        14),
     ("Agile: JIRA · Jira-Align · Rally · Confluence", 12),
@@ -294,7 +313,7 @@ QA = [
     (["genai", "gen ai", "bedrock", "langchain", "llm", "rag"],
      "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain — natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 – Feb 2025)."),
     (["ai", "ml", "machine learning", "artificial intelligence"],
-     "AI/ML background is post-grad from McCombs (UT Austin, 2024–2025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Areas of interest: LLM-assisted enterprise workflows, RAG over program artifacts, TensorFlow-based classification for ops signals."),
+     "AI/ML background is post-grad from McCombs (UT Austin, 2024–2025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. Areas of interest: LLM-assisted enterprise workflows, RAG over program artifacts, ML-driven merchandising signals."),
     (["aws", "amazon web services"],
      "8+ years hands-on AWS across the stack — EC2, S3, Lambda, DynamoDB, API Gateway, ECS/EKS, SNS. Certified Solutions Architect – Associate. Delivered platforms on AWS at Lululemon, Nordstrom, T-Mobile, Trimble, and Amazon (VAP)."),
     (["azure", "microsoft cloud"],
@@ -319,8 +338,15 @@ QA = [
      "PDF resume is one click away — <a href='assets/files/Sudhanshu-Bhatnagar.pdf' target='_blank'>Download PDF</a>."),
     (["role", "title", "position", "job", "looking"],
      "Currently Principal Technical Program Manager at <b>Nike</b> — Consumer Product & Innovation, Merchandising (Beaverton, OR — Seattle-based, remote-friendly). Started March 2026. Prior: Lululemon, Nordstrom, Amazon, T-Mobile."),
+    (["merchandising", "assortment", "line planning", "seasonal", "allocation", "forecast"],
+     "At Nike, driving the technical roadmap for <b>Global Merchandising</b> — product line planning, assortment, seasonal expression, and consumer-right product allocation. Also integrating data, analytics, and ML into merchandising systems for inventory efficiency and demand forecasting."),
     (["nike"],
-     "Joined <b>Nike</b> in March 2026 as Principal Technical Program Manager in <em>Consumer Product & Innovation — Merchandising</em>. Bringing composable-commerce, cloud, and program-governance experience from Lululemon, Nordstrom, Amazon, and T-Mobile to Nike's global consumer digital footprint. Details on specific programs will surface here as milestones land."),
+     "Joined <b>Nike</b> in March 2026 as Principal Technical Program Manager in <em>Global Merchandising — Consumer Product & Innovation</em>. Five focus areas:<br>"
+     "  1. <em>Strategic technical leadership</em> — end-to-end execution + architecture of enterprise Merchandising programs<br>"
+     "  2. <em>Cross-functional orchestration</em> — engineering + product teams shipping product line planning, assortment, and seasonal-expression capabilities<br>"
+     "  3. <em>Scale & innovation</em> — data, analytics, and ML into merchandising for inventory, forecasting, and allocation<br>"
+     "  4. <em>Stakeholder management</em> — primary technical liaison between executive merchandising leadership and engineering<br>"
+     "  5. <em>Process excellence & mentorship</em> — Agile/TPM governance on multi-million-dollar global initiatives, mentoring senior technical talent"),
     (["education", "degree", "school", "university"],
      "PGP in AI/ML from McCombs School of Business (UT Austin), May 2024 – Feb 2025. Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998–2002)."),
 ]

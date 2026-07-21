@@ -58,7 +58,7 @@ def render_hero():
       <div class="hero-now">
         <span class="now-dot" aria-hidden="true"></span>
         <span class="now-text mono">Currently @ Nike</span>
-        <span class="now-detail">Consumer Product &amp; Innovation — Merchandising · Beaverton, OR</span>
+        <span class="now-detail">Global Merchandising · Consumer Product &amp; Innovation · Beaverton, OR</span>
       </div>
       <p class="hero-tagline">{PROFILE["tagline"]}</p>
       <div class="hero-cta">
@@ -954,7 +954,9 @@ const REPL = {{
         '<b>Sudhanshu Bhatnagar</b><br>'+
         'Principal Technical Program Manager · Seattle, WA<br>'+
         '22+ years delivering cloud, composable commerce, and AI/ML programs.<br>'+
-        'Currently: <em>Nike</em> — Consumer Product &amp; Innovation, Merchandising (since Mar 2026).<br>'+
+        'Currently: <em>Nike</em> — Global Merchandising / Consumer Product &amp; Innovation (since Mar 2026).<br>'+
+        '  Owning end-to-end architecture, cross-functional orchestration, and data/ML integration<br>'+
+        '  across product line planning, assortment, seasonal expression, forecasting, and allocation.<br>'+
         'Previously: Lululemon, Nordstrom, Amazon, T-Mobile.'
       );
       case 'experience':
