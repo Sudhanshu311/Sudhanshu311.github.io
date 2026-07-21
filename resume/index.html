@@ -1,651 +1,1205 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>~/sudhanshu — Principal TPM · Cloud · Composable Commerce</title>
-  <meta name="description" content="Sudhanshu Bhatnagar — Principal Technical Program Manager. 22+ years across cloud, e-commerce, SaaS and AI/ML." />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Sudhanshu Bhatnagar — Principal TPM · Cloud · Composable Commerce · AI/ML</title>
+  <meta name="description" content="22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile."/>
+  <meta name="author" content="Sudhanshu Bhatnagar"/>
+  <meta name="theme-color" content="#0d1117"/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile"/>
+  <meta property="og:title" content="Sudhanshu Bhatnagar — Principal Technical Program Manager"/>
+  <meta property="og:description" content="22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile."/>
+  <meta property="og:url" content="https://sudhanshu311.github.io/resume/"/>
+  <meta property="profile:first_name" content="Sudhanshu"/>
+  <meta property="profile:last_name" content="Bhatnagar"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Sudhanshu Bhatnagar — Principal Technical Program Manager"/>
+  <meta name="twitter:description" content="22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile."/>
 
+  <link rel="canonical" href="https://sudhanshu311.github.io/resume/"/>
+  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="manifest" href="manifest.json"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sudhanshu Bhatnagar",
+  "jobTitle": "Principal Technical Program Manager",
+  "email": "mailto:Bhatnagar.Sudhanshu31@gmail.com",
+  "telephone": "310-754-6162",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Seattle",
+    "addressRegion": "WA"
+  },
+  "url": "https://sudhanshu311.github.io/resume/",
+  "sameAs": [
+    "https://www.linkedin.com/in/sudhanshubhatnagar/",
+    "https://github.com/Sudhanshu311"
+  ],
+  "description": "22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile.",
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "McCombs School of Business \u2014 University of Texas at Austin"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Rajiv Gandhi Technical University, India"
+    }
+  ]
+}
+  </script>
   <style>
-    /* ============================================
-       DESIGN 3 — "Terminal Portfolio"
-       Dark, monospace-forward, dev personality.
-       ============================================ */
-    :root {
-      --bg: #0d1117;
-      --panel: #161b22;
-      --panel-2: #1f2630;
-      --line: #30363d;
-      --ink: #e6edf3;
-      --ink-muted: #9ba7b4;
-      --ink-subtle: #6e7681;
+:root{
+  --bg:#0d1117; --panel:#161b22; --panel-hi:#1f2630; --line:#30363d;
+  --ink:#e6edf3; --ink-2:#9ba7b4; --ink-3:#6e7681; --ink-4:#4a5563;
+  --green:#7ee787; --blue:#79c0ff; --purple:#d2a8ff; --orange:#ffa657; --pink:#ff7b72; --yellow:#f2cc60;
+  --accent:var(--green); --accent-2:var(--blue);
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --radius:12px; --radius-sm:8px;
+  --shadow-1:0 4px 24px rgba(0,0,0,.35);
+  --shadow-2:0 12px 48px rgba(0,0,0,.45);
+  --hero-bg-1:rgba(126,231,135,.06); --hero-bg-2:rgba(121,192,255,.05);
+}
+body.view-classic{
+  --bg:#ffffff; --panel:#f6f8fa; --panel-hi:#eaedf1; --line:#d0d7de;
+  --ink:#1f2328; --ink-2:#57606a; --ink-3:#6b7280; --ink-4:#9aa0a6;
+  --green:#1a7f37; --blue:#0969da; --purple:#8250df; --orange:#bc4c00; --pink:#cf222e; --yellow:#9a6700;
+  --accent:var(--blue); --accent-2:var(--purple);
+  --shadow-1:0 2px 12px rgba(15,23,42,.06);
+  --shadow-2:0 8px 32px rgba(15,23,42,.10);
+  --hero-bg-1:rgba(9,105,218,.05); --hero-bg-2:rgba(130,80,223,.04);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;padding:0;
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-size:15px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 20% 10%,var(--hero-bg-1) 0%,transparent 40%),radial-gradient(circle at 80% 60%,var(--hero-bg-2) 0%,transparent 45%);
+  background-attachment:fixed;
+  transition:background .3s,color .3s;
+}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.mono{font-family:var(--mono)}
+.muted{color:var(--ink-3)}
+h1,h2,h3{margin:0;line-height:1.25}
+ul{margin:0;padding:0;list-style:none}
 
-      --green: #7ee787;
-      --blue: #79c0ff;
-      --purple: #d2a8ff;
-      --orange: #ffa657;
-      --pink: #ff7b72;
-      --yellow: #f2cc60;
+/* Sticky top nav */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in oklab,var(--bg) 92%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:1120px;margin:0 auto;padding:12px 20px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.tb-brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;color:var(--ink)}
+.tb-brand .b-avatar{
+  width:32px;height:32px;border-radius:50%;background:var(--panel-hi);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--accent);font-weight:700;font-size:12.5px;letter-spacing:.5px;
+  border:1px solid var(--line);
+}
+.tb-brand .b-role{color:var(--ink-2);font-weight:500;font-size:13px}
+body.view-classic .tb-brand{font-family:var(--sans)}
+.tb-spacer{flex:1}
+.tb-nav{display:flex;gap:14px;font-size:13px}
+.tb-nav a{color:var(--ink-2)}
+.tb-nav a:hover{color:var(--accent)}
+.view-switch{
+  display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:3px;
+}
+.view-switch button{
+  background:transparent;color:var(--ink-2);border:0;padding:5px 13px;font:600 12.5px/1 var(--mono);
+  border-radius:999px;cursor:pointer;
+}
+.view-switch button.is-active{background:var(--accent);color:var(--bg)}
+body.view-classic .view-switch button.is-active{color:#fff}
 
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+.container{max-width:1120px;margin:0 auto;padding:32px 20px 96px}
 
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 14.5px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      background-image:
-        radial-gradient(circle at 20% 10%, rgba(126, 231, 135, 0.06) 0%, transparent 40%),
-        radial-gradient(circle at 80% 60%, rgba(121, 192, 255, 0.05) 0%, transparent 45%);
-      background-attachment: fixed;
-    }
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
-    ul { margin: 0; padding: 0; list-style: none; }
-    code, .mono { font-family: var(--mono); }
+/* Hero */
+.hero{padding:20px 0 8px}
+.hero-shell{margin-bottom:36px}
+.prompt-line{font-family:var(--mono);font-size:13.5px;color:var(--ink-3);margin-bottom:16px}
+.prompt-line .prompt{color:var(--accent-2)}
+.prompt-line .prompt-sep{color:var(--ink-3);margin:0 8px}
+.prompt-line .typed{color:var(--ink)}
+.prompt-line .caret{color:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-name{font-family:var(--sans);font-size:56px;font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin:0 0 6px}
+body.view-classic .hero-name{color:var(--ink)}
+.hero-title{font-size:20px;color:var(--accent);font-weight:600;margin:0 0 12px;font-family:var(--mono)}
+body.view-classic .hero-title{font-family:var(--sans);color:var(--accent)}
+.hero-tagline{font-size:16.5px;color:var(--ink-2);max-width:780px;margin:0 0 26px}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;font:600 13.5px/1 var(--sans);cursor:pointer;transition:transform .12s,background .2s,border-color .2s;border:1px solid transparent}
+.btn:hover{transform:translateY(-1px);text-decoration:none}
+.btn-primary{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+body.view-classic .btn-primary{color:#fff}
+.btn-primary:hover{background:color-mix(in oklab,var(--accent) 88%,#fff)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{background:var(--panel);border-color:var(--ink-4)}
 
-    /* Terminal window frame */
-    .window {
-      max-width: 1180px;
-      margin: 2rem auto;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
-    }
-    .titlebar {
-      display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.65rem 1rem;
-      background: var(--panel-2);
-      border-bottom: 1px solid var(--line);
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--ink-subtle);
-    }
-    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-    .dot.r { background: #ff5f56; }
-    .dot.y { background: #ffbd2e; }
-    .dot.g { background: #27c93f; }
-    .titlebar .path { margin-left: 0.75rem; }
-    .titlebar .actions { margin-left: auto; display: flex; gap: 0.75rem; }
-    .titlebar .actions button, .titlebar .actions a {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      background: transparent;
-      border: 1px solid var(--line);
-      color: var(--ink-muted);
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .titlebar .actions button:hover, .titlebar .actions a:hover {
-      color: var(--green); border-color: var(--green);
-    }
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;margin-top:14px;
+}
+.metric{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 16px;box-shadow:var(--shadow-1)}
+.metric-value{font:800 30px/1.1 var(--sans);color:var(--accent);letter-spacing:-.5px}
+.metric-value .val{font-variant-numeric:tabular-nums}
+.metric-label{font-size:12.5px;color:var(--ink-2);margin-top:6px;line-height:1.45}
 
-    .content {
-      padding: 2rem 2.5rem 2.5rem;
-      font-family: var(--mono);
-      font-size: 13.5px;
-    }
+/* Section headings */
+.section-h{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  margin:56px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+.section-num{
+  font:700 12px/1 var(--mono);color:var(--accent);letter-spacing:2px;
+  padding:5px 8px;background:color-mix(in oklab,var(--accent) 15%,transparent);border-radius:6px;
+}
+.section-name{font-size:26px;font-weight:700;color:var(--ink);margin-right:auto}
+.section-hint{font:500 12.5px/1.4 var(--mono);color:var(--ink-3)}
 
-    /* Header — cat resume.md */
-    .cmd {
-      color: var(--ink-subtle);
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      margin: 1.75rem 0 0.75rem;
-    }
-    .cmd .prompt { color: var(--green); }
-    .cmd .flag { color: var(--purple); }
-    .cmd .arg { color: var(--yellow); }
-    .cmd .comment { color: var(--ink-subtle); font-style: italic; }
+/* Terminal REPL */
+.terminal{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-1)}
+.terminal-chrome{display:flex;align-items:center;gap:6px;padding:10px 14px;background:var(--panel-hi);border-bottom:1px solid var(--line)}
+.tc-dot{width:12px;height:12px;border-radius:50%}
+.tc-r{background:#ff5f56}.tc-y{background:#ffbd2e}.tc-g{background:#27c93f}
+.tc-title{margin-left:12px;font:500 12px/1 var(--mono);color:var(--ink-3);letter-spacing:.5px}
+.terminal-body{padding:16px 18px 12px;max-height:520px;overflow-y:auto;font-family:var(--mono);font-size:13.5px;line-height:1.65}
+.repl-line{margin-bottom:8px;white-space:pre-wrap;word-break:break-word}
+.repl-line b{color:var(--accent)}
+.repl-line em{color:var(--yellow);font-style:normal}
+.repl-line .in{color:var(--blue)}
+.repl-line .err{color:var(--pink)}
+.repl-form{display:flex;align-items:center;gap:10px;padding-top:8px;border-top:1px dashed var(--line);margin-top:6px}
+.repl-prompt{color:var(--accent);font-weight:600}
+.repl-input{flex:1;background:transparent;border:0;color:var(--ink);font:400 13.5px/1.5 var(--mono);outline:none;padding:6px 2px}
+.repl-input::placeholder{color:var(--ink-4)}
+.repl-chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0 0}
+.chip{background:transparent;border:1px solid var(--line);color:var(--ink-2);font:500 12px/1 var(--mono);padding:6px 10px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
 
-    .whoami {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      padding: 1.25rem 0 1.5rem;
-      border-bottom: 1px dashed var(--line);
-    }
-    .whoami .avatar {
-      width: 140px; height: 140px; border-radius: 8px;
-      overflow: hidden; border: 1px solid var(--line);
-      position: relative;
-    }
-    .whoami .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.05) saturate(0.95); }
-    .whoami .avatar::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(126,231,135,0.08) 100%);
-    }
-    .whoami h1 {
-      font-family: var(--mono);
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin: 0 0 0.35rem;
-      letter-spacing: -0.01em;
-    }
-    .whoami h1 .accent { color: var(--green); }
-    .whoami .role { color: var(--blue); font-family: var(--mono); font-size: 0.95rem; margin-bottom: 0.75rem; }
-    .whoami .role .op { color: var(--pink); }
-    .whoami .meta { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7; }
-    .whoami .meta .key { color: var(--purple); font-family: var(--mono); font-size: 0.85rem; }
+/* Timeline */
+.timeline{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px 30px;position:relative}
+.tl-ruler{position:relative;height:20px;margin-bottom:14px;border-bottom:1px dashed var(--line)}
+.tl-tick{position:absolute;top:0;transform:translateX(-50%);color:var(--ink-3);font:500 11px/1 var(--mono);padding-top:2px}
+.tl-bars{display:flex;flex-direction:column;gap:8px;position:relative}
+.tl-row{display:flex;align-items:center;gap:12px}
+.tl-label{width:140px;flex-shrink:0;font-size:12.5px;color:var(--ink-2);text-align:right}
+.tl-track{flex:1;position:relative;height:26px;background:color-mix(in oklab,var(--panel-hi) 60%,transparent);border-radius:6px}
+.tl-bar{
+  position:absolute;top:0;height:26px;
+  background:linear-gradient(90deg,color-mix(in oklab,var(--accent) 70%,transparent),color-mix(in oklab,var(--accent) 40%,transparent));
+  border:1px solid color-mix(in oklab,var(--accent) 50%,var(--line));
+  border-radius:5px;cursor:pointer;
+  transition:transform .12s,filter .12s;
+  color:var(--ink);
+  padding:0 10px;font:500 11.5px/26px var(--mono);text-align:left;overflow:hidden;
+  white-space:nowrap;text-overflow:ellipsis;
+}
+.tl-bar:hover{filter:brightness(1.15);transform:scale(1.02);z-index:2}
+.tl-bar.is-active{
+  background:linear-gradient(90deg,var(--accent),color-mix(in oklab,var(--accent) 70%,transparent));
+  color:var(--bg);
+  box-shadow:0 0 0 2px color-mix(in oklab,var(--accent) 40%,transparent);
+}
+body.view-classic .tl-bar.is-active{color:#fff}
+.tl-details{margin-top:18px;min-height:60px}
+.tl-detail{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 18px}
+.tl-detail-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.tl-logo{
+  width:48px;height:48px;border-radius:10px;
+  background:color-mix(in oklab,var(--accent) 15%,transparent);
+  color:var(--accent);
+  display:flex;align-items:center;justify-content:center;font:700 18px/1 var(--mono);
+}
+.tl-detail-role{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.tl-detail-company{font-size:12.5px;color:var(--ink-2)}
+.tl-detail-highlights{display:grid;gap:6px}
+.tl-detail-highlights li{padding-left:20px;position:relative;font-size:14px;color:var(--ink-2);line-height:1.55}
+.tl-detail-highlights li::before{content:"▸";position:absolute;left:0;top:0;color:var(--accent)}
 
-    /* Contact block */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 0.35rem 1.5rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--ink);
-      margin: 0.5rem 0 0.5rem;
-    }
-    .contact-grid .k { color: var(--purple); }
-    .contact-grid .eq { color: var(--pink); margin: 0 0.4rem; }
-    .contact-grid a { color: var(--blue); }
+/* Cases */
+.cases-grid{display:grid;gap:14px}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .12s}
+.case:hover{border-color:var(--ink-4)}
+.case-head{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
+  width:100%;padding:20px 22px;background:transparent;border:0;cursor:pointer;text-align:left;color:inherit;
+}
+.case-meta{display:flex;flex-direction:column;gap:2px;min-width:150px}
+.case-company{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.case-period{font-size:11.5px;color:var(--ink-3)}
+.case-title{font-size:17px;font-weight:600;color:var(--ink)}
+.case-chev{color:var(--ink-3);transition:transform .2s}
+.case[open] .case-chev,.case-head[aria-expanded="true"] .case-chev{transform:rotate(180deg);color:var(--accent)}
+.case-body{padding:0 22px 22px;border-top:1px dashed var(--line);padding-top:18px;display:grid;gap:16px}
+.case-body[hidden]{display:none}
+.case-label{font:700 10.5px/1 var(--mono);color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.case-block p{margin:0;color:var(--ink-2);font-size:14.5px}
+.case-outcome{display:grid;gap:6px}
+.case-outcome li{position:relative;padding-left:20px;font-size:14px;color:var(--ink-2)}
+.case-outcome li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.case-tech p{font-size:12.5px}
 
-    /* Sections */
-    section.block { margin: 2rem 0 0; }
-    h2.head {
-      font-family: var(--mono);
-      font-size: 0.95rem;
-      color: var(--green);
-      margin: 0 0 1rem;
-    }
-    h2.head .hash { color: var(--pink); margin-right: 0.35rem; }
-    h2.head .comment { color: var(--ink-subtle); font-weight: 400; font-size: 0.85rem; margin-left: 0.5rem; }
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}
+@media (max-width:900px){.skills-grid{grid-template-columns:1fr}}
+.skills-radar,.skills-heatmap{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.skills-radar svg{width:100%;height:auto;max-height:380px}
+.radar-ring{fill:none;stroke:var(--line);stroke-width:1;opacity:.5}
+.radar-axis{stroke:var(--line);stroke-width:1;opacity:.4}
+.radar-poly{fill:color-mix(in oklab,var(--accent) 25%,transparent);stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.radar-label{fill:var(--ink);font:600 12px var(--sans)}
+.radar-val{fill:var(--accent);font:700 11px var(--mono)}
+.heat-title{font:600 12px/1 var(--mono);letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.heat-tags{display:flex;flex-wrap:wrap;gap:6px}
+.heat-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 10px 5px 10px;background:color-mix(in oklab,var(--panel-hi) 90%,transparent);
+  border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);opacity:var(--heat-op);
+}
+.heat-tag:hover{opacity:1;border-color:var(--accent)}
+.heat-yr{color:var(--accent);font-weight:600;font-size:11px}
 
-    /* Summary — as a highlighted comment block */
-    .summary {
-      font-family: var(--sans);
-      font-size: 1rem;
-      line-height: 1.7;
-      padding: 1.25rem 1.5rem;
-      background: rgba(126, 231, 135, 0.04);
-      border-left: 3px solid var(--green);
-      border-radius: 6px;
-      color: var(--ink);
-    }
-    .summary strong { color: var(--green); font-weight: 600; }
+/* Chat */
+.chat-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px 18px;display:grid;gap:12px}
+.chat-log{display:grid;gap:10px;max-height:520px;overflow-y:auto;padding:6px 4px}
+.chat-msg{display:flex;gap:12px;align-items:flex-start}
+.chat-msg.chat-user{flex-direction:row-reverse}
+.chat-avatar{
+  width:32px;height:32px;flex-shrink:0;border-radius:50%;
+  background:var(--panel-hi);color:var(--accent);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font:700 11px/1 var(--mono);
+}
+.chat-user .chat-avatar{background:var(--accent);color:var(--bg);border-color:var(--accent)}
+.chat-body{background:var(--panel-hi);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:14px;color:var(--ink);max-width:80%}
+.chat-user .chat-body{background:color-mix(in oklab,var(--accent) 20%,var(--panel-hi));border-color:color-mix(in oklab,var(--accent) 40%,var(--line))}
+.chat-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chat-form{display:flex;gap:8px;margin-top:4px}
+.chat-input{
+  flex:1;background:var(--panel-hi);border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);font:400 14px var(--sans);padding:10px 16px;outline:none;
+}
+.chat-input:focus{border-color:var(--accent)}
 
-    /* Skills as JSON */
-    .skills-json {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--ink);
-      overflow-x: auto;
-    }
-    .skills-json .k { color: var(--blue); }
-    .skills-json .s { color: var(--green); }
-    .skills-json .p { color: var(--ink-subtle); }
-    .skills-json .b { color: var(--purple); }
+/* Creds */
+.creds-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:800px){.creds-grid{grid-template-columns:1fr}}
+.creds-cell{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.creds-h{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:14px;font-family:var(--mono);letter-spacing:.5px}
+.edu-card{padding:12px 0;border-bottom:1px dashed var(--line)}
+.edu-card:last-child{border-bottom:0}
+.edu-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.edu-school{font-size:12.5px;color:var(--ink-2)}
+.edu-period{font-size:11.5px;margin-top:2px}
+.cert-list{display:grid;gap:8px}
+.cert-list li{padding-left:22px;position:relative;font-size:14px;color:var(--ink-2);line-height:1.55}
+.cert-list li::before{content:"🎓";position:absolute;left:0;top:0}
 
-    /* Experience — git log style */
-    .git-log { font-family: var(--mono); font-size: 0.85rem; }
-    .commit {
-      padding: 0.85rem 0 1.1rem;
-      border-bottom: 1px dashed var(--line);
-    }
-    .commit:last-child { border-bottom: none; }
-    .commit .sha { color: var(--yellow); }
-    .commit .refs { color: var(--pink); }
-    .commit .date { color: var(--blue); }
-    .commit .author { color: var(--purple); }
-    .commit .msg {
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin: 0.35rem 0;
-    }
-    .commit .body {
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      color: var(--ink-muted);
-      padding-left: 1.25rem;
-      border-left: 2px solid var(--line);
-      margin-top: 0.4rem;
-    }
-    .commit .body ul li {
-      padding: 0.2rem 0 0.2rem 1.1rem;
-      position: relative;
-    }
-    .commit .body ul li::before {
-      content: "+";
-      position: absolute; left: 0;
-      color: var(--green); font-weight: 700; font-family: var(--mono);
-    }
-    .commit .body ul li strong { color: var(--yellow); font-weight: 600; }
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.contact-card{
+  display:block;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;color:inherit;transition:border-color .2s,transform .12s;
+}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
+.contact-card--static:hover{transform:none;border-color:var(--line)}
+.contact-label{font-size:11px;color:var(--ink-3);letter-spacing:.5px;text-transform:lowercase;margin-bottom:6px}
+.contact-val{font-size:14.5px;color:var(--ink);word-break:break-all}
 
-    /* Programs — as npm-style cards */
-    .pkg-card {
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 1.1rem 1.25rem;
-      margin: 0 0 0.85rem;
-    }
-    .pkg-card .name {
-      font-family: var(--mono);
-      color: var(--green);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-    .pkg-card .version {
-      font-family: var(--mono);
-      color: var(--yellow);
-      font-size: 0.8rem;
-      margin-left: 0.5rem;
-    }
-    .pkg-card .desc {
-      font-family: var(--sans);
-      color: var(--ink-muted);
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-    }
-    .pkg-card ul { margin-top: 0.4rem; }
-    .pkg-card ul li {
-      font-family: var(--sans);
-      font-size: 0.88rem;
-      color: var(--ink);
-      padding: 0.15rem 0 0.15rem 1.2rem;
-      position: relative;
-    }
-    .pkg-card ul li::before {
-      content: "✓";
-      position: absolute; left: 0;
-      color: var(--green); font-family: var(--mono); font-weight: 700;
-    }
-    .pkg-card ul li strong { color: var(--yellow); }
-    .pkg-card .deps {
-      margin-top: 0.65rem;
-      padding-top: 0.6rem;
-      border-top: 1px dashed var(--line);
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--ink-subtle);
-    }
-    .pkg-card .deps .k { color: var(--blue); }
-    .pkg-card .deps .v { color: var(--ink); }
+/* Footer */
+.doc-footer{
+  max-width:1120px;margin:60px auto 0;padding:32px 20px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
+  font-size:12.5px;color:var(--ink-3);font-family:var(--mono);
+}
+.doc-footer a{color:var(--ink-2)}
+.doc-footer .fkey{color:var(--accent)}
 
-    /* Certs list */
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 0.5rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-    }
-    .certs-grid .cert {
-      padding: 0.5rem 0.75rem;
-      background: var(--panel-2);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      color: var(--ink);
-    }
-    .certs-grid .cert .badge {
-      color: var(--yellow);
-      margin-right: 0.5rem;
-    }
+/* Print — force classic + simplify */
+@media print{
+  body{background:#fff;color:#111}
+  .topbar,.view-switch,.repl-section,.chat-section,.hero-cta,.repl-chips,.chat-chips,.chat-form,.section-hint,.doc-footer{display:none !important}
+  .container{padding:0;max-width:none}
+  .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
+  .section-name{font-size:20px;color:#111}
+  .section-num{background:#eee;color:#333}
+  .metric,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
+    background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
+    page-break-inside:avoid;
+  }
+  .case-body{display:grid !important}
+  .case-body[hidden]{display:grid !important}
+  .hero-name{font-size:32px}
+  .hero-title{color:#0969da;font-family:sans-serif}
+  * {print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
 
-    /* Edu */
-    .edu-list li {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      padding: 0.5rem 0;
-      border-bottom: 1px dashed var(--line);
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 1rem;
-      align-items: baseline;
-    }
-    .edu-list li:last-child { border-bottom: none; }
-    .edu-list li .yr { color: var(--yellow); }
-    .edu-list li .deg { color: var(--ink); font-family: var(--sans); font-size: 0.95rem; }
-    .edu-list li .org { color: var(--ink-muted); font-family: var(--sans); font-size: 0.85rem; display: block; }
+/* Reveal-on-scroll animation */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease-out,transform .55s ease-out}
+.reveal.is-shown{opacity:1;transform:none}
 
-    /* Footer prompt */
-    .footer-prompt {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--ink-subtle);
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px dashed var(--line);
-    }
-    .footer-prompt .prompt { color: var(--green); }
-    .cursor {
-      display: inline-block;
-      width: 8px; height: 14px;
-      background: var(--green);
-      vertical-align: middle;
-      margin-left: 4px;
-      animation: blink 1s steps(2, start) infinite;
-    }
-    @keyframes blink { to { visibility: hidden; } }
-
-    /* Responsive */
-    @media (max-width: 800px) {
-      .window { margin: 0; border-radius: 0; border: none; }
-      .content { padding: 1.25rem 1rem 2rem; font-size: 12.5px; }
-      .whoami { grid-template-columns: 1fr; }
-      .whoami .avatar { width: 100px; height: 100px; }
-      .whoami h1 { font-size: 1.35rem; }
-    }
-
-    /* Print */
-    @media print {
-      @page { size: Letter; margin: 0.4in; }
-      body { background: #fff; color: #000; font-size: 10.5pt; }
-      .window { border: none; box-shadow: none; margin: 0; max-width: none; background: #fff; }
-      .titlebar { display: none; }
-      .content { padding: 0; background: #fff; }
-      .summary { background: #fff; border-color: #000; color: #000; }
-      .summary strong { color: #000; }
-      .commit { border-color: #000; }
-      .commit .msg, .commit .body { color: #000; }
-      .commit .body { border-color: #000; }
-      .pkg-card { background: #fff; border-color: #000; page-break-inside: avoid; }
-      .pkg-card .name, .pkg-card ul li, .commit .body ul li { color: #000; }
-      .commit .body ul li::before, .pkg-card ul li::before { color: #000; }
-      .certs-grid .cert { background: #fff; border-color: #000; color: #000; }
-      .skills-json { background: #fff; border-color: #000; color: #000; }
-      .skills-json .k, .skills-json .s, .skills-json .b { color: #000; }
-      h2.head, h2.head .hash, .cmd .prompt, .cmd .flag, .cmd .arg { color: #000; }
-      .whoami h1, .whoami h1 .accent, .whoami .role, .whoami .meta .key { color: #000; }
-      .contact-grid, .contact-grid .k, .contact-grid a { color: #000; }
-      a { color: #000; text-decoration: underline; }
-      .cursor, .footer-prompt { display: none; }
-    }
-  </style>
+@media (max-width:600px){
+  .hero-name{font-size:38px}
+  .hero-title{font-size:17px}
+  .metric-value{font-size:24px}
+  .tl-label{width:100px;font-size:11.5px}
+  .tl-bar-label{display:none}
+  .case-head{grid-template-columns:1fr auto;padding:16px 18px}
+  .case-meta{margin-bottom:6px}
+  .terminal-body{max-height:400px}
+}
+</style>
 </head>
+<body class="view-terminal">
 
-<body>
-  <div class="window">
-
-    <!-- Title bar -->
-    <div class="titlebar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="path">— zsh — sudhanshu@resume ~ %</span>
-      <span class="actions">
-        <a href="classic/" title="Classic view">classic</a>
-        <button onclick="window.print()">print</button>
-        <a href="assets/files/Sudhanshu-Bhatnagar.pdf" download>pdf</a>
-      </span>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="tb-brand">
+      <span class="b-avatar">SB</span>
+      <div>
+        <div>Sudhanshu Bhatnagar</div>
+        <div class="b-role">Principal TPM · Seattle</div>
+      </div>
     </div>
-
-    <div class="content">
-
-      <!-- Header -->
-      <div class="cmd">
-        <span class="prompt">➜</span> <span class="arg">whoami</span> <span class="flag">--verbose</span>
-      </div>
-      <div class="whoami">
-        <div class="avatar">
-          <img src="assets/images/Sudhanshu.jpeg" alt="Sudhanshu Bhatnagar" />
-        </div>
-        <div>
-          <h1>Sudhanshu <span class="accent">Bhatnagar</span></h1>
-          <div class="role">Principal Technical Program Manager <span class="op">·</span> Cloud <span class="op">·</span> Composable Commerce <span class="op">·</span> AI/ML</div>
-          <div class="meta">
-            <span class="key">location</span> = Seattle, WA<br />
-            <span class="key">experience</span> = 22+ years<br />
-            <span class="key">focus</span> = building high-scale, cloud-native platforms &amp; leading matrixed teams
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div class="cmd">
-        <span class="prompt">➜</span> <span class="arg">cat</span> <span class="flag">./contact.env</span>
-      </div>
-      <div class="contact-grid">
-        <div><span class="k">EMAIL</span><span class="eq">=</span><a href="mailto:Bhatnagar.Sudhanshu31@gmail.com">Bhatnagar.Sudhanshu31@gmail.com</a></div>
-        <div><span class="k">PHONE</span><span class="eq">=</span><a href="#" class="phone-reveal" data-p="26164570131" title="Click to reveal">[click to reveal]</a></div>
-        <div><span class="k">LINKEDIN</span><span class="eq">=</span><a href="https://www.linkedin.com/in/sudhanshubhatnagar/" target="_blank" rel="noopener">/in/sudhanshubhatnagar</a></div>
-        <div><span class="k">GITHUB</span><span class="eq">=</span><a href="https://github.com/Sudhanshu311" target="_blank" rel="noopener">@Sudhanshu311</a></div>
-      </div>
-
-      <!-- Summary -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> executive_summary <span class="comment">// the elevator pitch</span></h2>
-        <div class="summary">
-          Results-driven <strong>Principal Technical Program Manager</strong> with
-          <strong>22+ years</strong> across cloud infrastructure, e-commerce, SaaS,
-          and AI/ML. Built <strong>four e-commerce platforms</strong> from the ground
-          up on AWS and Azure using microservices and headless / composable (MACH)
-          architectures. Deep experience in B2B and B2C commerce, Agile governance,
-          stakeholder alignment, and risk mitigation. Adept at scaling cloud platforms,
-          elevating customer experience, and translating executive strategy into
-          on-time technical delivery.
-        </div>
-      </section>
-
-      <!-- Skills as JSON -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> skills.json <span class="comment">// what I ship with</span></h2>
-        <pre class="skills-json">{
-  <span class="k">"cloud"</span>: [<span class="s">"AWS"</span>, <span class="s">"Azure"</span>, <span class="s">"EKS"</span>, <span class="s">"Lambda"</span>, <span class="s">"DynamoDB"</span>, <span class="s">"API Gateway"</span>, <span class="s">"S3"</span>, <span class="s">"Kafka"</span>],
-  <span class="k">"commerce"</span>: [<span class="s">"Commercetools"</span>, <span class="s">"Elastic Path"</span>, <span class="s">"Composable / MACH"</span>, <span class="s">"Headless"</span>, <span class="s">"B2B"</span>, <span class="s">"B2C"</span>],
-  <span class="k">"program_mgmt"</span>: [<span class="s">"SAFe"</span>, <span class="s">"Scrum of Scrums"</span>, <span class="s">"OKRs"</span>, <span class="s">"RACI"</span>, <span class="s">"Risk &amp; Change Mgmt"</span>, <span class="s">"Release Mgmt"</span>],
-  <span class="k">"leadership"</span>: [<span class="s">"Executive Stakeholders"</span>, <span class="s">"Matrixed Teams (65+)"</span>, <span class="s">"Coaching"</span>, <span class="s">"Vendor Mgmt"</span>],
-  <span class="k">"data_ai"</span>: [<span class="s">"AI/ML"</span>, <span class="s">"NLP"</span>, <span class="s">"TensorFlow"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span>, <span class="s">"Tableau"</span>],
-  <span class="k">"observability"</span>: [<span class="s">"Splunk"</span>, <span class="s">"Datadog"</span>, <span class="s">"New Relic"</span>, <span class="s">"AppDynamics"</span>],
-  <span class="k">"tools"</span>: [<span class="s">"Jira"</span>, <span class="s">"Jira Align"</span>, <span class="s">"Confluence"</span>, <span class="s">"Rally"</span>, <span class="s">"Smartsheet"</span>, <span class="s">"Figma"</span>, <span class="s">"Miro"</span>],
-  <span class="k">"status"</span>: <span class="b">"open_to_conversations"</span>
-}</pre>
-      </section>
-
-      <!-- Experience as git log -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> experience <span class="comment">// $ git log --oneline --author=sudhanshu</span></h2>
-        <div class="git-log">
-
-          <div class="commit">
-            <div><span class="sha">7c3a1f2</span> <span class="refs">(HEAD -&gt; main, lululemon)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;principal-tpm@lululemon&gt; &nbsp; <span class="date">Date:</span> Jul 2023 – present</div>
-            <div class="msg">Lululemon · Principal Technical Program Manager</div>
-            <div class="body">
-              <ul>
-                <li>Spearheaded <strong>$5M+ B2B e-Commerce transformation</strong>; defined roadmap, engineering milestones and operational readiness — <strong>30% faster onboarding</strong>.</li>
-                <li>Lead global <strong>POS Infrastructure</strong> program (Oracle Retail Xstore/Xcenter) across <strong>1,000+ stores</strong> in NA, EMEA, APAC, CN — upgrades, patching, vulnerability remediation.</li>
-                <li>Aligned <strong>20+ cross-functional teams</strong> across Product, Engineering, UX, QA, Security, Legal, Finance and Tax.</li>
-                <li>Rolled out Agile governance (RACI, quarterly / sprint planning, UAT &amp; release) → <strong>+30% collaboration</strong>, <strong>−20% delays</strong>.</li>
-                <li>Executed customer migration with <strong>99.99% availability</strong>, <strong>−30% transition time</strong>, and <strong>zero revenue impact</strong>.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="commit">
-            <div><span class="sha">a91e7d0</span> <span class="refs">(nordstrom)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;sr-tpm@nordstrom&gt; &nbsp; <span class="date">Date:</span> Jul 2021 – May 2023</div>
-            <div class="msg">Nordstrom · Sr. Technical Program Manager</div>
-            <div class="body">
-              <ul>
-                <li>Led <strong>Customer Access</strong> program (Nordstrom, Rack, Store, Credit) — improved security posture and reduced fraud with <strong>10+ teams</strong>.</li>
-                <li><strong>100% on-time delivery</strong> of program milestones; <strong>−35% customer service tickets</strong>.</li>
-                <li>Mentored <strong>5+ junior TPMs</strong> and interns → <strong>+15% team retention</strong>.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="commit">
-            <div><span class="sha">c04b3e8</span> <span class="refs">(amazon)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;sr-tpm@amazon&gt; &nbsp; <span class="date">Date:</span> Mar 2019 – Jul 2021</div>
-            <div class="msg">Amazon · Sr. Technical Program Manager</div>
-            <div class="body">
-              <ul>
-                <li>Directed launch of a global <strong>B2B pricing &amp; transaction platform across 8 countries</strong> with real-time payment validation — <strong>−40% pricing errors</strong>.</li>
-                <li>Resolved a discount-stacking defect with a projected <strong>$40M/yr impact</strong> on Amazon Business.</li>
-                <li>Partnered with <strong>25+ teams</strong>; improved alignment by <strong>+20%</strong>.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="commit">
-            <div><span class="sha">f7d29b1</span> <span class="refs">(t-mobile-dcp)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;tpm@hcl&gt; &nbsp; <span class="date">Date:</span> Jun 2016 – Mar 2019</div>
-            <div class="msg">HCL @ T-Mobile · Enterprise TPM / Sr. Manager</div>
-            <div class="body">
-              <ul>
-                <li>Delivered T-Mobile's headless <strong>Digital Commerce Platform</strong> on AWS.</li>
-                <li>Resolved cart latency issues → <strong>7× performance improvement</strong>.</li>
-                <li>Established DevOps (Shift-Left &amp; Right, on-call) and end-to-end Agile.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="commit">
-            <div><span class="sha">2b1e5c9</span> <span class="refs">(hcl-group-tech)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;group-tech-mgr@hcl&gt; &nbsp; <span class="date">Date:</span> Mar 2005 – Jun 2016</div>
-            <div class="msg">HCL Technologies · Group Technical Manager · India / UK / US</div>
-            <div class="body">
-              <ul>
-                <li>Managed <strong>$10M+ annual budget</strong> and team of <strong>65+</strong> across geographies.</li>
-                <li>Delivered enterprise commerce, digital and infra programs for Trimble, Norton (Symantec), Cambridge University Press and Elsevier.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="commit">
-            <div><span class="sha">e0a4712</span> <span class="refs">(early-career)</span></div>
-            <div><span class="author">Author:</span> sudhanshu &lt;engineer@india&gt; &nbsp; <span class="date">Date:</span> Jul 2002 – Mar 2005</div>
-            <div class="msg">CMC · Technosys Services · Connect Technologies (India)</div>
-            <div class="body">
-              <ul>
-                <li>System Integrator → Assistant Software Consultant → Software Programmer.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Programs as npm packages -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> featured_programs <span class="comment">// $ npm ls --depth=0</span></h2>
-
-        <div class="pkg-card">
-          <div><span class="name">@lululemon/b2b-commerce-and-pos</span><span class="version">v2023.7 – present</span></div>
-          <div class="desc">Composable, API-first, headless B2B commerce platform plus global POS infrastructure for Oracle Retail Xstore/Xcenter across 1,000+ stores.</div>
-          <ul>
-            <li>MVP delivered on schedule for a Greenfield program (<strong>100%</strong> deadlines met).</li>
-            <li><strong>+15%</strong> program efficiency and <strong>−10%</strong> cycle time from Jira data analysis.</li>
-            <li>RACI, governance and change-request process → <strong>−20%</strong> delays.</li>
-            <li>Phased user migration: <strong>80%</strong> of users off legacy platform.</li>
-          </ul>
-          <div class="deps">
-            <span class="k">stack:</span> <span class="v">Commercetools, Frontastic, React, Node.js, AWS (Lambda, DynamoDB, API GW, S3, EKS), Kafka, APIGEE, CyberSource, Vertex, Datadog, Splunk, Python</span>
-          </div>
-        </div>
-
-        <div class="pkg-card">
-          <div><span class="name">@nordstrom/ciam</span><span class="version">v2021.7 – v2023.5</span></div>
-          <div class="desc">Cross-brand Customer Identity &amp; Access Management for Nordstrom, Rack, Store and Credit — reduce friction, protect data, cut fraud.</div>
-          <ul>
-            <li><strong>+20%</strong> delivery speed, <strong>+15%</strong> team performance from Agile improvements.</li>
-            <li><strong>−35%</strong> customer service tickets, <strong>−20%</strong> response times.</li>
-            <li>Roadmaps across <strong>5+ teams</strong> — <strong>95%</strong> milestones hit.</li>
-          </ul>
-          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, AWS, Kafka, React, Go, Optimizely, Shape, Tableau, Splunk, New Relic</span></div>
-        </div>
-
-        <div class="pkg-card">
-          <div><span class="name">@amazon/volume-aware-pricing</span><span class="version">v2019.3 – v2021.7</span></div>
-          <div class="desc">Competitive B2B pricing based on trailing-12-month order history. Launched across US, UK, IT, FR, ES, DE, JP, CA.</div>
-          <ul>
-            <li>Resolved discount-stacking defect — projected <strong>$40M/year</strong> impact.</li>
-            <li>Coordinated <strong>25+ teams</strong> across 8-country launch.</li>
-            <li>Built generic Selenium Data-Grid framework — <strong>−40%</strong> manual E2E.</li>
-          </ul>
-          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, AWS (SNS, DynamoDB, Lambda, API GW, S3), React</span></div>
-        </div>
-
-        <div class="pkg-card">
-          <div><span class="name">@t-mobile/digital-commerce-platform</span><span class="version">v2016.6 – v2019.3</span></div>
-          <div class="desc">Headless, microservices-based e-Commerce platform powering T-Mobile Web channels.</div>
-          <ul>
-            <li>Digital transformation to cloud-native, headless architecture on AWS.</li>
-            <li><strong>7×</strong> cart performance improvement.</li>
-            <li>Rolled out DevOps &amp; end-to-end Agile.</li>
-          </ul>
-          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, APIGEE, AWS (Oracle RDS, DynamoDB), Splunk, AppDynamics, Apache Ignite, Elasticsearch, ActiveMQ, Kubernetes, Tableau</span></div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> education <span class="comment">// $ ls ./edu/</span></h2>
-        <ul class="edu-list">
-          <li>
-            <span class="yr">2024 – 2025</span>
-            <span>
-              <span class="deg">Post Graduate Program — AI &amp; Machine Learning</span>
-              <span class="org">McCombs School of Business, University of Texas</span>
-            </span>
-          </li>
-          <li>
-            <span class="yr">1998 – 2002</span>
-            <span>
-              <span class="deg">B.E. Computer Science &amp; Engineering</span>
-              <span class="org">Rajiv Gandhi Technical University, India</span>
-            </span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Certs -->
-      <section class="block">
-        <h2 class="head"><span class="hash">##</span> certifications <span class="comment">// $ cat ./certs/*.md</span></h2>
-        <div class="certs-grid">
-          <div class="cert"><span class="badge">◆</span>Program Management Professional (PgMP)</div>
-          <div class="cert"><span class="badge">◆</span>Project Management Professional (PMP)</div>
-          <div class="cert"><span class="badge">◆</span>SAFe — Leading SAFe</div>
-          <div class="cert"><span class="badge">◆</span>Certified Scrum Master &amp; Product Owner</div>
-          <div class="cert"><span class="badge">◆</span>AWS Certified Solutions Architect — Associate</div>
-          <div class="cert"><span class="badge">◆</span>Architecting Microsoft Azure Solutions (70-535)</div>
-          <div class="cert"><span class="badge">◆</span>Product Manager Certification — ISB</div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <div class="footer-prompt">
-        <span class="prompt">➜</span> <span style="color: var(--blue);">~/sudhanshu</span> <span class="prompt">%</span> <span class="cursor"></span>
-      </div>
-
+    <div class="tb-spacer"></div>
+    <div class="tb-nav">
+      <a href="#terminal">Terminal</a>
+      <a href="#career">Career</a>
+      <a href="#programs">Programs</a>
+      <a href="#skills">Skills</a>
+      <a href="#ask">Ask</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="view-switch" role="group" aria-label="View theme">
+      <button data-view="terminal" class="is-active">Terminal</button>
+      <button data-view="classic">Classic</button>
     </div>
   </div>
+</nav>
+<main class="container">
 
-  <script>
-    document.querySelectorAll('.phone-reveal').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        var digits = (el.dataset.p || '').split('').reverse().join('');
-        var pretty = digits.replace(/^(\d)(\d{3})(\d{3})(\d{4})$/, '+$1 ($2) $3-$4');
-        el.textContent = pretty;
-        el.setAttribute('href', 'tel:+' + digits);
-        el.removeAttribute('title');
-        el.classList.remove('phone-reveal');
-      });
+  <section class="hero" id="hero">
+    <div class="hero-shell">
+      <div class="prompt-line">
+        <span class="prompt">~/sudhanshu</span><span class="prompt-sep">$</span>
+        <span class="typed" data-typed="whoami"></span><span class="caret">▍</span>
+      </div>
+      <h1 class="hero-name">Sudhanshu Bhatnagar</h1>
+      <p class="hero-title">Principal Technical Program Manager</p>
+      <p class="hero-tagline">22+ years shipping cloud, composable commerce, and AI/ML programs across Lululemon, Nordstrom, Amazon, and T-Mobile.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="assets/files/Sudhanshu-Bhatnagar.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sudhanshubhatnagar/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.25 6.5a1.75 1.75 0 0 1-1.75 1.75zM19 19h-3v-4.74c0-1.42-.6-2.1-1.7-2.1-1.2 0-1.8.85-1.8 2.1V19h-3v-9h3v1.05a3.55 3.55 0 0 1 3-1.35c2 0 3.5 1.2 3.5 3.72Z"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="mailto:Bhatnagar.Sudhanshu31@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+    <div class="metrics-grid">
+      
+        <div class="metric" data-target="22" data-prefix="" data-suffix="+">
+          <div class="metric-value"><span class="val">0</span>+</div>
+          <div class="metric-label">Years shipping enterprise programs</div>
+        </div>
+        <div class="metric" data-target="1000" data-prefix="" data-suffix="+">
+          <div class="metric-value"><span class="val">0</span>+</div>
+          <div class="metric-label">Global retail stores under POS ops</div>
+        </div>
+        <div class="metric" data-target="8" data-prefix="" data-suffix="">
+          <div class="metric-value"><span class="val">0</span></div>
+          <div class="metric-label">Countries — real-time pricing launch</div>
+        </div>
+        <div class="metric" data-target="65" data-prefix="" data-suffix="">
+          <div class="metric-value"><span class="val">0</span></div>
+          <div class="metric-label">People led at peak (HCL, $10M+ budget)</div>
+        </div>
+        <div class="metric" data-target="40" data-prefix="$" data-suffix="M">
+          <div class="metric-value">$<span class="val">0</span>M</div>
+          <div class="metric-label">Discount stacking issue solved (Amazon B2B)</div>
+        </div>
+        <div class="metric" data-target="99.99" data-prefix="" data-suffix="%">
+          <div class="metric-value"><span class="val">0</span>%</div>
+          <div class="metric-label">Availability delivered (B2B platform)</div>
+        </div>
+    </div>
+  </section>
+
+  <section class="repl-section" id="terminal">
+    <h2 class="section-h">
+      <span class="section-num">01</span>
+      <span class="section-name">Interactive Terminal</span>
+      <span class="section-hint mono">try: help · whoami · experience · programs · skills · contact · resume · theme</span>
+    </h2>
+    <div class="terminal">
+      <div class="terminal-chrome">
+        <span class="tc-dot tc-r"></span>
+        <span class="tc-dot tc-y"></span>
+        <span class="tc-dot tc-g"></span>
+        <span class="tc-title">bash — ~/sudhanshu</span>
+      </div>
+      <div class="terminal-body">
+        <div id="repl-output">
+          <div class="repl-line mono muted">Type <b>help</b> and press Enter, or click a suggestion below.</div>
+        </div>
+        <form class="repl-form" onsubmit="return REPL.run(event)">
+          <span class="repl-prompt mono">$</span>
+          <input class="repl-input mono" type="text" autocomplete="off" spellcheck="false" placeholder="type a command..."/>
+        </form>
+        <div class="repl-chips">
+          <button type="button" class="chip" onclick="REPL.runCmd('help')">help</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('whoami')">whoami</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('experience')">experience</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('programs')">programs</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('skills')">skills</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('contact')">contact</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('resume')">resume</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('theme')">theme</button>
+          <button type="button" class="chip" onclick="REPL.runCmd('clear')">clear</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section" id="career">
+    <h2 class="section-h">
+      <span class="section-num">02</span>
+      <span class="section-name">Career Timeline</span>
+      <span class="section-hint">2002 → present · 24+ years · click any bar</span>
+    </h2>
+    <div class="timeline">
+      <div class="tl-ruler"><span class="tl-tick" style="left:0.00%">2002</span><span class="tl-tick" style="left:8.00%">2004</span><span class="tl-tick" style="left:16.00%">2006</span><span class="tl-tick" style="left:24.00%">2008</span><span class="tl-tick" style="left:32.00%">2010</span><span class="tl-tick" style="left:40.00%">2012</span><span class="tl-tick" style="left:48.00%">2014</span><span class="tl-tick" style="left:56.00%">2016</span><span class="tl-tick" style="left:64.00%">2018</span><span class="tl-tick" style="left:72.00%">2020</span><span class="tl-tick" style="left:80.00%">2022</span><span class="tl-tick" style="left:88.00%">2024</span><span class="tl-tick" style="left:96.00%">2026</span></div>
+      <div class="tl-bars">
+        <div class="tl-row">
+          <div class="tl-label mono">Lululemon</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="lululemon" style="left:86.00%;width:12.00%" title="Lululemon · Jul 2023 – Present">
+              <span class="tl-bar-label">Jul 2023 – Present</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Nordstrom</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="nordstrom" style="left:78.00%;width:7.33%" title="Nordstrom · Jul 2021 – May 2023">
+              <span class="tl-bar-label">Jul 2021 – May 2023</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Amazon</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="amazon" style="left:68.67%;width:9.33%" title="Amazon · Mar 2019 – Jul 2021">
+              <span class="tl-bar-label">Mar 2019 – Jul 2021</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">T-Mobile (via HCL)</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="tmobile" style="left:57.67%;width:11.00%" title="T-Mobile (via HCL) · Jun 2016 – Mar 2019">
+              <span class="tl-bar-label">Jun 2016 – Mar 2019</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Trimble (via HCL)</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="trimble" style="left:51.00%;width:6.67%" title="Trimble (via HCL) · Oct 2014 – Jun 2016">
+              <span class="tl-bar-label">Oct 2014 – Jun 2016</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Norton / Symantec (via HCL)</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="norton" style="left:38.33%;width:12.67%" title="Norton / Symantec (via HCL) · Aug 2011 – Oct 2014">
+              <span class="tl-bar-label">Aug 2011 – Oct 2014</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Cambridge University Assessments (via HCL)</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="cambridge" style="left:30.67%;width:7.33%" title="Cambridge University Assessments (via HCL) · Sep 2009 – Jul 2011">
+              <span class="tl-bar-label">Sep 2009 – Jul 2011</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">Elsevier (via HCL)</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="elsevier" style="left:12.67%;width:18.00%" title="Elsevier (via HCL) · Mar 2005 – Sep 2009">
+              <span class="tl-bar-label">Mar 2005 – Sep 2009</span>
+            </button>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-label mono">CMC · Technosys · Connect Technologies</div>
+          <div class="tl-track">
+            <button class="tl-bar" data-role="early" style="left:2.00%;width:10.67%" title="CMC · Technosys · Connect Technologies · Jul 2002 – Mar 2005">
+              <span class="tl-bar-label">Jul 2002 – Mar 2005</span>
+            </button>
+          </div>
+        </div></div>
+    </div>
+    <div class="tl-details" id="tl-details">
+      
+        <article class="tl-detail" data-role="lululemon" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">L</div>
+            <div>
+              <div class="tl-detail-role">Principal Technical Program Manager</div>
+              <div class="tl-detail-company mono">Lululemon · Seattle, WA · Jul 2023 – Present</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>$5M+ B2B e-Commerce platform transformation; 30% improvement in onboarding</li><li>Global POS Infrastructure across 1000+ stores (NA · EMEA · APAC · CA) — Oracle Xstore/Xcenter upgrades, security patching, vulnerability remediation</li><li>20+ cross-functional teams aligned across Product · UX · QA · Security · Legal</li><li>99.99% availability delivered on next-gen migration with zero revenue impact</li><li>GenAI Bulk Order Assistant on Amazon Bedrock + LangChain — 50% cart-build reduction, 30% checkout uplift</li></ul>
+        </article>
+        <article class="tl-detail" data-role="nordstrom" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">N</div>
+            <div>
+              <div class="tl-detail-role">Sr. Technical Program Manager</div>
+              <div class="tl-detail-company mono">Nordstrom · Seattle, WA · Jul 2021 – May 2023</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Customer Identity & Access Management across Nordstrom, Nordstrom Rack, Store, Credit</li><li>35% reduction in customer service tickets; 20% faster response times</li><li>SOC 2 · ISO 27001 · internal audit alignment for cloud architecture</li><li>20% delivery speed improvement across 5+ cross-functional teams</li></ul>
+        </article>
+        <article class="tl-detail" data-role="amazon" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">A</div>
+            <div>
+              <div class="tl-detail-role">Sr. Technical Program Manager</div>
+              <div class="tl-detail-company mono">Amazon · Seattle, WA · Mar 2019 – Jul 2021</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Volume Aware Pricing (VAP) launched across 8 countries — US · UK · IT · FR · ES · DE · JP · CA</li><li>Real-time payment validation improved pricing accuracy by 40%</li><li>Resolved $40M/yr discount-stacking issue on Amazon Business</li><li>Coordinated 25+ cross-functional teams; strategically avoided launch blocker</li></ul>
+        </article>
+        <article class="tl-detail" data-role="tmobile" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">T</div>
+            <div>
+              <div class="tl-detail-role">Enterprise Technical Program Manager / Sr. Manager</div>
+              <div class="tl-detail-company mono">T-Mobile (via HCL) · Bellevue, WA · Jun 2016 – Mar 2019</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Digital Commerce Platform — headless, microservices-based, deployed on AWS</li><li>Monolith → microservices migration for T-Mobile web channels</li><li>700ms improvement in cart performance</li><li>Established DevOps (Shift Left/Right, on-call) and end-to-end agile</li></ul>
+        </article>
+        <article class="tl-detail" data-role="trimble" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">Tr</div>
+            <div>
+              <div class="tl-detail-role">Sr. Technical Program Manager / Sr. Software Development Manager</div>
+              <div class="tl-detail-company mono">Trimble (via HCL) · India · US · Oct 2014 – Jun 2016</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Enterprise Digital e-Commerce Platform with Cortex, Aria billing, Safe-Net entitlement</li><li>WSO2 ESB · API-M · Identity; AWS EC2 · Oracle RDS · S3 · Cassandra</li><li>Payment: CyberSource · Vertex tax integration</li></ul>
+        </article>
+        <article class="tl-detail" data-role="norton" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">Sy</div>
+            <div>
+              <div class="tl-detail-role">Software Development Manager</div>
+              <div class="tl-detail-company mono">Norton / Symantec (via HCL) · India · Aug 2011 – Oct 2014</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>One.Norton.com · Manage.Norton.com · MobileSecurity.Norton.com</li><li>.NET 4.0 · MVC · WCF · REST · Fortify · Selenium · Splunk · Omniture</li></ul>
+        </article>
+        <article class="tl-detail" data-role="cambridge" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">C</div>
+            <div>
+              <div class="tl-detail-role">Sr. Technical Lead</div>
+              <div class="tl-detail-company mono">Cambridge University Assessments (via HCL) · India · UK · Sep 2009 – Jul 2011</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Shop.Cambridge.org on Microsoft Commerce Server 2009</li><li>.NET 3.5 · WCF · SharePoint · Barclays ePDQ payment gateway</li></ul>
+        </article>
+        <article class="tl-detail" data-role="elsevier" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">E</div>
+            <div>
+              <div class="tl-detail-role">Technical Lead → Sr. Software Engineer → Software Engineer</div>
+              <div class="tl-detail-company mono">Elsevier (via HCL) · India · Mar 2005 – Sep 2009</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>Annual Invoicing and Royalty (2007–2009)</li><li>Textbooks.Elsevier.com and Books.Elsevier.com (2005–2007)</li><li>Electronic Field Notebook (2005)</li></ul>
+        </article>
+        <article class="tl-detail" data-role="early" hidden>
+          <header class="tl-detail-head">
+            <div class="tl-logo">•</div>
+            <div>
+              <div class="tl-detail-role">System Integrator · Assistant Software Consultant · Software Programmer</div>
+              <div class="tl-detail-company mono">CMC · Technosys · Connect Technologies · India · Jul 2002 – Mar 2005</div>
+            </div>
+          </header>
+          <ul class="tl-detail-highlights"><li>First 3 years of career — systems integration and software development in India</li></ul>
+        </article>
+    </div>
+  </section>
+
+  <section class="cases-section" id="programs">
+    <h2 class="section-h">
+      <span class="section-num">03</span>
+      <span class="section-name">Flagship Programs</span>
+      <span class="section-hint">5 case studies · click to expand</span>
+    </h2>
+    <div class="cases-grid">
+      
+      <article class="case" data-case="lulu-b2b">
+        <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="true">
+          <div class="case-meta">
+            <div class="case-company mono">Lululemon</div>
+            <div class="case-period mono">07/2023 – Present</div>
+          </div>
+          <h3 class="case-title">B2B e-Commerce Platform + Global POS Infrastructure</h3>
+          <span class="case-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="case-body" >
+          <div class="case-block">
+            <div class="case-label">Problem</div>
+            <p>Legacy B2B commerce and 1000+ store POS platforms lacked composable architecture, slowing new-market rollouts and creating operational risk across 4 global regions (NA, EMEA, APAC, CA).</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Approach</div>
+            <p>Established RACI · governance · change-request process. Built composable, API-first, headless commerce on Commercetools + Frontastic. Directed Oracle Xstore/Xcenter upgrades, security patching, and vulnerability remediation across 1000+ stores. Delivered GenAI Bulk Order Assistant on Amazon Bedrock + LangChain.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Outcome</div>
+            <ul class="case-outcome"><li>100% program deadlines met · 95% milestone targets on-time</li><li>20% reduction in program delays via governance</li><li>50% reduction in bulk-order cart-build time (GenAI Assistant)</li><li>30% improvement in checkout success rate</li><li>99.99% availability, zero revenue impact on legacy → next-gen migration</li></ul>
+          </div>
+          <div class="case-block case-tech">
+            <div class="case-label">Tech</div>
+            <p class="mono muted">Commercetools · Frontastic · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Node · APIGEE · CyberSource · Vertex · Amazon Bedrock · LangChain · Datadog · Splunk · Python</p>
+          </div>
+        </div>
+      </article>
+      <article class="case" data-case="nord-ciam">
+        <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
+          <div class="case-meta">
+            <div class="case-company mono">Nordstrom</div>
+            <div class="case-period mono">07/2021 – 05/2023</div>
+          </div>
+          <h3 class="case-title">Customer Identity & Access Management</h3>
+          <span class="case-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="case-body" hidden>
+          <div class="case-block">
+            <div class="case-label">Problem</div>
+            <p>Fragmented identity across Nordstrom, Nordstrom Rack, Store, and Credit created customer friction, fraud exposure, and audit gaps.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Approach</div>
+            <p>Cross-brand CIAM with unified credential store. Partnered with Security · Compliance for SOC 2 · ISO 27001 alignment. Owned Agile + planning maturity across 5+ teams. Wore three hats: Product Owner · Scrum Master · TPM.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Outcome</div>
+            <ul class="case-outcome"><li>35% reduction in customer service tickets</li><li>20% faster response times</li><li>20% improvement in delivery speed, 15% in team performance</li><li>100% strategic-objective alignment across 5+ teams</li><li>95% of program milestones met</li></ul>
+          </div>
+          <div class="case-block case-tech">
+            <div class="case-label">Tech</div>
+            <p class="mono muted">Spring-Boot microservices · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Go · Splunk · New-Relic · Tableau · Optimizely · Shape</p>
+          </div>
+        </div>
+      </article>
+      <article class="case" data-case="amzn-vap">
+        <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
+          <div class="case-meta">
+            <div class="case-company mono">Amazon.com</div>
+            <div class="case-period mono">03/2019 – 07/2021</div>
+          </div>
+          <h3 class="case-title">Volume-Aware Pricing (VAP) — Amazon B2B</h3>
+          <span class="case-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="case-body" hidden>
+          <div class="case-block">
+            <div class="case-label">Problem</div>
+            <p>Amazon Business needed competitive small-quantity pricing without long-term rebate commitments — a real-time trailing-12-month discount engine across 8 geographies.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Approach</div>
+            <p>Owned MVP roadmap, technical component articulation, and 8-country rollout program with 25+ cross-functional teams. Strategically identified and avoided a launch-blocker risk.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Outcome</div>
+            <ul class="case-outcome"><li>Launched in US · UK · IT · FR · ES · DE · JP · CA</li><li>40% improvement in pricing accuracy (real-time payment validation)</li><li>Resolved $40M/yr discount-stacking issue</li><li>100% on-time milestone delivery</li></ul>
+          </div>
+          <div class="case-block case-tech">
+            <div class="case-label">Tech</div>
+            <p class="mono muted">Spring-Boot microservices · AWS (SNS, DynamoDB, Lambda, S3, API Gateway) · React</p>
+          </div>
+        </div>
+      </article>
+      <article class="case" data-case="tmo-dcp">
+        <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
+          <div class="case-meta">
+            <div class="case-company mono">T-Mobile</div>
+            <div class="case-period mono">06/2016 – 03/2019</div>
+          </div>
+          <h3 class="case-title">Digital Commerce Platform (DCP) — Headless Migration</h3>
+          <span class="case-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="case-body" hidden>
+          <div class="case-block">
+            <div class="case-label">Problem</div>
+            <p>T-Mobile's monolithic web-channel commerce couldn't scale to modern experimentation velocity or personalization needs.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Approach</div>
+            <p>Migrated monolith to headless microservices deployed on AWS. Introduced DevOps (Shift-Left/Right, on-call), agile end-to-end, and observability across development and operations.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Outcome</div>
+            <ul class="case-outcome"><li>Headless e-Commerce platform live on AWS</li><li>700ms improvement in cart performance</li><li>DevOps + agile maturity established across the org</li></ul>
+          </div>
+          <div class="case-block case-tech">
+            <div class="case-label">Tech</div>
+            <p class="mono muted">Spring-Boot microservices · APIGEE · AWS · Oracle · Splunk · AppDynamics · Apache Ignite · Elasticsearch · ActiveMQ · DynamoDB · Tableau · Kubernetes</p>
+          </div>
+        </div>
+      </article>
+      <article class="case" data-case="trimble-edc">
+        <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
+          <div class="case-meta">
+            <div class="case-company mono">Trimble</div>
+            <div class="case-period mono">10/2014 – 06/2016</div>
+          </div>
+          <h3 class="case-title">Enterprise Digital e-Commerce Platform</h3>
+          <span class="case-chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+        <div class="case-body" hidden>
+          <div class="case-block">
+            <div class="case-label">Problem</div>
+            <p>Trimble needed a global e-commerce platform with subscription billing, entitlement, and tax integration to launch SaaS products at scale.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Approach</div>
+            <p>Delivered enterprise commerce on Cortex + Aria (billing) + Safe-Net (entitlement) + WSO2 ESB/API-M/Identity, integrated with CyberSource and Vertex for payments and tax.</p>
+          </div>
+          <div class="case-block">
+            <div class="case-label">Outcome</div>
+            <ul class="case-outcome"><li>Enterprise SaaS commerce live on AWS</li><li>Multi-region billing + entitlement + tax integration operational</li></ul>
+          </div>
+          <div class="case-block case-tech">
+            <div class="case-label">Tech</div>
+            <p class="mono muted">Spring-Boot · Cortex · Aria · Safe-Net · WSO2 · CyberSource · Vertex · AWS EC2 · Oracle RDS · S3 · Cassandra</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <h2 class="section-h">
+      <span class="section-num">04</span>
+      <span class="section-name">Skills & Technology</span>
+      <span class="section-hint">where I've spent my time</span>
+    </h2>
+    <div class="skills-grid">
+      <div class="skills-radar">
+        <svg viewBox="0 0 400 400" role="img" aria-label="Skill radar chart">
+          <circle cx="200" cy="200" r="37.5" class="radar-ring"/><circle cx="200" cy="200" r="75.0" class="radar-ring"/><circle cx="200" cy="200" r="112.5" class="radar-ring"/><circle cx="200" cy="200" r="150.0" class="radar-ring"/>
+          <line x1="200" y1="200" x2="200.0" y2="50.0" class="radar-axis"/><line x1="200" y1="200" x2="329.9" y2="125.0" class="radar-axis"/><line x1="200" y1="200" x2="329.9" y2="275.0" class="radar-axis"/><line x1="200" y1="200" x2="200.0" y2="350.0" class="radar-axis"/><line x1="200" y1="200" x2="70.1" y2="275.0" class="radar-axis"/><line x1="200" y1="200" x2="70.1" y2="125.0" class="radar-axis"/>
+          <polygon points="200.0,56.0 314.3,134.0 319.5,269.0 200.0,317.0 76.6,271.3 77.9,129.5" class="radar-poly"/>
+          <text x="200.0" y="20.0" text-anchor="middle" class="radar-label">Program Delivery<tspan class="radar-val" dx="6">96</tspan></text><text x="355.9" y="110.0" text-anchor="start" class="radar-label">Cloud & Architecture<tspan class="radar-val" dx="6">88</tspan></text><text x="355.9" y="290.0" text-anchor="start" class="radar-label">Composable Commerce<tspan class="radar-val" dx="6">92</tspan></text><text x="200.0" y="380.0" text-anchor="middle" class="radar-label">AI/ML & GenAI<tspan class="radar-val" dx="6">78</tspan></text><text x="44.1" y="290.0" text-anchor="end" class="radar-label">Stakeholder Leadership<tspan class="radar-val" dx="6">95</tspan></text><text x="44.1" y="110.0" text-anchor="end" class="radar-label">Executive Communication<tspan class="radar-val" dx="6">94</tspan></text>
+        </svg>
+      </div>
+      <div class="skills-heatmap">
+        <div class="heat-title">Technology heat-map · years hands-on</div>
+        <div class="heat-tags">
+          <span class="heat-tag" style="font-size:15.0px;--heat-op:1.00"><span class="heat-name">SAFe · Scrum · PgMP · PMP</span><span class="heat-yr mono">15y</span></span><span class="heat-tag" style="font-size:14.7px;--heat-op:0.97"><span class="heat-name">.NET · C# · MVC · WCF</span><span class="heat-yr mono">14y</span></span><span class="heat-tag" style="font-size:14.2px;--heat-op:0.91"><span class="heat-name">Agile: JIRA · Jira-Align · Rally · Confluence</span><span class="heat-yr mono">12y</span></span><span class="heat-tag" style="font-size:13.7px;--heat-op:0.85"><span class="heat-name">Microservices (Spring-Boot, Node)</span><span class="heat-yr mono">10y</span></span><span class="heat-tag" style="font-size:13.7px;--heat-op:0.85"><span class="heat-name">Observability: Splunk · Datadog · New-Relic · AppDynamics</span><span class="heat-yr mono">10y</span></span><span class="heat-tag" style="font-size:13.4px;--heat-op:0.82"><span class="heat-name">Data: Python · SQL · Tableau · Grafana</span><span class="heat-yr mono">9y</span></span><span class="heat-tag" style="font-size:13.1px;--heat-op:0.79"><span class="heat-name">AWS (EC2, S3, Lambda, DynamoDB, API GW, EKS)</span><span class="heat-yr mono">8y</span></span><span class="heat-tag" style="font-size:13.1px;--heat-op:0.79"><span class="heat-name">Payment: CyberSource · Vertex</span><span class="heat-yr mono">8y</span></span><span class="heat-tag" style="font-size:12.9px;--heat-op:0.76"><span class="heat-name">React · Node.js</span><span class="heat-yr mono">7y</span></span><span class="heat-tag" style="font-size:12.6px;--heat-op:0.73"><span class="heat-name">Composable Commerce (Commercetools, Elastic Path)</span><span class="heat-yr mono">6y</span></span><span class="heat-tag" style="font-size:12.6px;--heat-op:0.73"><span class="heat-name">Kafka · Event streaming</span><span class="heat-yr mono">6y</span></span><span class="heat-tag" style="font-size:12.6px;--heat-op:0.73"><span class="heat-name">APIGEE · API Gateway</span><span class="heat-yr mono">6y</span></span><span class="heat-tag" style="font-size:12.3px;--heat-op:0.70"><span class="heat-name">Kubernetes / EKS</span><span class="heat-yr mono">5y</span></span><span class="heat-tag" style="font-size:12.3px;--heat-op:0.70"><span class="heat-name">Azure (Solutions Architect)</span><span class="heat-yr mono">5y</span></span><span class="heat-tag" style="font-size:11.5px;--heat-op:0.61"><span class="heat-name">AI/ML: Bedrock · LangChain · RAG · LLM</span><span class="heat-yr mono">2y</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chat-section" id="ask">
+    <h2 class="section-h">
+      <span class="section-num">05</span>
+      <span class="section-name">Ask Me Anything</span>
+      <span class="section-hint">keyword-driven · no AI API cost · try a suggestion</span>
+    </h2>
+    <div class="chat-box">
+      <div class="chat-log" id="chat-log">
+        <div class="chat-msg chat-bot">
+          <div class="chat-avatar">SB</div>
+          <div class="chat-body">Ask about my experience — AWS, GenAI, composable commerce, team size, global scale, etc. Try a suggestion below.</div>
+        </div>
+      </div>
+      <div class="chat-chips"><button type="button" class="chip" onclick="CHAT.ask('AWS experience?')">AWS experience?</button><button type="button" class="chip" onclick="CHAT.ask('AI/ML work?')">AI/ML work?</button><button type="button" class="chip" onclick="CHAT.ask('Team size?')">Team size?</button><button type="button" class="chip" onclick="CHAT.ask('Composable commerce?')">Composable commerce?</button><button type="button" class="chip" onclick="CHAT.ask('Global scale?')">Global scale?</button><button type="button" class="chip" onclick="CHAT.ask('Contact?')">Contact?</button></div>
+      <form class="chat-form" onsubmit="return CHAT.ask()">
+        <input class="chat-input" type="text" placeholder="type a question, e.g. 'AWS experience?'" autocomplete="off"/>
+        <button class="chat-send btn btn-primary" type="submit">Ask</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="creds-section" id="credentials">
+    <h2 class="section-h">
+      <span class="section-num">06</span>
+      <span class="section-name">Education & Certifications</span>
+    </h2>
+    <div class="creds-grid">
+      <div class="creds-cell">
+        <h3 class="creds-h">Education</h3>
+        
+      <div class="edu-card">
+        <div class="edu-title">Post Graduate Program in Artificial Intelligence & Machine Learning</div>
+        <div class="edu-school mono">McCombs School of Business — University of Texas at Austin</div>
+        <div class="edu-period muted mono">May 2024 – Feb 2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-title">Bachelor of Engineering, Computer Science & Engineering</div>
+        <div class="edu-school mono">Rajiv Gandhi Technical University, India</div>
+        <div class="edu-period muted mono">1998 – 2002</div>
+      </div>
+      </div>
+      <div class="creds-cell">
+        <h3 class="creds-h">Certifications</h3>
+        <ul class="cert-list"><li>Program Management Professional (PgMP)</li><li>Project Management Professional (PMP)</li><li>Scrum Master · Scrum Product Owner</li><li>SAFe — Leading SAFe</li><li>AWS Certified Solutions Architect — Associate</li><li>Architecting Microsoft Azure Solutions (70-535)</li><li>Product Manager Certification — Indian School of Business</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2 class="section-h">
+      <span class="section-num">07</span>
+      <span class="section-name">Get in Touch</span>
+    </h2>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:Bhatnagar.Sudhanshu31@gmail.com">
+        <div class="contact-label mono">$ email</div>
+        <div class="contact-val">Bhatnagar.Sudhanshu31@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/sudhanshubhatnagar/" target="_blank" rel="noopener">
+        <div class="contact-label mono">$ linkedin</div>
+        <div class="contact-val">linkedin.com/in/sudhanshubhatnagar</div>
+      </a>
+      <a class="contact-card" href="tel:310-754-6162">
+        <div class="contact-label mono">$ phone</div>
+        <div class="contact-val">310-754-6162</div>
+      </a>
+      <div class="contact-card contact-card--static">
+        <div class="contact-label mono">$ location</div>
+        <div class="contact-val">Seattle, WA</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="doc-footer">
+  <div>© 2026 · Sudhanshu Bhatnagar · <span class="fkey">$</span> hosted at <a href="https://github.com/Sudhanshu311/Sudhanshu311.github.io" target="_blank">github.com/Sudhanshu311</a></div>
+  <div>Interactive resume · <span class="fkey">v2</span> · Ctrl/⌘+P for print view</div>
+</footer>
+<script>
+// ---- View toggle ----
+const View = {
+  KEY: 'wsr-view',
+  init(){
+    const saved = localStorage.getItem(this.KEY) || 'terminal';
+    this.apply(saved);
+    document.querySelectorAll('.view-switch button').forEach(b=>{
+      b.addEventListener('click',()=>this.apply(b.dataset.view));
     });
-  </script>
+  },
+  apply(v){
+    document.body.classList.toggle('view-classic', v==='classic');
+    document.body.classList.toggle('view-terminal', v==='terminal');
+    document.querySelectorAll('.view-switch button').forEach(b=>{
+      b.classList.toggle('is-active', b.dataset.view===v);
+    });
+    localStorage.setItem(this.KEY, v);
+  }
+};
+
+// ---- Counters ----
+const Counters = {
+  init(){
+    const els = document.querySelectorAll('.metric');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(el=>this.animate(el)); return;
+    }
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ this.animate(e.target); io.unobserve(e.target); }
+      });
+    },{threshold:.3});
+    els.forEach(el=>io.observe(el));
+  },
+  animate(el){
+    const target = parseFloat(el.dataset.target);
+    const isFloat = String(target).indexOf('.')>=0;
+    const dur=1400; const start=performance.now();
+    const valEl = el.querySelector('.val');
+    const tick=(now)=>{
+      const t = Math.min(1,(now-start)/dur);
+      const eased = 1-Math.pow(1-t,3);
+      const v = target*eased;
+      valEl.textContent = isFloat ? v.toFixed(2) : Math.floor(v).toLocaleString();
+      if(t<1) requestAnimationFrame(tick);
+      else valEl.textContent = isFloat ? target.toFixed(2) : target.toLocaleString();
+    };
+    requestAnimationFrame(tick);
+  }
+};
+
+// ---- Reveal-on-scroll ----
+const Reveal = {
+  init(){
+    if(!('IntersectionObserver' in window)) return;
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card').forEach(el=>el.classList.add('reveal'));
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('is-shown'); io.unobserve(e.target); }
+      });
+    },{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+};
+
+// ---- Typed "whoami" effect in hero prompt ----
+const Typed = {
+  init(){
+    document.querySelectorAll('.typed').forEach(el=>{
+      const text = el.dataset.typed || ''; let i=0;
+      const step = ()=>{
+        el.textContent = text.slice(0,i++);
+        if(i<=text.length) setTimeout(step, 70);
+      };
+      setTimeout(step, 260);
+    });
+  }
+};
+
+// ---- Timeline ----
+const Timeline = {
+  roles: [{"id": "lululemon", "company": "Lululemon", "role": "Principal Technical Program Manager", "period": "Jul 2023 \u2013 Present", "location": "Seattle, WA", "highlights": ["$5M+ B2B e-Commerce platform transformation; 30% improvement in onboarding", "Global POS Infrastructure across 1000+ stores (NA \u00b7 EMEA \u00b7 APAC \u00b7 CA) \u2014 Oracle Xstore/Xcenter upgrades, security patching, vulnerability remediation", "20+ cross-functional teams aligned across Product \u00b7 UX \u00b7 QA \u00b7 Security \u00b7 Legal", "99.99% availability delivered on next-gen migration with zero revenue impact", "GenAI Bulk Order Assistant on Amazon Bedrock + LangChain \u2014 50% cart-build reduction, 30% checkout uplift"]}, {"id": "nordstrom", "company": "Nordstrom", "role": "Sr. Technical Program Manager", "period": "Jul 2021 \u2013 May 2023", "location": "Seattle, WA", "highlights": ["Customer Identity & Access Management across Nordstrom, Nordstrom Rack, Store, Credit", "35% reduction in customer service tickets; 20% faster response times", "SOC 2 \u00b7 ISO 27001 \u00b7 internal audit alignment for cloud architecture", "20% delivery speed improvement across 5+ cross-functional teams"]}, {"id": "amazon", "company": "Amazon", "role": "Sr. Technical Program Manager", "period": "Mar 2019 \u2013 Jul 2021", "location": "Seattle, WA", "highlights": ["Volume Aware Pricing (VAP) launched across 8 countries \u2014 US \u00b7 UK \u00b7 IT \u00b7 FR \u00b7 ES \u00b7 DE \u00b7 JP \u00b7 CA", "Real-time payment validation improved pricing accuracy by 40%", "Resolved $40M/yr discount-stacking issue on Amazon Business", "Coordinated 25+ cross-functional teams; strategically avoided launch blocker"]}, {"id": "tmobile", "company": "T-Mobile (via HCL)", "role": "Enterprise Technical Program Manager / Sr. Manager", "period": "Jun 2016 \u2013 Mar 2019", "location": "Bellevue, WA", "highlights": ["Digital Commerce Platform \u2014 headless, microservices-based, deployed on AWS", "Monolith \u2192 microservices migration for T-Mobile web channels", "700ms improvement in cart performance", "Established DevOps (Shift Left/Right, on-call) and end-to-end agile"]}, {"id": "trimble", "company": "Trimble (via HCL)", "role": "Sr. Technical Program Manager / Sr. Software Development Manager", "period": "Oct 2014 \u2013 Jun 2016", "location": "India \u00b7 US", "highlights": ["Enterprise Digital e-Commerce Platform with Cortex, Aria billing, Safe-Net entitlement", "WSO2 ESB \u00b7 API-M \u00b7 Identity; AWS EC2 \u00b7 Oracle RDS \u00b7 S3 \u00b7 Cassandra", "Payment: CyberSource \u00b7 Vertex tax integration"]}, {"id": "norton", "company": "Norton / Symantec (via HCL)", "role": "Software Development Manager", "period": "Aug 2011 \u2013 Oct 2014", "location": "India", "highlights": ["One.Norton.com \u00b7 Manage.Norton.com \u00b7 MobileSecurity.Norton.com", ".NET 4.0 \u00b7 MVC \u00b7 WCF \u00b7 REST \u00b7 Fortify \u00b7 Selenium \u00b7 Splunk \u00b7 Omniture"]}, {"id": "cambridge", "company": "Cambridge University Assessments (via HCL)", "role": "Sr. Technical Lead", "period": "Sep 2009 \u2013 Jul 2011", "location": "India \u00b7 UK", "highlights": ["Shop.Cambridge.org on Microsoft Commerce Server 2009", ".NET 3.5 \u00b7 WCF \u00b7 SharePoint \u00b7 Barclays ePDQ payment gateway"]}, {"id": "elsevier", "company": "Elsevier (via HCL)", "role": "Technical Lead \u2192 Sr. Software Engineer \u2192 Software Engineer", "period": "Mar 2005 \u2013 Sep 2009", "location": "India", "highlights": ["Annual Invoicing and Royalty (2007\u20132009)", "Textbooks.Elsevier.com and Books.Elsevier.com (2005\u20132007)", "Electronic Field Notebook (2005)"]}, {"id": "early", "company": "CMC \u00b7 Technosys \u00b7 Connect Technologies", "role": "System Integrator \u00b7 Assistant Software Consultant \u00b7 Software Programmer", "period": "Jul 2002 \u2013 Mar 2005", "location": "India", "highlights": ["First 3 years of career \u2014 systems integration and software development in India"]}],
+  init(){
+    document.querySelectorAll('.tl-bar').forEach(b=>{
+      b.addEventListener('click',()=>this.select(b.dataset.role));
+    });
+    if(this.roles.length) this.select(this.roles[0].id);
+  },
+  select(id){
+    document.querySelectorAll('.tl-bar').forEach(b=>b.classList.toggle('is-active', b.dataset.role===id));
+    document.querySelectorAll('.tl-detail').forEach(d=>d.hidden = d.dataset.role!==id);
+  }
+};
+
+// ---- Cases (expand/collapse) ----
+const CASES = {
+  toggle(btn){
+    const open = btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded', open? 'false':'true');
+    const body = btn.parentElement.querySelector('.case-body');
+    if(body) body.hidden = open;
+  }
+};
+
+// ---- Terminal REPL ----
+const REPL = {
+  history: [], histIdx: 0,
+  init(){
+    this.out = document.getElementById('repl-output');
+    this.input = document.querySelector('.repl-input');
+    this.input.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowUp'){ if(this.histIdx>0){ this.histIdx--; this.input.value = this.history[this.histIdx]||''; } e.preventDefault(); }
+      if(e.key==='ArrowDown'){ if(this.histIdx<this.history.length){ this.histIdx++; this.input.value = this.history[this.histIdx]||''; } e.preventDefault(); }
+      if(e.key==='Tab'){
+        e.preventDefault();
+        const cmds = ['help','whoami','experience','programs','skills','contact','resume','theme','clear','ls','linkedin','github'];
+        const cur = this.input.value;
+        const hit = cmds.find(c=>c.startsWith(cur));
+        if(hit) this.input.value = hit;
+      }
+    });
+  },
+  run(e){
+    e.preventDefault();
+    const cmd = (this.input.value||'').trim();
+    if(cmd) this.runCmd(cmd);
+    this.input.value=''; this.histIdx = this.history.length;
+    return false;
+  },
+  runCmd(cmd){
+    this.history.push(cmd); this.histIdx = this.history.length;
+    this.write('<span class="in">$ '+this.escape(cmd)+'</span>');
+    this.dispatch(cmd);
+    if(this.out.parentElement) this.out.parentElement.scrollTop = this.out.parentElement.scrollHeight;
+  },
+  write(html){
+    const div = document.createElement('div');
+    div.className='repl-line';
+    div.innerHTML = html;
+    this.out.appendChild(div);
+  },
+  escape(s){ return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); },
+  dispatch(cmd){
+    const [c, ...rest] = cmd.split(/\s+/);
+    const arg = rest.join(' ');
+    const easter = {"sudo make me a sandwich": "\ud83e\udd6a nice try", "hello": "Hello, curious visitor. Type `help` to explore.", "hi": "Hi \ud83d\udc4b Type `help` to explore."};
+    if(cmd in easter) return this.write(easter[cmd]);
+    switch(c){
+      case 'help': return this.write(
+        '<b>Available commands:</b><br>'+
+        '  <b>whoami</b>       intro<br>'+
+        '  <b>experience</b>   career log<br>'+
+        '  <b>programs</b>     flagship program list<br>'+
+        '  <b>skills</b>       technology summary<br>'+
+        '  <b>contact</b>      email, phone, LinkedIn<br>'+
+        '  <b>resume</b>       download PDF<br>'+
+        '  <b>theme</b>        toggle terminal/classic<br>'+
+        '  <b>ls</b>           list sections<br>'+
+        '  <b>clear</b>        clear the terminal<br>'+
+        '  <b>linkedin</b>     open LinkedIn<br>'+
+        '  <b>github</b>       open GitHub'
+      );
+      case 'whoami': return this.write(
+        '<b>Sudhanshu Bhatnagar</b><br>'+
+        'Principal Technical Program Manager · Seattle, WA<br>'+
+        '22+ years delivering cloud, composable commerce, and AI/ML programs.<br>'+
+        'Currently: Lululemon (B2B e-Commerce + Global POS). Previously: Nordstrom, Amazon, T-Mobile.'
+      );
+      case 'experience':
+      case 'exp': {
+        let out = '';
+        Timeline.roles.forEach(r=>{
+          out += '<em>'+r.company+'</em>  <span class="muted">'+r.period+'</span><br>';
+          out += '  '+r.role+'<br>';
+          r.highlights.slice(0,2).forEach(h=>{ out += '    • '+h+'<br>'; });
+          out += '<br>';
+        });
+        return this.write(out);
+      }
+      case 'programs':
+      case 'prog': {
+        let out = '<b>Flagship programs</b> (see full detail in the section below):<br>';
+        [{"c": "Lululemon", "t": "B2B e-Commerce Platform + Global POS Infrastructure", "p": "07/2023 \u2013 Present"}, {"c": "Nordstrom", "t": "Customer Identity & Access Management", "p": "07/2021 \u2013 05/2023"}, {"c": "Amazon.com", "t": "Volume-Aware Pricing (VAP) \u2014 Amazon B2B", "p": "03/2019 \u2013 07/2021"}, {"c": "T-Mobile", "t": "Digital Commerce Platform (DCP) \u2014 Headless Migration", "p": "06/2016 \u2013 03/2019"}, {"c": "Trimble", "t": "Enterprise Digital e-Commerce Platform", "p": "10/2014 \u2013 06/2016"}].forEach(p=>{
+          out += '  <em>'+p.c+'</em>  '+p.t+'  <span class="muted">'+p.p+'</span><br>';
+        });
+        return this.write(out);
+      }
+      case 'skills': return this.write(
+        'Cloud: <em>AWS</em>, Azure, EKS, Kubernetes<br>'+
+        'Commerce: <em>Commercetools</em>, MACH, headless, API-first<br>'+
+        'AI/ML: <em>Bedrock</em>, LangChain, RAG, LLM<br>'+
+        'Engineering: microservices, Spring-Boot, Node, React, Kafka<br>'+
+        'Program: PgMP, PMP, SAFe, JIRA, Confluence, Tableau, Grafana, Datadog<br>'+
+        '<span class="muted">(see the Skills section below for the full heat-map)</span>'
+      );
+      case 'contact': return this.write(
+        '📧 <a href="mailto:Bhatnagar.Sudhanshu31@gmail.com">Bhatnagar.Sudhanshu31@gmail.com</a><br>'+
+        '📞 <a href="tel:310-754-6162">310-754-6162</a><br>'+
+        '💼 <a href="https://www.linkedin.com/in/sudhanshubhatnagar/" target="_blank">linkedin.com/in/sudhanshubhatnagar</a><br>'+
+        '📍 Seattle, WA'
+      );
+      case 'resume':
+      case 'pdf':
+      case 'download': return this.write('<a href="assets/files/Sudhanshu-Bhatnagar.pdf" download>Download the PDF</a>');
+      case 'theme': {
+        const now = document.body.classList.contains('view-classic') ? 'terminal' : 'classic';
+        View.apply(now);
+        return this.write('theme switched to <em>'+now+'</em>');
+      }
+      case 'ls': return this.write('hero  terminal  career  programs  skills  ask  credentials  contact');
+      case 'clear': this.out.innerHTML=''; return;
+      case 'linkedin': window.open('https://www.linkedin.com/in/sudhanshubhatnagar/','_blank'); return this.write('opened LinkedIn ↗');
+      case 'github':   window.open('https://github.com/Sudhanshu311','_blank');   return this.write('opened GitHub ↗');
+      case '':         return;
+      default: return this.write('<span class="err">command not found:</span> '+this.escape(cmd)+'  <span class="muted">— try `help`</span>');
+    }
+  }
+};
+
+// ---- Chat (static Q&A) ----
+const CHAT = {
+  qa: [[["genai", "gen ai", "bedrock", "langchain", "llm", "rag"], "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain \u2014 natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 \u2013 Feb 2025)."], [["ai", "ml", "machine learning", "artificial intelligence"], "AI/ML background is post-grad from McCombs (UT Austin, 2024\u20132025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Areas of interest: LLM-assisted enterprise workflows, RAG over program artifacts, TensorFlow-based classification for ops signals."], [["aws", "amazon web services"], "8+ years hands-on AWS across the stack \u2014 EC2, S3, Lambda, DynamoDB, API Gateway, ECS/EKS, SNS. Certified Solutions Architect \u2013 Associate. Delivered platforms on AWS at Lululemon, Nordstrom, T-Mobile, Trimble, and Amazon (VAP)."], [["azure", "microsoft cloud"], "5 years Azure \u2014 certified in Architecting Microsoft Azure Solutions (70-535). Multi-cloud awareness informed the composable-commerce architecture choices at Lululemon and Trimble."], [["composable", "mach", "commercetools", "headless"], "Composable / MACH commerce is my sweet spot \u2014 Commercetools + Frontastic at Lululemon, headless migration at T-Mobile (DCP), Elastic Path + Cortex at Trimble. API-first, cloud-native, headless is the through-line."], [["b2b", "commerce", "ecommerce", "e-commerce"], "B2B e-commerce leadership across Lululemon ($5M+ platform transformation, 20+ teams), Amazon (VAP in 8 countries, $40M savings), T-Mobile (headless DCP), and Trimble. Composable + governance-first is the pattern I run."], [["pos", "point of sale", "retail store", "xstore", "xcenter"], "Currently owning global POS infrastructure at Lululemon across 1000+ stores (NA, EMEA, APAC, CA) \u2014 Oracle Xstore/Xcenter version upgrades, security patching, vulnerability remediation, quarterly upgrade cadence with regional teams."], [["identity", "iam", "ciam", "auth", "authentication", "fraud"], "Led CIAM at Nordstrom across Nordstrom, Nordstrom Rack, Store, and Credit \u2014 35% reduction in support tickets, SOC 2 + ISO 27001 alignment, cross-brand credential unification."], [["scale", "large-scale", "global", "countries"], "Global scale delivery: 1000+ stores at Lululemon, 8-country rollout at Amazon (VAP), monolith\u2192microservices at T-Mobile handling web-channel commerce."], [["team", "led", "people", "manage", "headcount"], "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). At Lululemon and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."], [["agile", "scrum", "safe", "pmp", "pgmp"], "Certifications: PgMP \u00b7 PMP \u00b7 SAFe (Leading SAFe) \u00b7 Scrum Master \u00b7 Product Owner \u00b7 AWS Solutions Architect \u00b7 Azure Solutions Architect (70-535) \u00b7 Product Manager (ISB). 15+ years running SAFe/Scrum/Kanban delivery at scale."], [["contact", "email", "phone", "reach"], "Best way to reach me: <a href='mailto:Bhatnagar.Sudhanshu31@gmail.com'>Bhatnagar.Sudhanshu31@gmail.com</a> \u00b7 <a href='https://www.linkedin.com/in/sudhanshubhatnagar/' target='_blank' rel='noopener'>LinkedIn</a> \u00b7 phone 310-754-6162 \u00b7 based in Seattle, WA."], [["resume", "cv", "pdf", "download"], "PDF resume is one click away \u2014 <a href='assets/files/Sudhanshu-Bhatnagar.pdf' target='_blank'>Download PDF</a>."], [["role", "title", "position", "job", "looking"], "Currently Principal Technical Program Manager at Lululemon. Open to Principal-/Director-level TPM roles in cloud platforms, composable commerce, and applied AI/ML \u2014 especially Seattle-based or remote-friendly."], [["education", "degree", "school", "university"], "PGP in AI/ML from McCombs School of Business (UT Austin), May 2024 \u2013 Feb 2025. Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998\u20132002)."]],
+  init(){
+    this.log = document.getElementById('chat-log');
+    this.input = document.querySelector('.chat-input');
+  },
+  ask(txt){
+    const q = txt || this.input.value; if(!q) return false;
+    this.append('user', q);
+    const a = this.answer(q);
+    setTimeout(()=>this.append('bot', a), 220);
+    if(!txt) this.input.value='';
+    return false;
+  },
+  answer(q){
+    const s = q.toLowerCase();
+    for(const [keys, resp] of this.qa){
+      if(keys.some(k=>s.includes(k))) return resp;
+    }
+    return "Not sure about that specific one — try keywords like <em>AWS</em>, <em>GenAI</em>, <em>composable commerce</em>, <em>team size</em>, or <em>global scale</em>. Or hit <em>Contact</em> and just ask directly.";
+  },
+  append(kind, html){
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg chat-' + kind;
+    wrap.innerHTML = '<div class="chat-avatar">'+(kind==='user'?'You':'SB')+'</div>'+
+                     '<div class="chat-body">'+html+'</div>';
+    this.log.appendChild(wrap);
+    this.log.scrollTop = this.log.scrollHeight;
+  }
+};
+
+// ---- Register service worker (PWA offline) ----
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+
+// ---- Boot ----
+document.addEventListener('DOMContentLoaded',()=>{
+  View.init();
+  Counters.init();
+  Reveal.init();
+  Typed.init();
+  Timeline.init();
+  REPL.init();
+  CHAT.init();
+});
+</script>
 </body>
 </html>
