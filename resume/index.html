@@ -1,419 +1,651 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-	<title>Resume - Sudhanshu Bhatnagar</title>
-	
-	<!-- Meta -->
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Profolio Bootstrap 5 Template">
-	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
-	<link rel="shortcut icon" href="favicon.ico"> 
-	
-	<!-- Google Fonts -->	
-	<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-	
-	<!-- Bootstrpa Icons -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	
-	<!-- FontAwesome JS -->
-    <script defer src="assets/fontawesome/js/all.js"></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>~/sudhanshu — Principal TPM · Cloud · Composable Commerce</title>
+  <meta name="description" content="Sudhanshu Bhatnagar — Principal Technical Program Manager. 22+ years across cloud, e-commerce, SaaS and AI/ML." />
+  <link rel="shortcut icon" href="favicon.ico" />
 
-	<!-- Theme CSS -->  
-	<link id="theme-style" rel="stylesheet" href="assets/css/risen.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-</head> 
+  <style>
+    /* ============================================
+       DESIGN 3 — "Terminal Portfolio"
+       Dark, monospace-forward, dev personality.
+       ============================================ */
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --panel-2: #1f2630;
+      --line: #30363d;
+      --ink: #e6edf3;
+      --ink-muted: #9ba7b4;
+      --ink-subtle: #6e7681;
 
+      --green: #7ee787;
+      --blue: #79c0ff;
+      --purple: #d2a8ff;
+      --orange: #ffa657;
+      --pink: #ff7b72;
+      --yellow: #f2cc60;
+
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 20% 10%, rgba(126, 231, 135, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 60%, rgba(121, 192, 255, 0.05) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; text-decoration-color: var(--green); text-underline-offset: 3px; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    code, .mono { font-family: var(--mono); }
+
+    /* Terminal window frame */
+    .window {
+      max-width: 1180px;
+      margin: 2rem auto;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+    }
+    .titlebar {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      background: var(--panel-2);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink-subtle);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .dot.r { background: #ff5f56; }
+    .dot.y { background: #ffbd2e; }
+    .dot.g { background: #27c93f; }
+    .titlebar .path { margin-left: 0.75rem; }
+    .titlebar .actions { margin-left: auto; display: flex; gap: 0.75rem; }
+    .titlebar .actions button, .titlebar .actions a {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--ink-muted);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .titlebar .actions button:hover, .titlebar .actions a:hover {
+      color: var(--green); border-color: var(--green);
+    }
+
+    .content {
+      padding: 2rem 2.5rem 2.5rem;
+      font-family: var(--mono);
+      font-size: 13.5px;
+    }
+
+    /* Header — cat resume.md */
+    .cmd {
+      color: var(--ink-subtle);
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      margin: 1.75rem 0 0.75rem;
+    }
+    .cmd .prompt { color: var(--green); }
+    .cmd .flag { color: var(--purple); }
+    .cmd .arg { color: var(--yellow); }
+    .cmd .comment { color: var(--ink-subtle); font-style: italic; }
+
+    .whoami {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem 0 1.5rem;
+      border-bottom: 1px dashed var(--line);
+    }
+    .whoami .avatar {
+      width: 140px; height: 140px; border-radius: 8px;
+      overflow: hidden; border: 1px solid var(--line);
+      position: relative;
+    }
+    .whoami .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.05) saturate(0.95); }
+    .whoami .avatar::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(126,231,135,0.08) 100%);
+    }
+    .whoami h1 {
+      font-family: var(--mono);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.01em;
+    }
+    .whoami h1 .accent { color: var(--green); }
+    .whoami .role { color: var(--blue); font-family: var(--mono); font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .whoami .role .op { color: var(--pink); }
+    .whoami .meta { font-family: var(--sans); font-size: 0.88rem; color: var(--ink-muted); line-height: 1.7; }
+    .whoami .meta .key { color: var(--purple); font-family: var(--mono); font-size: 0.85rem; }
+
+    /* Contact block */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.35rem 1.5rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--ink);
+      margin: 0.5rem 0 0.5rem;
+    }
+    .contact-grid .k { color: var(--purple); }
+    .contact-grid .eq { color: var(--pink); margin: 0 0.4rem; }
+    .contact-grid a { color: var(--blue); }
+
+    /* Sections */
+    section.block { margin: 2rem 0 0; }
+    h2.head {
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      color: var(--green);
+      margin: 0 0 1rem;
+    }
+    h2.head .hash { color: var(--pink); margin-right: 0.35rem; }
+    h2.head .comment { color: var(--ink-subtle); font-weight: 400; font-size: 0.85rem; margin-left: 0.5rem; }
+
+    /* Summary — as a highlighted comment block */
+    .summary {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.7;
+      padding: 1.25rem 1.5rem;
+      background: rgba(126, 231, 135, 0.04);
+      border-left: 3px solid var(--green);
+      border-radius: 6px;
+      color: var(--ink);
+    }
+    .summary strong { color: var(--green); font-weight: 600; }
+
+    /* Skills as JSON */
+    .skills-json {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--ink);
+      overflow-x: auto;
+    }
+    .skills-json .k { color: var(--blue); }
+    .skills-json .s { color: var(--green); }
+    .skills-json .p { color: var(--ink-subtle); }
+    .skills-json .b { color: var(--purple); }
+
+    /* Experience — git log style */
+    .git-log { font-family: var(--mono); font-size: 0.85rem; }
+    .commit {
+      padding: 0.85rem 0 1.1rem;
+      border-bottom: 1px dashed var(--line);
+    }
+    .commit:last-child { border-bottom: none; }
+    .commit .sha { color: var(--yellow); }
+    .commit .refs { color: var(--pink); }
+    .commit .date { color: var(--blue); }
+    .commit .author { color: var(--purple); }
+    .commit .msg {
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin: 0.35rem 0;
+    }
+    .commit .body {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      padding-left: 1.25rem;
+      border-left: 2px solid var(--line);
+      margin-top: 0.4rem;
+    }
+    .commit .body ul li {
+      padding: 0.2rem 0 0.2rem 1.1rem;
+      position: relative;
+    }
+    .commit .body ul li::before {
+      content: "+";
+      position: absolute; left: 0;
+      color: var(--green); font-weight: 700; font-family: var(--mono);
+    }
+    .commit .body ul li strong { color: var(--yellow); font-weight: 600; }
+
+    /* Programs — as npm-style cards */
+    .pkg-card {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      margin: 0 0 0.85rem;
+    }
+    .pkg-card .name {
+      font-family: var(--mono);
+      color: var(--green);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .pkg-card .version {
+      font-family: var(--mono);
+      color: var(--yellow);
+      font-size: 0.8rem;
+      margin-left: 0.5rem;
+    }
+    .pkg-card .desc {
+      font-family: var(--sans);
+      color: var(--ink-muted);
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+    }
+    .pkg-card ul { margin-top: 0.4rem; }
+    .pkg-card ul li {
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      color: var(--ink);
+      padding: 0.15rem 0 0.15rem 1.2rem;
+      position: relative;
+    }
+    .pkg-card ul li::before {
+      content: "✓";
+      position: absolute; left: 0;
+      color: var(--green); font-family: var(--mono); font-weight: 700;
+    }
+    .pkg-card ul li strong { color: var(--yellow); }
+    .pkg-card .deps {
+      margin-top: 0.65rem;
+      padding-top: 0.6rem;
+      border-top: 1px dashed var(--line);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink-subtle);
+    }
+    .pkg-card .deps .k { color: var(--blue); }
+    .pkg-card .deps .v { color: var(--ink); }
+
+    /* Certs list */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+    }
+    .certs-grid .cert {
+      padding: 0.5rem 0.75rem;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+    }
+    .certs-grid .cert .badge {
+      color: var(--yellow);
+      margin-right: 0.5rem;
+    }
+
+    /* Edu */
+    .edu-list li {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--line);
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .edu-list li:last-child { border-bottom: none; }
+    .edu-list li .yr { color: var(--yellow); }
+    .edu-list li .deg { color: var(--ink); font-family: var(--sans); font-size: 0.95rem; }
+    .edu-list li .org { color: var(--ink-muted); font-family: var(--sans); font-size: 0.85rem; display: block; }
+
+    /* Footer prompt */
+    .footer-prompt {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--ink-subtle);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--line);
+    }
+    .footer-prompt .prompt { color: var(--green); }
+    .cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--green);
+      vertical-align: middle;
+      margin-left: 4px;
+      animation: blink 1s steps(2, start) infinite;
+    }
+    @keyframes blink { to { visibility: hidden; } }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .window { margin: 0; border-radius: 0; border: none; }
+      .content { padding: 1.25rem 1rem 2rem; font-size: 12.5px; }
+      .whoami { grid-template-columns: 1fr; }
+      .whoami .avatar { width: 100px; height: 100px; }
+      .whoami h1 { font-size: 1.35rem; }
+    }
+
+    /* Print */
+    @media print {
+      @page { size: Letter; margin: 0.4in; }
+      body { background: #fff; color: #000; font-size: 10.5pt; }
+      .window { border: none; box-shadow: none; margin: 0; max-width: none; background: #fff; }
+      .titlebar { display: none; }
+      .content { padding: 0; background: #fff; }
+      .summary { background: #fff; border-color: #000; color: #000; }
+      .summary strong { color: #000; }
+      .commit { border-color: #000; }
+      .commit .msg, .commit .body { color: #000; }
+      .commit .body { border-color: #000; }
+      .pkg-card { background: #fff; border-color: #000; page-break-inside: avoid; }
+      .pkg-card .name, .pkg-card ul li, .commit .body ul li { color: #000; }
+      .commit .body ul li::before, .pkg-card ul li::before { color: #000; }
+      .certs-grid .cert { background: #fff; border-color: #000; color: #000; }
+      .skills-json { background: #fff; border-color: #000; color: #000; }
+      .skills-json .k, .skills-json .s, .skills-json .b { color: #000; }
+      h2.head, h2.head .hash, .cmd .prompt, .cmd .flag, .cmd .arg { color: #000; }
+      .whoami h1, .whoami h1 .accent, .whoami .role, .whoami .meta .key { color: #000; }
+      .contact-grid, .contact-grid .k, .contact-grid a { color: #000; }
+      a { color: #000; text-decoration: underline; }
+      .cursor, .footer-prompt { display: none; }
+    }
+  </style>
+</head>
 
 <body>
-	
-	<div class="container-fluid">
-			
-			<div class="main-content-wrapper">
-				<div class="container-fluid">
-					<div class="top-bar text-center position-relative">
-						<div class="top-bar-inner">
-							
-							<a class="btn btn-primary top-bar-cta" href="assets/files/Sudhanshu-Bhatnagar.pdf" download>Download Resume</a>
-					
-							<ul class="social-list list-inline mx-auto">
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="#"><i class="fa-brands fa-github fa-fw"></i></a></li>
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="#"><i class="fa-brands fa-linkedin-in fa-fw"></i></a></li>
-								<li class="list-inline-item me-0 me-md-1 me-lg-2"><a href="#"><i class="fa-brands fa-stack-overflow fa-fw"></i></a></li>
-								
-							</ul><!--//social-list-->
-							
-						</div><!--//top-bar-inner-->
-						
-					</div><!--//top-bar-->
-			
-					<div class="resume-wrapper mx-auto rounded-2">
-						<div class="resume-header px-4 px-lg-5">
-							<div class="resume-profile-holder text-center">
-								<img class="resume-profile-pic rounded-circle" src="assets/images/Sudhanshu.jpeg" alt="image">
-								
-								<h2 class="resume-name text-uppercase">Sudhanshu Bhatnagar</h2>
-								<div class="resume-role-title text-uppercase">Principal Technical Program Manager</div>
-								<div class="resume-contact mt-4">
-									<ul class="resume-contact-list list-unstyled list-inline mb-0 justify-content-between">
-										<li class="list-inline-item me-md-3 me-lg-5"><i class="resume-contact-icon bi bi-telephone-inbound me-2"></i> +1-310-754-6162</li>
-										<li class="list-inline-item me-md-3 me-lg-5"><i class="resume-contact-icon bi bi-envelope me-2"></i> bhatnagar.sudhanshu31@gmail.com</li>
-										<li class="list-inline-item me-lg-5"><i class="resume-contact-icon bi bi-briefcase me-2"></i> Seattle, WA</li>
-									</ul>
-								</div><!--//resume-contact-->
-							</div><!--//profile-holder-->
-						</div><!--//resume-header-->
-						
-						<div class="resume-body p-4 p-lg-5">
-							<div class="row">
-								<!-- <div class="col-main col-12 col-lg-8 pe-lg-4">-->
-									<section class="resume-summary-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-2 py-lg-3">
-											<i class="resume-section-heading-icon bi bi-person me-2"></i>Executive Summary</h3>
-										<div class="resume-summary-desc">
-											Strategic and technical Principal Technical Program Manager with 22+ years of experience delivering complex and scalable cloud-based programs. Proven success aligning Engineering, Product, and cross-functional teams to build high-availability platforms and drivearchitectural excellence. Adept at resolving ambiguity, influencing across organizations, and accelerating product delivery using Agile best practices.
-										</div>
-									</section><!--//resume-section-->
-							</div>	
-							<hr>
-							<div class="row">
-								<section class="resume-competencies-section resume-section">
-									<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-lightning-fill me-2"></i>Core Competencies</h3>
-									<table>
-										<tr>
-											<td>
-												<h6 class="text-uppercase">
-													<i class="resume-section--"></i>Technical</h6>
-											</td>
-											<td>
-												<h6 class="text-uppercase">
-												<i class="resume-section--"></i>Leadership & Management</h6>
-											</td>
-											<td>
-												<h6 class="text-uppercase">
-													<i class="resume-section--"></i>Strategic & Analytical</h6>												
-											</td>																						
-										</tr>
-										<tr>
-											<td style="width:33%;">
+  <div class="window">
 
-												<ul class="resume-timeline-list">
-													<li><span class="badge resume-competency-badge">Software Development and Engineering</span></li>
-													<li><span class="badge resume-competency-badge">Software Architecture</span></li>
-													<li><span class="badge resume-competency-badge">Cloud Infrastructure</span></li>
-													<li><span class="badge resume-competency-badge">Composable and MACH (Microservices, API-first,</span>
-														<span class="badge resume-competency-badge">Cloud-native and Headless) e-Commerce Platforms</span></li>
-												</ul>
-											</td>
-											<td style="width:33%;">
+    <!-- Title bar -->
+    <div class="titlebar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="path">— zsh — sudhanshu@resume ~ %</span>
+      <span class="actions">
+        <a href="classic/" title="Classic view">classic</a>
+        <button onclick="window.print()">print</button>
+        <a href="assets/files/Sudhanshu-Bhatnagar.pdf" download>pdf</a>
+      </span>
+    </div>
 
-												<ul class="resume-timeline-list">
-													<li><span class="badge resume-competency-badge">Stakeholder Management</span></li>
-													<li><span class="badge resume-competency-badge">Communication</span></li>
-													<li><span class="badge resume-competency-badge">Cross-Functional Collaboration</span></li>
-													<li><span class="badge resume-competency-badge">Technical Program and Project Management</span></li>
-													<li><span class="badge resume-competency-badge">Team Building and Mentoring</span></li>
-												</ul>
-											</td>
-											<td style="width:33%;">
+    <div class="content">
 
-												<ul class="resume-timeline-list">
-													<li><span class="badge resume-competency-badge">Strategic & Tractical Planning</span></li>
-													<li><span class="badge resume-competency-badge">Data Driven Decision Making</span></li>
-													<li><span class="badge resume-competency-badge">Process Improvement & Optimization</span></li>
-													<li><span class="badge resume-competency-badge">Risk Management</span></li>
-													<li><span class="badge resume-competency-badge">Release Management</span></li>													
-												</ul>
-											</td>
-										</tr>
-									</table>																													
+      <!-- Header -->
+      <div class="cmd">
+        <span class="prompt">➜</span> <span class="arg">whoami</span> <span class="flag">--verbose</span>
+      </div>
+      <div class="whoami">
+        <div class="avatar">
+          <img src="assets/images/Sudhanshu.jpeg" alt="Sudhanshu Bhatnagar" />
+        </div>
+        <div>
+          <h1>Sudhanshu <span class="accent">Bhatnagar</span></h1>
+          <div class="role">Principal Technical Program Manager <span class="op">·</span> Cloud <span class="op">·</span> Composable Commerce <span class="op">·</span> AI/ML</div>
+          <div class="meta">
+            <span class="key">location</span> = Seattle, WA<br />
+            <span class="key">experience</span> = 22+ years<br />
+            <span class="key">focus</span> = building high-scale, cloud-native platforms &amp; leading matrixed teams
+          </div>
+        </div>
+      </div>
 
-								</section><!--//resume-competencies-section-->
-							<hr>								
-							</div>
-							
-							<section class="resume-educate-section resume-section">
-								<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-book me-2"></i>Education</h3>
-								<ul class="list-unstyled">
-									<li class="mb-2">
-										<div class="resume-degree font-weight-bold">Post Graduate Program in Artificial Intelligence and Machine Learning</div>
-										<div class="resume-degree-org">McCombs School of Business</div>
-										<div class="resume-degree-time">2024 - 2025</div>
-									</li>
-									<li>
-										<div class="resume-degree font-weight-bold">Bachelor of Engineering in Computer Science & Engineering</div>
-										<div class="resume-degree-org">Rajiv Gandhi Technical University, India</div>
-										<div class="resume-degree-time">1998 - 2002</div>
-									</li>
-								</ul>
-							</section><!--//resume-section-->
+      <!-- Contact -->
+      <div class="cmd">
+        <span class="prompt">➜</span> <span class="arg">cat</span> <span class="flag">./contact.env</span>
+      </div>
+      <div class="contact-grid">
+        <div><span class="k">EMAIL</span><span class="eq">=</span><a href="mailto:Bhatnagar.Sudhanshu31@gmail.com">Bhatnagar.Sudhanshu31@gmail.com</a></div>
+        <div><span class="k">PHONE</span><span class="eq">=</span><a href="#" class="phone-reveal" data-p="26164570131" title="Click to reveal">[click to reveal]</a></div>
+        <div><span class="k">LINKEDIN</span><span class="eq">=</span><a href="https://www.linkedin.com/in/sudhanshubhatnagar/" target="_blank" rel="noopener">/in/sudhanshubhatnagar</a></div>
+        <div><span class="k">GITHUB</span><span class="eq">=</span><a href="https://github.com/Sudhanshu311" target="_blank" rel="noopener">@Sudhanshu311</a></div>
+      </div>
 
-							<hr>
+      <!-- Summary -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> executive_summary <span class="comment">// the elevator pitch</span></h2>
+        <div class="summary">
+          Results-driven <strong>Principal Technical Program Manager</strong> with
+          <strong>22+ years</strong> across cloud infrastructure, e-commerce, SaaS,
+          and AI/ML. Built <strong>four e-commerce platforms</strong> from the ground
+          up on AWS and Azure using microservices and headless / composable (MACH)
+          architectures. Deep experience in B2B and B2C commerce, Agile governance,
+          stakeholder alignment, and risk mitigation. Adept at scaling cloud platforms,
+          elevating customer experience, and translating executive strategy into
+          on-time technical delivery.
+        </div>
+      </section>
 
-							<div class="row">
-								<section class="resume-certification-section resume-section">
-									<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-gear me-2"></i>Certifications</h3>
-									<table>
-										<tr>
-											<td style="width:50%;">
-												<ul class="resume-certification-list">
-													<li><span class="badge resume-certification-badge">Program Management Professional (PgMP)</span></li>
-													<li><span class="badge resume-certification-badge">Project Management Professional (PMP)</span></li>
-													<li><span class="badge resume-certification-badge">Scrum Master</span></li>
-													<li><span class="badge resume-certification-badge">SAFe - Leading SAFe</span></li>
-												</ul>
-											</td>
-											<td style="width:50%;">
-												<ul class="resume-certification-list">
-													<li><span class="badge resume-certification-badge">Architecting Microsoft Azure Solutions (70-535)</span></li>
-													<li><span class="badge resume-certification-badge">AWS Certified Solutions Architect – Associate</span></li>
-													<li><span class="badge resume-certification-badge">Product Manager Certification from Indian School of Business, India</span></li>
-													<li><span class="badge resume-certification-badge">Scrum Product Owner</span></li>
-												</ul>
-											</td>
-										</tr>
-									</table>																													
+      <!-- Skills as JSON -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> skills.json <span class="comment">// what I ship with</span></h2>
+        <pre class="skills-json">{
+  <span class="k">"cloud"</span>: [<span class="s">"AWS"</span>, <span class="s">"Azure"</span>, <span class="s">"EKS"</span>, <span class="s">"Lambda"</span>, <span class="s">"DynamoDB"</span>, <span class="s">"API Gateway"</span>, <span class="s">"S3"</span>, <span class="s">"Kafka"</span>],
+  <span class="k">"commerce"</span>: [<span class="s">"Commercetools"</span>, <span class="s">"Elastic Path"</span>, <span class="s">"Composable / MACH"</span>, <span class="s">"Headless"</span>, <span class="s">"B2B"</span>, <span class="s">"B2C"</span>],
+  <span class="k">"program_mgmt"</span>: [<span class="s">"SAFe"</span>, <span class="s">"Scrum of Scrums"</span>, <span class="s">"OKRs"</span>, <span class="s">"RACI"</span>, <span class="s">"Risk &amp; Change Mgmt"</span>, <span class="s">"Release Mgmt"</span>],
+  <span class="k">"leadership"</span>: [<span class="s">"Executive Stakeholders"</span>, <span class="s">"Matrixed Teams (65+)"</span>, <span class="s">"Coaching"</span>, <span class="s">"Vendor Mgmt"</span>],
+  <span class="k">"data_ai"</span>: [<span class="s">"AI/ML"</span>, <span class="s">"NLP"</span>, <span class="s">"TensorFlow"</span>, <span class="s">"Python"</span>, <span class="s">"SQL"</span>, <span class="s">"Tableau"</span>],
+  <span class="k">"observability"</span>: [<span class="s">"Splunk"</span>, <span class="s">"Datadog"</span>, <span class="s">"New Relic"</span>, <span class="s">"AppDynamics"</span>],
+  <span class="k">"tools"</span>: [<span class="s">"Jira"</span>, <span class="s">"Jira Align"</span>, <span class="s">"Confluence"</span>, <span class="s">"Rally"</span>, <span class="s">"Smartsheet"</span>, <span class="s">"Figma"</span>, <span class="s">"Miro"</span>],
+  <span class="k">"status"</span>: <span class="b">"open_to_conversations"</span>
+}</pre>
+      </section>
 
-								</section><!--//resume-competencies-section-->
-							
-							<hr>							
+      <!-- Experience as git log -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> experience <span class="comment">// $ git log --oneline --author=sudhanshu</span></h2>
+        <div class="git-log">
 
-							<section class="resume-experience-section resume-section">
-								<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-briefcase me-2"></i>Work Experience</h3>
-								<div class="resume-timeline position-relative">
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">07/2023 - Present</div>
-												<div class="resume-company-name">Lululemon, Seattle, WA</div>
-											</div>
-											<h3 class="resume-position-title mb-1">Principal Technical Program Manager</h3>
+          <div class="commit">
+            <div><span class="sha">7c3a1f2</span> <span class="refs">(HEAD -&gt; main, lululemon)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;principal-tpm@lululemon&gt; &nbsp; <span class="date">Date:</span> Jul 2023 – present</div>
+            <div class="msg">Lululemon · Principal Technical Program Manager</div>
+            <div class="body">
+              <ul>
+                <li>Spearheaded <strong>$5M+ B2B e-Commerce transformation</strong>; defined roadmap, engineering milestones and operational readiness — <strong>30% faster onboarding</strong>.</li>
+                <li>Lead global <strong>POS Infrastructure</strong> program (Oracle Retail Xstore/Xcenter) across <strong>1,000+ stores</strong> in NA, EMEA, APAC, CN — upgrades, patching, vulnerability remediation.</li>
+                <li>Aligned <strong>20+ cross-functional teams</strong> across Product, Engineering, UX, QA, Security, Legal, Finance and Tax.</li>
+                <li>Rolled out Agile governance (RACI, quarterly / sprint planning, UAT &amp; release) → <strong>+30% collaboration</strong>, <strong>−20% delays</strong>.</li>
+                <li>Executed customer migration with <strong>99.99% availability</strong>, <strong>−30% transition time</strong>, and <strong>zero revenue impact</strong>.</li>
+              </ul>
+            </div>
+          </div>
 
-										</div><!--//resume-timeline- item-header-->
-										<div class="resume-timeline-item-desc">
-											<ul class="resume-timeline-list">
-												<li>Spearheaded $5M+ B2B e-Commerce platform transformation; defined roadmap, engineering milestones, and operational readiness, driving 30% improvement in onboarding.</li>
-												<li> Led the global POS Infrastructure team for Oracle Retail Xstore and Xcenter across 1000+ stores worldwide (NA, EMEA, APAC, CA), in partnership with regional product and tech teams, ensuring compliance, resilience, and minimal business disruption.</li>
-												<li>Led a critical B2B eCommerce initiative, collaborating with 20+ cross-functional teams (Product, UX, QA, Security, Legal etc) to align business and technical strategies.</li>
-												<li>Partnered with Product and Engineering teams to define MVP, creating a program roadmap and milestones that led to a 15% improvement in on-time delivery.</li>
-												<li>Coordinated scope, requirements, timelines, and milestones across 20+ teams, ensuring 100% program success rate.</li>
-												<li>Delivered program status, risks, and mitigation strategies to stakeholders and senior leadership, maintaining 100% transparency.</li>
-												<li>Developed and executed a UAT plans, ensuring 100% validation of B2B eCommerce features with Business, Finance & Tax teams.</li>
-												<li>Worked with vendors on Business Change Management – User Migration, Business Operation Team Training and onboarding.</li>
-												<li>Executed a large-scale customer migration for a next-gen e-commerce platform, achieving 99.99% availability and a 30% reduction in transition time, ensuring zero revenue impact.</li>
-											</ul>
-										</div><!--//resume-timeline-item-desc-->
-									</article><!--//resume-timeline-item-->
+          <div class="commit">
+            <div><span class="sha">a91e7d0</span> <span class="refs">(nordstrom)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;sr-tpm@nordstrom&gt; &nbsp; <span class="date">Date:</span> Jul 2021 – May 2023</div>
+            <div class="msg">Nordstrom · Sr. Technical Program Manager</div>
+            <div class="body">
+              <ul>
+                <li>Led <strong>Customer Access</strong> program (Nordstrom, Rack, Store, Credit) — improved security posture and reduced fraud with <strong>10+ teams</strong>.</li>
+                <li><strong>100% on-time delivery</strong> of program milestones; <strong>−35% customer service tickets</strong>.</li>
+                <li>Mentored <strong>5+ junior TPMs</strong> and interns → <strong>+15% team retention</strong>.</li>
+              </ul>
+            </div>
+          </div>
 
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">07/2021 - 05/2023</div>
-												<div class="resume-company-name">Nordstrom, Seattle, WA</div>
-											</div>
-											<h3 class="resume-position-title mb-1">Sr. Technical Program Manager</h3>
+          <div class="commit">
+            <div><span class="sha">c04b3e8</span> <span class="refs">(amazon)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;sr-tpm@amazon&gt; &nbsp; <span class="date">Date:</span> Mar 2019 – Jul 2021</div>
+            <div class="msg">Amazon · Sr. Technical Program Manager</div>
+            <div class="body">
+              <ul>
+                <li>Directed launch of a global <strong>B2B pricing &amp; transaction platform across 8 countries</strong> with real-time payment validation — <strong>−40% pricing errors</strong>.</li>
+                <li>Resolved a discount-stacking defect with a projected <strong>$40M/yr impact</strong> on Amazon Business.</li>
+                <li>Partnered with <strong>25+ teams</strong>; improved alignment by <strong>+20%</strong>.</li>
+              </ul>
+            </div>
+          </div>
 
-										</div><!--//resume-timeline- item-header-->
-										<div class="resume-timeline-item-desc">
-											<ul class="resume-timeline-list">
-												<li>Led Customer Access program, improving security and reducing fraud with Agile and 10+ teams.</li>
-												<li>Managed timelines and updates, achieving 100% on-time delivery of program milestones.</li>
-												<li>Achieved a 35% reduction in service tickets by identifying and resolving critical customer journey pain points.</li>
-											</ul>
-										</div><!--//resume-timeline-item-desc-->
-									</article><!--//resume-timeline-item-->									
+          <div class="commit">
+            <div><span class="sha">f7d29b1</span> <span class="refs">(t-mobile-dcp)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;tpm@hcl&gt; &nbsp; <span class="date">Date:</span> Jun 2016 – Mar 2019</div>
+            <div class="msg">HCL @ T-Mobile · Enterprise TPM / Sr. Manager</div>
+            <div class="body">
+              <ul>
+                <li>Delivered T-Mobile's headless <strong>Digital Commerce Platform</strong> on AWS.</li>
+                <li>Resolved cart latency issues → <strong>7× performance improvement</strong>.</li>
+                <li>Established DevOps (Shift-Left &amp; Right, on-call) and end-to-end Agile.</li>
+              </ul>
+            </div>
+          </div>
 
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">03/2021 - 07/2021</div>
-												<div class="resume-company-name">Amazon, Seattle, WA</div>
-											</div>
-											<h3 class="resume-position-title mb-1">Sr. Technical Program Manager</h3>
+          <div class="commit">
+            <div><span class="sha">2b1e5c9</span> <span class="refs">(hcl-group-tech)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;group-tech-mgr@hcl&gt; &nbsp; <span class="date">Date:</span> Mar 2005 – Jun 2016</div>
+            <div class="msg">HCL Technologies · Group Technical Manager · India / UK / US</div>
+            <div class="body">
+              <ul>
+                <li>Managed <strong>$10M+ annual budget</strong> and team of <strong>65+</strong> across geographies.</li>
+                <li>Delivered enterprise commerce, digital and infra programs for Trimble, Norton (Symantec), Cambridge University Press and Elsevier.</li>
+              </ul>
+            </div>
+          </div>
 
-										</div><!--//resume-timeline- item-header-->
-										<div class="resume-timeline-item-desc">
-											<ul class="resume-timeline-list">
-												<li>Defined MVP program roadmap and milestones with Product Managers, aligning with business objectives and ensuring 100% on-time feature delivery</li>
-												<li>Partnered with 10+ key stakeholders to articulate technical components, improving cross-functional alignment by 20%. </li>
-												<li>Scheduled, tracked, and ensured progress, achieving 100% on-time delivery of milestones.</li>
-												<li>Directed end-to-end global B2B pricing and transaction platform rollouts across 8 countries with real-time payment validation, improving accuracy by 40%. </li>
-											</ul>
-										</div><!--//resume-timeline-item-desc-->
-									</article><!--//resume-timeline-item-->									
+          <div class="commit">
+            <div><span class="sha">e0a4712</span> <span class="refs">(early-career)</span></div>
+            <div><span class="author">Author:</span> sudhanshu &lt;engineer@india&gt; &nbsp; <span class="date">Date:</span> Jul 2002 – Mar 2005</div>
+            <div class="msg">CMC · Technosys Services · Connect Technologies (India)</div>
+            <div class="body">
+              <ul>
+                <li>System Integrator → Assistant Software Consultant → Software Programmer.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">03/2005 - 03/2019</div>
-												<div class="resume-company-name">HCL Technologies – India, UK, and US </div>
-											</div>
-											<h3 class="resume-position-title mb-1">Group Technical Manager</h3>
+      <!-- Programs as npm packages -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> featured_programs <span class="comment">// $ npm ls --depth=0</span></h2>
 
-										</div><!--//resume-timeline- item-header-->
-										<div class="resume-timeline-item-desc">
-											<ul class="resume-timeline-list">
-												<li>Managed an annual program budget of $10M+ and a team of 65 members.</li>
-												<li>Coordinated with Product, Engineering, and cross-functional teams to identify scope, OKRs, constraints, dependencies, risks, mitigation strategies, and schedules for new products and features, ensuring 100% effective program execution and a 20% reduction in risk-related delays.</li>
-											</ul>
-										</div><!--//resume-timeline-item-desc-->
-									</article><!--//resume-timeline-item-->
-									
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">12/2004 - 03/2005</div>
-												<div class="resume-company-name">CMC, India </div>
-											</div>
-											<h3 class="resume-position-title mb-1">System Integrator </h3>
+        <div class="pkg-card">
+          <div><span class="name">@lululemon/b2b-commerce-and-pos</span><span class="version">v2023.7 – present</span></div>
+          <div class="desc">Composable, API-first, headless B2B commerce platform plus global POS infrastructure for Oracle Retail Xstore/Xcenter across 1,000+ stores.</div>
+          <ul>
+            <li>MVP delivered on schedule for a Greenfield program (<strong>100%</strong> deadlines met).</li>
+            <li><strong>+15%</strong> program efficiency and <strong>−10%</strong> cycle time from Jira data analysis.</li>
+            <li>RACI, governance and change-request process → <strong>−20%</strong> delays.</li>
+            <li>Phased user migration: <strong>80%</strong> of users off legacy platform.</li>
+          </ul>
+          <div class="deps">
+            <span class="k">stack:</span> <span class="v">Commercetools, Frontastic, React, Node.js, AWS (Lambda, DynamoDB, API GW, S3, EKS), Kafka, APIGEE, CyberSource, Vertex, Datadog, Splunk, Python</span>
+          </div>
+        </div>
 
-										</div><!--//resume-timeline- item-header-->
-									</article><!--//resume-timeline-item-->
-									
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">08/2003 – 12/2004</div>
-												<div class="resume-company-name">Technosys Services, India </div>
-											</div>
-											<h3 class="resume-position-title mb-1">Assistant Software Consultant</h3>
+        <div class="pkg-card">
+          <div><span class="name">@nordstrom/ciam</span><span class="version">v2021.7 – v2023.5</span></div>
+          <div class="desc">Cross-brand Customer Identity &amp; Access Management for Nordstrom, Rack, Store and Credit — reduce friction, protect data, cut fraud.</div>
+          <ul>
+            <li><strong>+20%</strong> delivery speed, <strong>+15%</strong> team performance from Agile improvements.</li>
+            <li><strong>−35%</strong> customer service tickets, <strong>−20%</strong> response times.</li>
+            <li>Roadmaps across <strong>5+ teams</strong> — <strong>95%</strong> milestones hit.</li>
+          </ul>
+          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, AWS, Kafka, React, Go, Optimizely, Shape, Tableau, Splunk, New Relic</span></div>
+        </div>
 
-										</div><!--//resume-timeline- item-header-->
-										<div class="resume-timeline-item-desc">
-									</article><!--//resume-timeline-item-->
-									
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">007/2002 – 07/2003</div>
-												<div class="resume-company-name">Connect Technologies, India </div>
-											</div>
-											<h3 class="resume-position-title mb-1">Software Programmer	</h3>
+        <div class="pkg-card">
+          <div><span class="name">@amazon/volume-aware-pricing</span><span class="version">v2019.3 – v2021.7</span></div>
+          <div class="desc">Competitive B2B pricing based on trailing-12-month order history. Launched across US, UK, IT, FR, ES, DE, JP, CA.</div>
+          <ul>
+            <li>Resolved discount-stacking defect — projected <strong>$40M/year</strong> impact.</li>
+            <li>Coordinated <strong>25+ teams</strong> across 8-country launch.</li>
+            <li>Built generic Selenium Data-Grid framework — <strong>−40%</strong> manual E2E.</li>
+          </ul>
+          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, AWS (SNS, DynamoDB, Lambda, API GW, S3), React</span></div>
+        </div>
 
-										</div><!--//resume-timeline- item-header-->
-									</article><!--//resume-timeline-item-->									
-									
-								</div><!--//resume-timeline-->
-							</section><!--//resume-experience-section-->
-								<!-- </div> //col-8-->
-								<!-- <div class="col-12 col-lg-4 ps-lg-4"> -->
-							<hr>									
-							
-							
-							<section class="resume-projects-section resume-section">
-								<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-code-slash me-2"></i>Projects</h3>
-								<div class="resume-timeline position-relative">
-									<article class="resume-timeline-item position-relative pb-5">
-										<div class="resume-timeline-item-header mb-2">
-											<div class="resume-position-meta d-flex justify-content-between mb-1">
-												<div class="resume-position-time">07/2023 - Present</div>
-												<div class="resume-company-name">Lululemon, Seattle, WA</div>
-											</div>
-											<h4 class="item-heading"><a href="https://wholesale.Lululemon.com">B2B e-Commerce Platform</a> and Point of Sale (POS) – Infrastructure</h4>
-											
-											<b> Role: </b>Principal Technical Program Manager
-											<div class="resume-timeline-item-desc">	</div>
-											<b>B2B e-Commerce Platform: </b>
-											<div class="resume-timeline-item-desc">
-												The Lululemon B2B e-Commerce Program leverages Composable Commerce to build a flexible, scalable platform with an API-first, headless architecture. It integrates advanced features for seamless order building, checkout, and product selection, while empowering internal users and partners with tools for efficient management and self-service, driving long-term growth and innovation.
-											</div>
-											<b>Point of Sale (POS) Oracle Xstore & Xcenter: </b>
-											<div class="resume-timeline-item-desc">
-												 Leading the global POS infrastructure program for Oracle Retail Xstore and Xcenter across 1000+ stores worldwide (NA, EMEA, APAC, CN). Program scope covers Xstore/Xcenter version upgrades, software upgrades, security patching, and security & vulnerability remediation, ensuring compliance, resilience, and seamless operations across all retail regions.
-											</div>
-											<b>Technologies: </b>
-											<div class="item">
-												Commercetools (Headless, Composable, API first eCommerce Engine), Frontastic, Micro-services, AWS-DynamoDB, AWS-Lambda, S3, AWS-API-Gateway, EKS, Kafka, React.js & Node.js, Splunk, Smartsheet, Jira, Confluence, Shape, APIGEE, CyberSource, Vertex, Figma, Miro, Google Analytics, Datadog, Python (Data Analysis)
-											</div>
-										</div>
-										<b> Achievements: </b>
-										<div class="resume-timeline-item-desc">
-											<div class="item-desc">
-												
-												<ul class="resume-timeline-list">
-													<li>Developed end-to-end program structure and processes, meeting 100% of program deadlines.</li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-												</ul>
-											</div>
-										</div><!--//resume-timeline-item-desc-->
-									</article><!--//resume-timeline-item-->
-								</div>
-								<!--
-								<div class="item">
-									<h4 class="item-heading"><i class="item-icon bi bi-square-fill me-2"></i><a href="#">Project lorem Ipsum</a></h4>
-									<div class="item-desc">
-										Project desc goes here aenean ut libero sit amet ante fermentum scelerisque non a leo.
-									</div>
-								</div>
-								-->
-									
-							</section>
-									
-									<hr>
-									
-									<section class="resume-lang-section resume-section">
-										<h3 class="resume-section-heading text-uppercase py-2 py-lg-3 py-3"><i class="resume-section-heading-icon bi bi-translate me-2"></i>Languages</h3>
-										 <ul class="list-unstyled resume-lang-list">
-										    <li class="mb-2">
-										        <div class="resume-lang-name">English</div>
-										        <div class="resume-level-indicator row gx-0 flex-nowrap">
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-half"></span></div>
-										        </div><!--//resume-level-indicator-->
-										    </li>
-										     <li class="mb-2">
-										        <div class="resume-lang-name">Spanish</div>
-										        <div class="resume-level-indicator row gx-0 flex-nowrap">
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-full"></span></div>
-											        <div class="col"><span class="item item-half"></span></div>
-											        <div class="col"><span class="item"></span></div>
-										        </div><!--//resume-level-indicator-->
-										    </li>
-										</ul>
-									</section>
-									
-									
-									
-								<!-- </div>//col-side-->
-							<!-- </div>//row-->
+        <div class="pkg-card">
+          <div><span class="name">@t-mobile/digital-commerce-platform</span><span class="version">v2016.6 – v2019.3</span></div>
+          <div class="desc">Headless, microservices-based e-Commerce platform powering T-Mobile Web channels.</div>
+          <ul>
+            <li>Digital transformation to cloud-native, headless architecture on AWS.</li>
+            <li><strong>7×</strong> cart performance improvement.</li>
+            <li>Rolled out DevOps &amp; end-to-end Agile.</li>
+          </ul>
+          <div class="deps"><span class="k">stack:</span> <span class="v">Spring-Boot microservices, APIGEE, AWS (Oracle RDS, DynamoDB), Splunk, AppDynamics, Apache Ignite, Elasticsearch, ActiveMQ, Kubernetes, Tableau</span></div>
+        </div>
+      </section>
 
-					    </div><!--//resume-body-->
-				    </div><!--//resume-wrapper-->
-				</div><!--//container-fluid-->
-			</div><!--//main-content-wrapper-->
-		</div><!--//row-->
+      <!-- Education -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> education <span class="comment">// $ ls ./edu/</span></h2>
+        <ul class="edu-list">
+          <li>
+            <span class="yr">2024 – 2025</span>
+            <span>
+              <span class="deg">Post Graduate Program — AI &amp; Machine Learning</span>
+              <span class="org">McCombs School of Business, University of Texas</span>
+            </span>
+          </li>
+          <li>
+            <span class="yr">1998 – 2002</span>
+            <span>
+              <span class="deg">B.E. Computer Science &amp; Engineering</span>
+              <span class="org">Rajiv Gandhi Technical University, India</span>
+            </span>
+          </li>
+        </ul>
+      </section>
 
+      <!-- Certs -->
+      <section class="block">
+        <h2 class="head"><span class="hash">##</span> certifications <span class="comment">// $ cat ./certs/*.md</span></h2>
+        <div class="certs-grid">
+          <div class="cert"><span class="badge">◆</span>Program Management Professional (PgMP)</div>
+          <div class="cert"><span class="badge">◆</span>Project Management Professional (PMP)</div>
+          <div class="cert"><span class="badge">◆</span>SAFe — Leading SAFe</div>
+          <div class="cert"><span class="badge">◆</span>Certified Scrum Master &amp; Product Owner</div>
+          <div class="cert"><span class="badge">◆</span>AWS Certified Solutions Architect — Associate</div>
+          <div class="cert"><span class="badge">◆</span>Architecting Microsoft Azure Solutions (70-535)</div>
+          <div class="cert"><span class="badge">◆</span>Product Manager Certification — ISB</div>
+        </div>
+      </section>
 
-	
-	</div><!--//container-->
-	
-	<footer class="footer text-center py-4">
-		<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-		<small class="copyright">Designed with <span class="sr-only">love</span><i class="bi bi-heart-fill" style="color:#fe655c"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-	</footer>
+      <!-- Footer -->
+      <div class="footer-prompt">
+        <span class="prompt">➜</span> <span style="color: var(--blue);">~/sudhanshu</span> <span class="prompt">%</span> <span class="cursor"></span>
+      </div>
 
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.phone-reveal').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var digits = (el.dataset.p || '').split('').reverse().join('');
+        var pretty = digits.replace(/^(\d)(\d{3})(\d{3})(\d{4})$/, '+$1 ($2) $3-$4');
+        el.textContent = pretty;
+        el.setAttribute('href', 'tel:+' + digits);
+        el.removeAttribute('title');
+        el.classList.remove('phone-reveal');
+      });
+    });
+  </script>
 </body>
+</html>
