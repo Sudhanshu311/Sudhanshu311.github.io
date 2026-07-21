@@ -53,8 +53,14 @@ def render_hero():
         <span class="prompt">~/sudhanshu</span><span class="prompt-sep">$</span>
         <span class="typed" data-typed="whoami"></span><span class="caret">▍</span>
       </div>
-      <h1 class="hero-name">{PROFILE["name"]}</h1>
-      <p class="hero-title">{PROFILE["title"]}</p>
+      <div class="hero-id-row">
+        <img class="hero-avatar" src="assets/images/Sudhanshu.jpeg" alt="Sudhanshu Bhatnagar" width="80" height="80" loading="eager"/>
+        <div>
+          <h1 class="hero-name">{PROFILE["name"]}</h1>
+          <p class="hero-title">{PROFILE["title"]}</p>
+        </div>
+      </div>
+      <!-- keeping structure clean -->
       <div class="hero-now">
         <span class="now-dot" aria-hidden="true"></span>
         <span class="now-text mono">Currently @ Nike</span>
@@ -82,11 +88,77 @@ def render_hero():
   </section>'''
 
 
+def render_about():
+    return '''
+  <section class="about-section" id="about">
+    <h2 class="section-h">
+      <span class="section-num">01</span>
+      <span class="section-name">About Me</span>
+      <span class="section-hint">the short story · edit anytime in build/data.py or build/generate.py</span>
+    </h2>
+    <div class="about-card">
+      <p class="about-lead">
+        I'm a Principal Technical Program Manager with <span class="accent">22+ years</span> leading enterprise cloud, composable-commerce, and AI/ML programs — currently driving Global Merchandising technology at <span class="accent">Nike</span>.
+      </p>
+      <div class="about-body">
+        <p>My career started as a software engineer in India, then leveled up at HCL Technologies leading a 65-person team on a $10M+ annual budget across .NET, Java, and cloud-migration programs for enterprise customers (Elsevier, Norton, Cambridge, Trimble, T-Mobile).</p>
+        <p>The last decade has been global TPM at scale: <b>Amazon B2B</b> (Volume-Aware Pricing across 8 countries), <b>Nordstrom</b> (cross-brand customer identity, SOC 2/ISO 27001), and <b>Lululemon</b> (a $5M+ B2B commerce transformation plus global POS infrastructure across 1000+ stores). Along the way I shipped a GenAI Bulk-Order Assistant on Amazon Bedrock + LangChain that cut cart-build time by 50%.</p>
+        <p>Now at <b>Nike Global Merchandising</b>, I'm applying the same through-line: composable-first architecture, RACI-forward governance, and a deliberate bias toward integrating modern data + ML into legacy enterprise systems. Recently completed a PGP in AI/ML at McCombs (UT Austin) — because I want my TPM judgment on AI to come from actually building it, not just reading about it.</p>
+        <p>What I do best: translate executive strategy into scalable technical roadmaps, and translate engineering trade-offs into decisions leaders can make. Bad news travels fast, softly. Governance before artifacts. Ship before perfect.</p>
+      </div>
+      <div class="about-quick">
+        <div class="qi"><div class="qi-k">$ location</div><div class="qi-v">Seattle, WA · remote-friendly</div></div>
+        <div class="qi"><div class="qi-k">$ current</div><div class="qi-v">Nike · Global Merchandising</div></div>
+        <div class="qi"><div class="qi-k">$ years</div><div class="qi-v">22+ shipping enterprise programs</div></div>
+        <div class="qi"><div class="qi-k">$ certs</div><div class="qi-v">PgMP · PMP · SAFe · AWS SA · Azure SA</div></div>
+        <div class="qi"><div class="qi-k">$ study</div><div class="qi-v">PGP AI/ML · McCombs (UT Austin)</div></div>
+        <div class="qi"><div class="qi-k">$ open to</div><div class="qi-v">Principal / Director TPM roles</div></div>
+      </div>
+    </div>
+  </section>'''
+
+
+def render_working():
+    values = [
+        ("01", "Governance first, artifact last",
+         "Real RACI, change-control, and dependency mapping <em>before</em> any decks. Prevents 90% of program failures downstream — and gives every subsequent artifact something honest to compile."),
+        ("02", "Executive brevity, engineering depth",
+         "Five-bullet exec briefs for VPs. Full architecture docs for engineers. Same source of truth, different render. If a leader can't act on the summary in 60 seconds, the summary isn't done."),
+        ("03", "Composable > monolithic",
+         "Every architectural decision optimizes for future replaceability. Applies to code, contracts, and org structures. Vendor lock-in is a program risk; treat it like one."),
+        ("04", "Data-driven or opinion-labeled",
+         "Assertions come with data, or the word <em>opinion</em> gets prefixed. No middle ground in program status updates. Confidence intervals travel with numbers; assumptions travel with decisions."),
+        ("05", "Servant leader, honest signal",
+         "I hold the map, not the compass. Clear blockers early, name risks before they land, celebrate wins loudly. Bad news travels fast, softly — never on a Friday afternoon."),
+        ("06", "Ship > perfect",
+         "Every quarter, something ships that wasn't ready in July. Perfectionism kills programs. Iterate against real data, measure the real impact, then decide what to polish."),
+    ]
+    cards = "".join(
+        f'''
+      <article class="value-card">
+        <div class="value-num">Principle {n}</div>
+        <div class="value-title">{title}</div>
+        <p class="value-body">{body}</p>
+      </article>''' for n, title, body in values
+    )
+    return f'''
+  <section class="working-section" id="working">
+    <h2 class="section-h">
+      <span class="section-num">07</span>
+      <span class="section-name">Working Style & Values</span>
+      <span class="section-hint">how I run programs · editable in build/generate.py</span>
+    </h2>
+    <div class="values-grid">
+      {cards}
+    </div>
+  </section>'''
+
+
 def render_repl():
     return '''
   <section class="repl-section" id="terminal">
     <h2 class="section-h">
-      <span class="section-num">01</span>
+      <span class="section-num">02</span>
       <span class="section-name">Interactive Terminal</span>
       <span class="section-hint mono">try: help · whoami · experience · programs · skills · contact · resume · theme</span>
     </h2>
@@ -167,7 +239,7 @@ def render_timeline():
     return f'''
   <section class="timeline-section" id="career">
     <h2 class="section-h">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <span class="section-name">Career Timeline</span>
       <span class="section-hint">{epoch} → present · {end_year - epoch}+ years · click any bar</span>
     </h2>
@@ -219,7 +291,7 @@ def render_cases():
     return f'''
   <section class="cases-section" id="programs">
     <h2 class="section-h">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-name">Flagship Programs</span>
       <span class="section-hint">{len(PROGRAMS)} case studies · click to expand</span>
     </h2>
@@ -283,7 +355,7 @@ def render_skills():
     return f'''
   <section class="skills-section" id="skills">
     <h2 class="section-h">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <span class="section-name">Skills & Technology</span>
       <span class="section-hint">where I've spent my time</span>
     </h2>
@@ -314,7 +386,7 @@ def render_chat():
     return f'''
   <section class="chat-section" id="ask">
     <h2 class="section-h">
-      <span class="section-num">05</span>
+      <span class="section-num">06</span>
       <span class="section-name">Ask Me Anything</span>
       <span class="section-hint">keyword-driven · no AI API cost · try a suggestion</span>
     </h2>
@@ -345,7 +417,7 @@ def render_creds():
     return f'''
   <section class="creds-section" id="credentials">
     <h2 class="section-h">
-      <span class="section-num">06</span>
+      <span class="section-num">08</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -365,7 +437,7 @@ def render_contact():
     return f'''
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">07</span>
+      <span class="section-num">09</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -391,6 +463,22 @@ def render_contact():
 
 # ---------- HEAD (SEO / OG / PWA / JSON-LD) ----------
 def render_head():
+    # Build a rich work-experience array — most-recent-first
+    work_exp = []
+    for r in ROLES:
+        start_iso = r["start"] + "-01"
+        end_iso = None if r["current"] else r["end"] + "-28"
+        item = {
+            "@type": "OrganizationRole",
+            "roleName": r["role"],
+            "startDate": start_iso,
+            "worksFor": {"@type": "Organization", "name": r["company"]},
+            "description": " · ".join(re.sub(r"<[^>]+>", "", h) for h in r["highlights"])[:600],
+        }
+        if end_iso:
+            item["endDate"] = end_iso
+        work_exp.append(item)
+
     person_ld = {
         "@context": "https://schema.org",
         "@type": "Person",
@@ -398,12 +486,28 @@ def render_head():
         "jobTitle": PROFILE["title"],
         "email": f"mailto:{PROFILE['email']}",
         "telephone": PROFILE["phone"],
-        "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA"},
+        "address": {"@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US"},
         "url": PROFILE["site"],
+        "image": PROFILE["site"] + "assets/og-image.png",
         "sameAs": [PROFILE["linkedin"], PROFILE["github"]],
         "description": PROFILE["tagline"],
+        "worksFor": {"@type": "Organization", "name": "Nike", "url": "https://nike.com"},
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Principal Technical Program Manager",
+            "occupationLocation": {"@type": "City", "name": "Seattle, WA"},
+            "skills": "Composable Commerce · Cloud (AWS, Azure) · AI/ML · Program Governance · Executive Communication",
+        },
+        "workLocation": {"@type": "Place", "address": {"@type": "PostalAddress", "addressLocality": "Beaverton", "addressRegion": "OR"}},
         "alumniOf": [
             {"@type": "CollegeOrUniversity", "name": e["school"]} for e in EDUCATION
+        ],
+        "workExperience": work_exp,
+        "knowsAbout": [
+            "Technical Program Management", "Composable Commerce", "MACH Architecture",
+            "AWS Cloud", "Azure Cloud", "Kubernetes", "Microservices",
+            "AI/ML", "GenAI", "Amazon Bedrock", "LangChain", "RAG",
+            "Global Merchandising", "Demand Forecasting", "SAFe", "Agile", "PgMP", "PMP",
         ],
     }
     return f'''
@@ -423,11 +527,16 @@ def render_head():
   <meta property="og:title" content="{PROFILE["name"]} — {PROFILE["title"]}"/>
   <meta property="og:description" content="{PROFILE["tagline"]}"/>
   <meta property="og:url" content="{PROFILE["site"]}"/>
+  <meta property="og:image" content="{PROFILE["site"]}assets/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Sudhanshu Bhatnagar — Principal TPM @ Nike"/>
   <meta property="profile:first_name" content="Sudhanshu"/>
   <meta property="profile:last_name" content="Bhatnagar"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="{PROFILE["name"]} — {PROFILE["title"]}"/>
   <meta name="twitter:description" content="{PROFILE["tagline"]}"/>
+  <meta name="twitter:image" content="{PROFILE["site"]}assets/og-image.png"/>
 
   <link rel="canonical" href="{PROFILE["site"]}"/>
   <link rel="shortcut icon" href="favicon.ico"/>
@@ -530,6 +639,17 @@ body.view-classic .view-switch button.is-active{color:#fff}
 .prompt-line .typed{color:var(--ink)}
 .prompt-line .caret{color:var(--accent);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
+.hero-id-row{display:flex;align-items:center;gap:22px;margin-bottom:12px}
+.hero-avatar{
+  width:80px;height:80px;border-radius:50%;object-fit:cover;flex-shrink:0;
+  border:2px solid color-mix(in oklab,var(--accent) 55%,var(--line));
+  box-shadow:0 0 0 4px color-mix(in oklab,var(--accent) 12%,transparent), var(--shadow-1);
+  background:var(--panel-hi);
+}
+@media (max-width:520px){
+  .hero-id-row{gap:14px}
+  .hero-avatar{width:56px;height:56px}
+}
 .hero-name{font-family:var(--sans);font-size:56px;font-weight:800;letter-spacing:-1.5px;line-height:1.05;margin:0 0 6px}
 body.view-classic .hero-name{color:var(--ink)}
 .hero-title{font-size:20px;color:var(--accent);font-weight:600;margin:0 0 12px;font-family:var(--mono)}
@@ -582,6 +702,43 @@ body.view-classic .btn-primary{color:#fff}
 }
 .section-name{font-size:26px;font-weight:700;color:var(--ink);margin-right:auto}
 .section-hint{font:500 12.5px/1.4 var(--mono);color:var(--ink-3)}
+
+/* About / origin story */
+.about-section{margin-top:56px}
+.about-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 28px;box-shadow:var(--shadow-1);
+}
+.about-lead{
+  font-size:18px;line-height:1.55;color:var(--ink);margin:0 0 14px;font-weight:500;
+}
+.about-lead .accent{color:var(--accent)}
+.about-body p{margin:0 0 12px;color:var(--ink-2);font-size:14.75px;line-height:1.65}
+.about-body p:last-child{margin-bottom:0}
+.about-quick{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;
+  margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);
+}
+.about-quick .qi{padding:2px 0}
+.about-quick .qi-k{font:600 10.5px/1 var(--mono);color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.about-quick .qi-v{font-size:13.5px;color:var(--ink);font-weight:500}
+
+/* Working style values */
+.values-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;
+}
+.value-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;position:relative;overflow:hidden;
+}
+.value-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--accent);opacity:.55;
+}
+.value-num{font:700 11px/1 var(--mono);color:var(--accent);letter-spacing:2px;margin-bottom:10px}
+.value-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.value-body{font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:0}
+.value-body em{color:var(--accent);font-style:normal;font-weight:600}
 
 /* Terminal REPL */
 .terminal{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-1)}
@@ -1076,11 +1233,12 @@ def render_nav():
     </div>
     <div class="tb-spacer"></div>
     <div class="tb-nav">
-      <a href="#terminal">Terminal</a>
+      <a href="#about">About</a>
       <a href="#career">Career</a>
       <a href="#programs">Programs</a>
       <a href="#skills">Skills</a>
       <a href="#ask">Ask</a>
+      <a href="#working">Values</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="view-switch" role="group" aria-label="View theme">
@@ -1105,11 +1263,13 @@ def main():
         render_nav(),
         '<main class="container">',
         render_hero(),
+        render_about(),
         render_repl(),
         render_timeline(),
         render_cases(),
         render_skills(),
         render_chat(),
+        render_working(),
         render_creds(),
         render_contact(),
         '</main>',
