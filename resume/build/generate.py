@@ -9,6 +9,7 @@ from pathlib import Path
 from data import (
     PROFILE, METRICS, ROLES, PROGRAMS, SKILL_RADAR, TECH_HEATMAP,
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
+    FILTER_GROUPS,
 )
 
 OUT = Path(__file__).resolve().parent.parent / "index.html"
@@ -80,6 +81,10 @@ def render_hero():
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Email
         </a>
+        <button class="btn btn-ghost" onclick="PRINT.onePager()" title="Print an executive one-pager (Ctrl/⌘+P prints a full detailed version)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          One-pager PDF
+        </button>
       </div>
     </div>
     <div class="metrics-grid">
@@ -257,14 +262,55 @@ def render_cases():
     cards = []
     for i, p in enumerate(PROGRAMS):
         outcome_lis = "".join(f"<li>{o}</li>" for o in p["outcome"])
+        tags = p.get("tags", {})
+        tech_tags = " ".join(tags.get("tech", []))
+        out_tags  = " ".join(tags.get("outcome", []))
+        scl_tags  = " ".join(tags.get("scale", []))
+        all_tags  = f"{tech_tags} {out_tags} {scl_tags}".strip()
+
+        # Deep dive block (may be missing → skip section)
+        dd = p.get("deep_dive")
+        dd_block = ""
+        if dd:
+            decs = "".join(f"<li>{d}</li>" for d in dd.get("decisions", []))
+            less = "".join(f"<li>{l}</li>" for l in dd.get("lessons", []))
+            dd_block = f'''
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>{dd.get("context", "")}</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions">{decs}</ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons">{less}</ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>'''
+
+        # Tag chips shown on card head
+        chip_html = ""
+        for t in tags.get("tech", [])[:3] + tags.get("outcome", [])[:1] + tags.get("scale", [])[:1]:
+            chip_html += f'<span class="case-tag" data-t="{t}">{t}</span>'
+
         cards.append(f'''
-      <article class="case" data-case="{p["id"]}">
+      <article class="case" data-case="{p["id"]}" data-tags="{all_tags}">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="{'true' if i==0 else 'false'}">
           <div class="case-meta">
             <div class="case-company mono">{p["company"]}</div>
             <div class="case-period mono">{p["period"]}</div>
           </div>
-          <h3 class="case-title">{p["title"]}</h3>
+          <div>
+            <h3 class="case-title">{p["title"]}</h3>
+            <div class="case-tag-row">{chip_html}</div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -286,15 +332,37 @@ def render_cases():
             <div class="case-label">Tech</div>
             <p class="mono muted">{p["tech"]}</p>
           </div>
+          {dd_block}
         </div>
       </article>''')
+
+    # Filter groups UI
+    groups_html = ""
+    for g in FILTER_GROUPS:
+        opts = "".join(
+            f'<button type="button" class="filter-chip" data-group="{g["id"]}" data-value="{val}" onclick="CASES.filter(this)">{lbl}</button>'
+            for val, lbl in g["options"]
+        )
+        groups_html += f'''
+        <div class="filter-group">
+          <span class="filter-label mono">{g["label"]}</span>
+          <div class="filter-chips">{opts}</div>
+        </div>'''
+
     return f'''
   <section class="cases-section" id="programs">
     <h2 class="section-h">
       <span class="section-num">04</span>
       <span class="section-name">Flagship Programs</span>
-      <span class="section-hint">{len(PROGRAMS)} case studies · click to expand</span>
+      <span class="section-hint">{len(PROGRAMS)} case studies · filter, expand, read the deep dive</span>
     </h2>
+    <div class="filters">
+      {groups_html}
+      <div class="filter-actions">
+        <button type="button" class="filter-clear mono" onclick="CASES.clearFilters()">clear filters</button>
+        <span class="filter-count mono" id="filter-count">{len(PROGRAMS)} of {len(PROGRAMS)} shown</span>
+      </div>
+    </div>
     <div class="cases-grid">
       {"".join(cards)}
     </div>
@@ -801,9 +869,40 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .tl-detail-highlights li::before{content:"▸";position:absolute;left:0;top:0;color:var(--accent)}
 
 /* Cases */
+.filters{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:14px;display:grid;gap:10px;
+}
+.filter-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filter-label{
+  font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-weight:700;
+  min-width:60px;
+}
+.filter-chips{display:flex;flex-wrap:wrap;gap:5px;flex:1}
+.filter-chip{
+  background:transparent;border:1px solid var(--line);color:var(--ink-2);
+  font:500 11.5px/1 var(--mono);padding:6px 10px;border-radius:999px;cursor:pointer;
+  transition:border-color .15s,color .15s,background .15s;
+}
+.filter-chip:hover{border-color:var(--accent);color:var(--accent)}
+.filter-chip.is-on{
+  background:var(--accent);color:var(--bg);border-color:var(--accent);
+}
+body.view-classic .filter-chip.is-on{color:#fff}
+.filter-actions{
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+  padding-top:8px;margin-top:2px;border-top:1px dashed var(--line);
+}
+.filter-clear{
+  background:transparent;border:0;color:var(--ink-3);cursor:pointer;font-size:11.5px;padding:0;
+}
+.filter-clear:hover{color:var(--accent);text-decoration:underline}
+.filter-count{color:var(--ink-3);font-size:11.5px}
+
 .cases-grid{display:grid;gap:14px}
-.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .12s}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .12s,opacity .18s}
 .case:hover{border-color:var(--ink-4)}
+.case.is-filtered-out{display:none}
 .case-head{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
   width:100%;padding:20px 22px;background:transparent;border:0;cursor:pointer;text-align:left;color:inherit;
@@ -811,7 +910,14 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .case-meta{display:flex;flex-direction:column;gap:2px;min-width:150px}
 .case-company{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 .case-period{font-size:11.5px;color:var(--ink-3)}
-.case-title{font-size:17px;font-weight:600;color:var(--ink)}
+.case-title{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.case-tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.case-tag{
+  font:500 10.5px/1 var(--mono);color:var(--ink-3);
+  background:color-mix(in oklab,var(--panel-hi) 90%,transparent);
+  padding:3px 7px;border-radius:4px;border:1px solid var(--line);
+}
+.case-tag.is-highlighted{background:color-mix(in oklab,var(--accent) 20%,transparent);color:var(--accent);border-color:color-mix(in oklab,var(--accent) 40%,var(--line))}
 .case-chev{color:var(--ink-3);transition:transform .2s}
 .case[open] .case-chev,.case-head[aria-expanded="true"] .case-chev{transform:rotate(180deg);color:var(--accent)}
 .case-body{padding:0 22px 22px;border-top:1px dashed var(--line);padding-top:18px;display:grid;gap:16px}
@@ -822,6 +928,31 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .case-outcome li{position:relative;padding-left:20px;font-size:14px;color:var(--ink-2)}
 .case-outcome li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 .case-tech p{font-size:12.5px}
+
+/* Deep dive */
+.deep-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid var(--line);color:var(--ink);
+  padding:8px 14px;border-radius:999px;font:600 12px/1 var(--sans);cursor:pointer;
+  transition:border-color .15s,color .15s;
+  justify-self:start;margin-top:4px;
+}
+.deep-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.deep-toggle svg{transition:transform .2s}
+.deep-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.deep-toggle[aria-expanded="true"] .deep-toggle-label::before{content:"Hide deep dive · "}
+.deep-toggle[aria-expanded="true"] .deep-toggle-label{color:var(--accent)}
+.deep-toggle[aria-expanded="true"] + .case-deep,
+.case-deep:not([hidden]){display:grid;gap:16px}
+.deep-divider{display:flex;align-items:center;gap:12px;margin:6px 0 0}
+.deep-divider-line{flex:1;height:1px;background:var(--line)}
+.deep-divider-label{color:var(--accent);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+.deep-decisions,.deep-lessons{display:grid;gap:10px}
+.deep-decisions li{position:relative;padding-left:22px;color:var(--ink-2);font-size:14px;line-height:1.6}
+.deep-decisions li::before{content:"◆";position:absolute;left:0;top:2px;color:var(--accent);font-size:12px}
+.deep-decisions li b{color:var(--ink)}
+.deep-lessons li{position:relative;padding-left:22px;color:var(--ink-2);font-size:14px;line-height:1.6}
+.deep-lessons li::before{content:"→";position:absolute;left:0;color:var(--blue);font-weight:700}
 
 /* Skills */
 .skills-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}
@@ -899,23 +1030,93 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .doc-footer a{color:var(--ink-2)}
 .doc-footer .fkey{color:var(--accent)}
 
-/* Print — force classic + simplify */
+/* ===== Print — default (Ctrl/⌘+P): full detail, classic-style ===== */
 @media print{
   body{background:#fff;color:#111}
-  .topbar,.view-switch,.repl-section,.chat-section,.hero-cta,.repl-chips,.chat-chips,.chat-form,.section-hint,.doc-footer{display:none !important}
+  .topbar,.view-switch,.repl-section,.chat-section,.hero-cta,.repl-chips,.chat-chips,.chat-form,.section-hint,.doc-footer,.filters,.deep-toggle,.hero-now .now-dot{display:none !important}
   .container{padding:0;max-width:none}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
+  .case-deep[hidden]{display:grid !important}
   .hero-name{font-size:32px}
   .hero-title{color:#0969da;font-family:sans-serif}
+  .hero-avatar{width:56px;height:56px}
   * {print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+
+/* ===== Print — Executive one-pager mode (triggered by "One-pager PDF" button) ===== */
+@media print{
+  body.print-onepager{background:#fff;color:#111;font-size:9.5pt;line-height:1.32}
+  body.print-onepager .container{padding:0}
+  body.print-onepager .topbar,
+  body.print-onepager .repl-section,
+  body.print-onepager .chat-section,
+  body.print-onepager .timeline-section,
+  body.print-onepager .working-section,
+  body.print-onepager .filters,
+  body.print-onepager .case-body,
+  body.print-onepager .case-deep,
+  body.print-onepager .deep-toggle,
+  body.print-onepager .hero-cta,
+  body.print-onepager .about-body p:nth-of-type(n+3),
+  body.print-onepager .doc-footer,
+  body.print-onepager .section-hint,
+  body.print-onepager .heat-tag:nth-of-type(n+10){display:none !important}
+  body.print-onepager .section-h{margin:8px 0 4px;padding-bottom:4px;border-bottom:1px solid #333}
+  body.print-onepager .section-name{font-size:12pt;color:#111}
+  body.print-onepager .section-num{font-size:8pt;padding:2px 5px}
+  body.print-onepager .hero{padding:0}
+  body.print-onepager .hero-shell{margin-bottom:8px}
+  body.print-onepager .hero-name{font-size:20pt;margin-bottom:2px}
+  body.print-onepager .hero-title{font-size:11pt;color:#0969da;margin-bottom:2px}
+  body.print-onepager .hero-avatar{width:44px;height:44px;box-shadow:none;border-color:#333}
+  body.print-onepager .hero-id-row{gap:12px;margin-bottom:6px}
+  body.print-onepager .hero-tagline{font-size:9pt;margin-bottom:4px}
+  body.print-onepager .hero-now{padding:3px 8px;font-size:8pt;background:#eef7f0;border-color:#333}
+  body.print-onepager .metrics-grid{gap:4px;margin-top:6px}
+  body.print-onepager .metric{padding:6px 8px;background:#fff !important;border:1px solid #ccc !important}
+  body.print-onepager .metric-value{font-size:14pt}
+  body.print-onepager .metric-label{font-size:7.5pt;margin-top:2px}
+  body.print-onepager .about-card{padding:10px 14px}
+  body.print-onepager .about-lead{font-size:10pt;line-height:1.35;margin-bottom:5px}
+  body.print-onepager .about-body p{font-size:9pt;margin-bottom:4px}
+  body.print-onepager .about-quick{margin-top:6px;padding-top:6px;gap:5px}
+  body.print-onepager .about-quick .qi-k{font-size:7pt}
+  body.print-onepager .about-quick .qi-v{font-size:8.5pt}
+  body.print-onepager .cases-grid{gap:5px}
+  body.print-onepager .case{background:#fff !important;border:1px solid #ccc !important}
+  body.print-onepager .case-head{padding:6px 10px;grid-template-columns:auto 1fr;gap:10px}
+  body.print-onepager .case-title{font-size:10pt;margin-bottom:2px}
+  body.print-onepager .case-company{font-size:8pt}
+  body.print-onepager .case-period{font-size:7.5pt}
+  body.print-onepager .case-tag-row{display:none}
+  body.print-onepager .case-chev{display:none}
+  body.print-onepager .skills-grid{grid-template-columns:1fr 1fr;gap:6px}
+  body.print-onepager .skills-radar,body.print-onepager .skills-heatmap{padding:8px}
+  body.print-onepager .skills-radar svg{max-height:180px}
+  body.print-onepager .heat-title{font-size:7.5pt;margin-bottom:5px}
+  body.print-onepager .heat-tag{font-size:7.5pt !important;padding:2px 6px !important}
+  body.print-onepager .heat-yr{font-size:7pt}
+  body.print-onepager .creds-grid{gap:6px}
+  body.print-onepager .creds-cell{padding:8px 12px}
+  body.print-onepager .creds-h{font-size:9pt;margin-bottom:5px}
+  body.print-onepager .edu-card{padding:3px 0}
+  body.print-onepager .edu-title{font-size:8.5pt}
+  body.print-onepager .edu-school,body.print-onepager .edu-period{font-size:7.5pt}
+  body.print-onepager .cert-list li{font-size:8pt;padding-left:16px}
+  body.print-onepager .contact-grid{gap:5px;grid-template-columns:repeat(4,1fr)}
+  body.print-onepager .contact-card{padding:6px 10px}
+  body.print-onepager .contact-label{font-size:7pt}
+  body.print-onepager .contact-val{font-size:8pt}
+  body.print-onepager section{margin-top:10px !important}
+  @page{size:letter portrait;margin:.45in}
 }
 
 /* Reveal-on-scroll animation */
@@ -1039,13 +1240,75 @@ const Timeline = {{
   }}
 }};
 
-// ---- Cases (expand/collapse) ----
+// ---- Cases (expand/collapse + deep dive + filters) ----
 const CASES = {{
+  activeFilters: {{}},  // {{ tech: Set, outcome: Set, scale: Set }}
   toggle(btn){{
     const open = btn.getAttribute('aria-expanded')==='true';
     btn.setAttribute('aria-expanded', open? 'false':'true');
     const body = btn.parentElement.querySelector('.case-body');
     if(body) body.hidden = open;
+  }},
+  toggleDeep(btn){{
+    const open = btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded', open? 'false':'true');
+    const deep = btn.parentElement.querySelector('.case-deep');
+    if(deep) deep.hidden = open;
+    btn.querySelector('.deep-toggle-label').textContent = open ? 'Read the deep dive' : 'Read the deep dive';
+  }},
+  filter(chip){{
+    const group = chip.dataset.group; const val = chip.dataset.value;
+    this.activeFilters[group] ||= new Set();
+    if(this.activeFilters[group].has(val)){{
+      this.activeFilters[group].delete(val); chip.classList.remove('is-on');
+    }} else {{
+      this.activeFilters[group].add(val); chip.classList.add('is-on');
+    }}
+    this.apply();
+  }},
+  clearFilters(){{
+    this.activeFilters = {{}};
+    document.querySelectorAll('.filter-chip.is-on').forEach(c=>c.classList.remove('is-on'));
+    this.apply();
+  }},
+  apply(){{
+    const anyActive = Object.values(this.activeFilters).some(s=>s && s.size);
+    const cases = document.querySelectorAll('.case');
+    let shown = 0;
+    cases.forEach(card=>{{
+      const tags = (card.dataset.tags||'').split(/\\s+/);
+      let match = true;
+      // Every group with active filters requires AT LEAST ONE tag match (OR within group, AND across groups)
+      for(const g of Object.keys(this.activeFilters)){{
+        const set = this.activeFilters[g];
+        if(!set || !set.size) continue;
+        let groupMatch = false;
+        set.forEach(v=>{{ if(tags.includes(v)) groupMatch = true; }});
+        if(!groupMatch){{ match = false; break; }}
+      }}
+      card.classList.toggle('is-filtered-out', !match);
+      // Highlight matching tags
+      card.querySelectorAll('.case-tag').forEach(el=>{{
+        const on = anyActive && [].concat(...Object.values(this.activeFilters).map(s=>[...s])).includes(el.dataset.t);
+        el.classList.toggle('is-highlighted', on);
+      }});
+      if(match) shown++;
+    }});
+    const cnt = document.getElementById('filter-count');
+    if(cnt) cnt.textContent = anyActive ? `${{shown}} of ${{cases.length}} shown` : `${{cases.length}} of ${{cases.length}} shown`;
+  }}
+}};
+
+// ---- Print controller ----
+const PRINT = {{
+  onePager(){{
+    document.body.classList.add('print-onepager');
+    // Give the browser a tick to apply styles before opening the print dialog
+    setTimeout(()=>{{
+      window.print();
+      // Remove the class shortly after the dialog closes (works across most browsers)
+      setTimeout(()=>document.body.classList.remove('print-onepager'), 1500);
+    }}, 60);
   }}
 }};
 

@@ -467,9 +467,40 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .tl-detail-highlights li::before{content:"▸";position:absolute;left:0;top:0;color:var(--accent)}
 
 /* Cases */
+.filters{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:14px 16px;margin-bottom:14px;display:grid;gap:10px;
+}
+.filter-group{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.filter-label{
+  font-size:11px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;font-weight:700;
+  min-width:60px;
+}
+.filter-chips{display:flex;flex-wrap:wrap;gap:5px;flex:1}
+.filter-chip{
+  background:transparent;border:1px solid var(--line);color:var(--ink-2);
+  font:500 11.5px/1 var(--mono);padding:6px 10px;border-radius:999px;cursor:pointer;
+  transition:border-color .15s,color .15s,background .15s;
+}
+.filter-chip:hover{border-color:var(--accent);color:var(--accent)}
+.filter-chip.is-on{
+  background:var(--accent);color:var(--bg);border-color:var(--accent);
+}
+body.view-classic .filter-chip.is-on{color:#fff}
+.filter-actions{
+  display:flex;align-items:center;gap:12px;justify-content:space-between;
+  padding-top:8px;margin-top:2px;border-top:1px dashed var(--line);
+}
+.filter-clear{
+  background:transparent;border:0;color:var(--ink-3);cursor:pointer;font-size:11.5px;padding:0;
+}
+.filter-clear:hover{color:var(--accent);text-decoration:underline}
+.filter-count{color:var(--ink-3);font-size:11.5px}
+
 .cases-grid{display:grid;gap:14px}
-.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .12s}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .12s,opacity .18s}
 .case:hover{border-color:var(--ink-4)}
+.case.is-filtered-out{display:none}
 .case-head{
   display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;
   width:100%;padding:20px 22px;background:transparent;border:0;cursor:pointer;text-align:left;color:inherit;
@@ -477,7 +508,14 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .case-meta{display:flex;flex-direction:column;gap:2px;min-width:150px}
 .case-company{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 .case-period{font-size:11.5px;color:var(--ink-3)}
-.case-title{font-size:17px;font-weight:600;color:var(--ink)}
+.case-title{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.case-tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.case-tag{
+  font:500 10.5px/1 var(--mono);color:var(--ink-3);
+  background:color-mix(in oklab,var(--panel-hi) 90%,transparent);
+  padding:3px 7px;border-radius:4px;border:1px solid var(--line);
+}
+.case-tag.is-highlighted{background:color-mix(in oklab,var(--accent) 20%,transparent);color:var(--accent);border-color:color-mix(in oklab,var(--accent) 40%,var(--line))}
 .case-chev{color:var(--ink-3);transition:transform .2s}
 .case[open] .case-chev,.case-head[aria-expanded="true"] .case-chev{transform:rotate(180deg);color:var(--accent)}
 .case-body{padding:0 22px 22px;border-top:1px dashed var(--line);padding-top:18px;display:grid;gap:16px}
@@ -488,6 +526,31 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .case-outcome li{position:relative;padding-left:20px;font-size:14px;color:var(--ink-2)}
 .case-outcome li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
 .case-tech p{font-size:12.5px}
+
+/* Deep dive */
+.deep-toggle{
+  display:inline-flex;align-items:center;gap:6px;
+  background:transparent;border:1px solid var(--line);color:var(--ink);
+  padding:8px 14px;border-radius:999px;font:600 12px/1 var(--sans);cursor:pointer;
+  transition:border-color .15s,color .15s;
+  justify-self:start;margin-top:4px;
+}
+.deep-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.deep-toggle svg{transition:transform .2s}
+.deep-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.deep-toggle[aria-expanded="true"] .deep-toggle-label::before{content:"Hide deep dive · "}
+.deep-toggle[aria-expanded="true"] .deep-toggle-label{color:var(--accent)}
+.deep-toggle[aria-expanded="true"] + .case-deep,
+.case-deep:not([hidden]){display:grid;gap:16px}
+.deep-divider{display:flex;align-items:center;gap:12px;margin:6px 0 0}
+.deep-divider-line{flex:1;height:1px;background:var(--line)}
+.deep-divider-label{color:var(--accent);font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700}
+.deep-decisions,.deep-lessons{display:grid;gap:10px}
+.deep-decisions li{position:relative;padding-left:22px;color:var(--ink-2);font-size:14px;line-height:1.6}
+.deep-decisions li::before{content:"◆";position:absolute;left:0;top:2px;color:var(--accent);font-size:12px}
+.deep-decisions li b{color:var(--ink)}
+.deep-lessons li{position:relative;padding-left:22px;color:var(--ink-2);font-size:14px;line-height:1.6}
+.deep-lessons li::before{content:"→";position:absolute;left:0;color:var(--blue);font-weight:700}
 
 /* Skills */
 .skills-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}
@@ -565,23 +628,93 @@ body.view-classic .tl-bar.is-active{color:#fff}
 .doc-footer a{color:var(--ink-2)}
 .doc-footer .fkey{color:var(--accent)}
 
-/* Print — force classic + simplify */
+/* ===== Print — default (Ctrl/⌘+P): full detail, classic-style ===== */
 @media print{
   body{background:#fff;color:#111}
-  .topbar,.view-switch,.repl-section,.chat-section,.hero-cta,.repl-chips,.chat-chips,.chat-form,.section-hint,.doc-footer{display:none !important}
+  .topbar,.view-switch,.repl-section,.chat-section,.hero-cta,.repl-chips,.chat-chips,.chat-form,.section-hint,.doc-footer,.filters,.deep-toggle,.hero-now .now-dot{display:none !important}
   .container{padding:0;max-width:none}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
+  .case-deep[hidden]{display:grid !important}
   .hero-name{font-size:32px}
   .hero-title{color:#0969da;font-family:sans-serif}
+  .hero-avatar{width:56px;height:56px}
   * {print-color-adjust:exact;-webkit-print-color-adjust:exact}
+}
+
+/* ===== Print — Executive one-pager mode (triggered by "One-pager PDF" button) ===== */
+@media print{
+  body.print-onepager{background:#fff;color:#111;font-size:9.5pt;line-height:1.32}
+  body.print-onepager .container{padding:0}
+  body.print-onepager .topbar,
+  body.print-onepager .repl-section,
+  body.print-onepager .chat-section,
+  body.print-onepager .timeline-section,
+  body.print-onepager .working-section,
+  body.print-onepager .filters,
+  body.print-onepager .case-body,
+  body.print-onepager .case-deep,
+  body.print-onepager .deep-toggle,
+  body.print-onepager .hero-cta,
+  body.print-onepager .about-body p:nth-of-type(n+3),
+  body.print-onepager .doc-footer,
+  body.print-onepager .section-hint,
+  body.print-onepager .heat-tag:nth-of-type(n+10){display:none !important}
+  body.print-onepager .section-h{margin:8px 0 4px;padding-bottom:4px;border-bottom:1px solid #333}
+  body.print-onepager .section-name{font-size:12pt;color:#111}
+  body.print-onepager .section-num{font-size:8pt;padding:2px 5px}
+  body.print-onepager .hero{padding:0}
+  body.print-onepager .hero-shell{margin-bottom:8px}
+  body.print-onepager .hero-name{font-size:20pt;margin-bottom:2px}
+  body.print-onepager .hero-title{font-size:11pt;color:#0969da;margin-bottom:2px}
+  body.print-onepager .hero-avatar{width:44px;height:44px;box-shadow:none;border-color:#333}
+  body.print-onepager .hero-id-row{gap:12px;margin-bottom:6px}
+  body.print-onepager .hero-tagline{font-size:9pt;margin-bottom:4px}
+  body.print-onepager .hero-now{padding:3px 8px;font-size:8pt;background:#eef7f0;border-color:#333}
+  body.print-onepager .metrics-grid{gap:4px;margin-top:6px}
+  body.print-onepager .metric{padding:6px 8px;background:#fff !important;border:1px solid #ccc !important}
+  body.print-onepager .metric-value{font-size:14pt}
+  body.print-onepager .metric-label{font-size:7.5pt;margin-top:2px}
+  body.print-onepager .about-card{padding:10px 14px}
+  body.print-onepager .about-lead{font-size:10pt;line-height:1.35;margin-bottom:5px}
+  body.print-onepager .about-body p{font-size:9pt;margin-bottom:4px}
+  body.print-onepager .about-quick{margin-top:6px;padding-top:6px;gap:5px}
+  body.print-onepager .about-quick .qi-k{font-size:7pt}
+  body.print-onepager .about-quick .qi-v{font-size:8.5pt}
+  body.print-onepager .cases-grid{gap:5px}
+  body.print-onepager .case{background:#fff !important;border:1px solid #ccc !important}
+  body.print-onepager .case-head{padding:6px 10px;grid-template-columns:auto 1fr;gap:10px}
+  body.print-onepager .case-title{font-size:10pt;margin-bottom:2px}
+  body.print-onepager .case-company{font-size:8pt}
+  body.print-onepager .case-period{font-size:7.5pt}
+  body.print-onepager .case-tag-row{display:none}
+  body.print-onepager .case-chev{display:none}
+  body.print-onepager .skills-grid{grid-template-columns:1fr 1fr;gap:6px}
+  body.print-onepager .skills-radar,body.print-onepager .skills-heatmap{padding:8px}
+  body.print-onepager .skills-radar svg{max-height:180px}
+  body.print-onepager .heat-title{font-size:7.5pt;margin-bottom:5px}
+  body.print-onepager .heat-tag{font-size:7.5pt !important;padding:2px 6px !important}
+  body.print-onepager .heat-yr{font-size:7pt}
+  body.print-onepager .creds-grid{gap:6px}
+  body.print-onepager .creds-cell{padding:8px 12px}
+  body.print-onepager .creds-h{font-size:9pt;margin-bottom:5px}
+  body.print-onepager .edu-card{padding:3px 0}
+  body.print-onepager .edu-title{font-size:8.5pt}
+  body.print-onepager .edu-school,body.print-onepager .edu-period{font-size:7.5pt}
+  body.print-onepager .cert-list li{font-size:8pt;padding-left:16px}
+  body.print-onepager .contact-grid{gap:5px;grid-template-columns:repeat(4,1fr)}
+  body.print-onepager .contact-card{padding:6px 10px}
+  body.print-onepager .contact-label{font-size:7pt}
+  body.print-onepager .contact-val{font-size:8pt}
+  body.print-onepager section{margin-top:10px !important}
+  @page{size:letter portrait;margin:.45in}
 }
 
 /* Reveal-on-scroll animation */
@@ -662,6 +795,10 @@ body.view-classic .tl-bar.is-active{color:#fff}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Email
         </a>
+        <button class="btn btn-ghost" onclick="PRINT.onePager()" title="Print an executive one-pager (Ctrl/⌘+P prints a full detailed version)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          One-pager PDF
+        </button>
       </div>
     </div>
     <div class="metrics-grid">
@@ -955,17 +1092,39 @@ body.view-classic .tl-bar.is-active{color:#fff}
     <h2 class="section-h">
       <span class="section-num">04</span>
       <span class="section-name">Flagship Programs</span>
-      <span class="section-hint">6 case studies · click to expand</span>
+      <span class="section-hint">6 case studies · filter, expand, read the deep dive</span>
     </h2>
+    <div class="filters">
+      
+        <div class="filter-group">
+          <span class="filter-label mono">Tech</span>
+          <div class="filter-chips"><button type="button" class="filter-chip" data-group="tech" data-value="cloud" onclick="CASES.filter(this)">Cloud</button><button type="button" class="filter-chip" data-group="tech" data-value="aws" onclick="CASES.filter(this)">AWS</button><button type="button" class="filter-chip" data-group="tech" data-value="kubernetes" onclick="CASES.filter(this)">Kubernetes</button><button type="button" class="filter-chip" data-group="tech" data-value="microservices" onclick="CASES.filter(this)">Microservices</button><button type="button" class="filter-chip" data-group="tech" data-value="composable" onclick="CASES.filter(this)">Composable / Headless</button><button type="button" class="filter-chip" data-group="tech" data-value="genai" onclick="CASES.filter(this)">GenAI / LLM</button><button type="button" class="filter-chip" data-group="tech" data-value="data-ml" onclick="CASES.filter(this)">Data · ML</button><button type="button" class="filter-chip" data-group="tech" data-value="kafka" onclick="CASES.filter(this)">Kafka / Streaming</button><button type="button" class="filter-chip" data-group="tech" data-value="security" onclick="CASES.filter(this)">Identity · Security</button><button type="button" class="filter-chip" data-group="tech" data-value="governance" onclick="CASES.filter(this)">Governance</button></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label mono">Outcome</span>
+          <div class="filter-chips"><button type="button" class="filter-chip" data-group="outcome" data-value="revenue" onclick="CASES.filter(this)">Revenue</button><button type="button" class="filter-chip" data-group="outcome" data-value="cost" onclick="CASES.filter(this)">Cost / Savings</button><button type="button" class="filter-chip" data-group="outcome" data-value="quality" onclick="CASES.filter(this)">Quality · Reliability</button><button type="button" class="filter-chip" data-group="outcome" data-value="strategic" onclick="CASES.filter(this)">Strategic</button></div>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label mono">Scale</span>
+          <div class="filter-chips"><button type="button" class="filter-chip" data-group="scale" data-value="global" onclick="CASES.filter(this)">Global (multi-country)</button><button type="button" class="filter-chip" data-group="scale" data-value="multi-brand" onclick="CASES.filter(this)">Multi-brand / Multi-channel</button></div>
+        </div>
+      <div class="filter-actions">
+        <button type="button" class="filter-clear mono" onclick="CASES.clearFilters()">clear filters</button>
+        <span class="filter-count mono" id="filter-count">6 of 6 shown</span>
+      </div>
+    </div>
     <div class="cases-grid">
       
-      <article class="case" data-case="nike-merch">
+      <article class="case" data-case="nike-merch" data-tags="cloud data-ml governance strategic global">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="true">
           <div class="case-meta">
             <div class="case-company mono">Nike</div>
             <div class="case-period mono">03/2026 – Present</div>
           </div>
-          <h3 class="case-title">Global Merchandising Technology — Consumer Product & Innovation</h3>
+          <div>
+            <h3 class="case-title">Global Merchandising Technology — Consumer Product & Innovation</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="cloud">cloud</span><span class="case-tag" data-t="data-ml">data-ml</span><span class="case-tag" data-t="governance">governance</span><span class="case-tag" data-t="strategic">strategic</span><span class="case-tag" data-t="global">global</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -987,15 +1146,38 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Global Merchandising platforms · Product line planning · Assortment & seasonal-expression systems · Cloud · Data & Analytics · Machine Learning · Demand Forecasting · Agile/TPM governance</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>Global Merchandising at Nike sits at the intersection of one of the largest consumer product organizations on the planet and its technology stack — determining what gets designed, produced, allocated, and sold across seasons, regions, and channels. The systems behind those decisions span product line planning, assortment optimization, seasonal expression, inventory allocation, and demand forecasting — each with its own data pipelines, cross-functional dependencies, and downstream commerce impact.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>End-to-end architecture ownership</b> — chose to own the full technical roadmap for the CP&I Merchandising portfolio rather than delegate to workstream-specific owners. Trade-off: heavier personal coordination load vs. tight strategic coherence across sub-programs.</li><li><b>Governance before delivery velocity</b> — investing early cycles in RACI, dependency mapping, and risk registers on multi-million-dollar initiatives, even at the cost of some short-term throughput. Trade-off: 4–6 week slower start vs. avoiding the churn that kills scaled programs later.</li><li><b>ML integration on plan</b> — data + analytics + ML capabilities on the roadmap for inventory efficiency, demand forecasting, and consumer-right allocation. Trade-off: complexity of getting model-serving right vs. compounded merchandising accuracy gains.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>Milestones will populate here as programs land — this is a Q1 2026 role and the story is still being written.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
-      <article class="case" data-case="lulu-b2b">
+      <article class="case" data-case="lulu-b2b" data-tags="composable genai aws kafka revenue quality global">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
           <div class="case-meta">
             <div class="case-company mono">Lululemon</div>
             <div class="case-period mono">07/2023 – 02/2026</div>
           </div>
-          <h3 class="case-title">B2B e-Commerce Platform + Global POS Infrastructure</h3>
+          <div>
+            <h3 class="case-title">B2B e-Commerce Platform + Global POS Infrastructure</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="composable">composable</span><span class="case-tag" data-t="genai">genai</span><span class="case-tag" data-t="aws">aws</span><span class="case-tag" data-t="revenue">revenue</span><span class="case-tag" data-t="global">global</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -1017,15 +1199,38 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Commercetools · Frontastic · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Node · APIGEE · CyberSource · Vertex · Amazon Bedrock · LangChain · Datadog · Splunk · Python</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>Two parallel workstreams under one Principal-TPM program: (1) a $5M+ B2B commerce transformation moving Lululemon's B2B business off a legacy monolith onto a composable, API-first, headless architecture on Commercetools + Frontastic; and (2) a global POS Infrastructure program spanning 1000+ stores across NA / EMEA / APAC / CA — Oracle Xstore & Xcenter version upgrades, security patching, and vulnerability remediation on a quarterly cadence.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>Composable over monolithic</b> — chose Commercetools instead of customizing the legacy platform. Trade-off: higher upfront integration effort vs. dramatically better future flexibility on channel/vendor swaps.</li><li><b>GenAI Bulk Order Assistant on Bedrock + LangChain</b> — used Amazon Bedrock foundation models rather than a fine-tuned custom model. Trade-off: less model control vs. faster time-to-value and zero ML-ops burden.</li><li><b>Governance-first rollout</b> — RACI + change-request process established before line-1 of code. Trade-off: 4–6 week upfront investment vs. avoiding the churn that kills most enterprise programs downstream.</li><li><b>Quarterly upgrade cadence for POS</b> — predictable rhythm over event-driven. Trade-off: some peak-window maintenance vs. compounded regional-coordination cost of ad-hoc upgrades.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>Executive sponsorship + a real governance model beats every other program tool combined.</li><li>GenAI 'wow' features (Bulk Order Assistant) accelerated adoption of the underlying platform more than any pure-migration story could have.</li><li>Vulnerability remediation across 1000+ endpoints needs per-region cadence — not a single global timeline.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
-      <article class="case" data-case="nord-ciam">
+      <article class="case" data-case="nord-ciam" data-tags="microservices aws security quality cost multi-brand">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
           <div class="case-meta">
             <div class="case-company mono">Nordstrom</div>
             <div class="case-period mono">07/2021 – 05/2023</div>
           </div>
-          <h3 class="case-title">Customer Identity & Access Management</h3>
+          <div>
+            <h3 class="case-title">Customer Identity & Access Management</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="microservices">microservices</span><span class="case-tag" data-t="aws">aws</span><span class="case-tag" data-t="security">security</span><span class="case-tag" data-t="quality">quality</span><span class="case-tag" data-t="multi-brand">multi-brand</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -1047,15 +1252,38 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Spring-Boot microservices · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Go · Splunk · New-Relic · Tableau · Optimizely · Shape</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>Customer Identity & Access Management across four brands — Nordstrom, Nordstrom Rack, Store, Credit. Prior state: fragmented credential stores, inconsistent fraud posture, and no unified customer view across brand boundaries. Target state: cross-brand credential unification with SOC 2 + ISO 27001 alignment and material fraud reduction.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>Three hats — Product Owner, Scrum Master, and TPM</b> — instead of hiring specialists. Trade-off: harder personal load vs. faster stakeholder alignment in a matrixed org.</li><li><b>Spring-Boot microservices on EKS</b> instead of serverless. Trade-off: heavier ops footprint vs. team familiarity and easier debugging in a security-critical domain.</li><li><b>Cross-brand credential store as a shared platform</b> rather than merging brand stores. Trade-off: schema-harmonization pain vs. clean architectural boundaries.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>35% ticket reduction came from removing customer-journey friction — not from ML. Sometimes the answer is fewer screens, not smarter software.</li><li>SOC 2 and ISO 27001 alignment is a byproduct of governance discipline, not a separate workstream. Build for compliance later and you'll build it twice.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
-      <article class="case" data-case="amzn-vap">
+      <article class="case" data-case="amzn-vap" data-tags="microservices aws revenue cost global">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
           <div class="case-meta">
             <div class="case-company mono">Amazon.com</div>
             <div class="case-period mono">03/2019 – 07/2021</div>
           </div>
-          <h3 class="case-title">Volume-Aware Pricing (VAP) — Amazon B2B</h3>
+          <div>
+            <h3 class="case-title">Volume-Aware Pricing (VAP) — Amazon B2B</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="microservices">microservices</span><span class="case-tag" data-t="aws">aws</span><span class="case-tag" data-t="revenue">revenue</span><span class="case-tag" data-t="global">global</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -1077,15 +1305,38 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Spring-Boot microservices · AWS (SNS, DynamoDB, Lambda, S3, API Gateway) · React</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>Amazon Business needed to offer competitive small-quantity pricing to B2B customers WITHOUT rebate or long-term-commitment programs. Solution: Volume-Aware Pricing (VAP) — a real-time engine computing discount tiers based on a customer's trailing-12-month order history. Rolled out across 8 geographies with regional payment validation, currency, tax, and legal considerations.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>Real-time computation over batch precomputation</b>. Trade-off: higher runtime cost vs. dramatically better customer experience and zero stale-pricing risk.</li><li><b>Phased 8-country launch</b> (US first, then EU cluster, then JP, CA). Trade-off: longer overall timeline vs. lower blast radius and per-region compliance headroom.</li><li><b>Held launch to fix a $40M/yr discount-stacking edge case</b> found at launch-blocker review. Trade-off: schedule slip vs. avoiding a very public revenue leak.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>The best launch-blocker discovery is the one you find yourself — not the one the exec review finds for you.</li><li>8-country rollouts fail on tax, currency, and legal — not on engineering. Budget 40% of the timeline for the non-code work.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
-      <article class="case" data-case="tmo-dcp">
+      <article class="case" data-case="tmo-dcp" data-tags="microservices aws kubernetes composable quality revenue multi-brand">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
           <div class="case-meta">
             <div class="case-company mono">T-Mobile</div>
             <div class="case-period mono">06/2016 – 03/2019</div>
           </div>
-          <h3 class="case-title">Digital Commerce Platform (DCP) — Headless Migration</h3>
+          <div>
+            <h3 class="case-title">Digital Commerce Platform (DCP) — Headless Migration</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="microservices">microservices</span><span class="case-tag" data-t="aws">aws</span><span class="case-tag" data-t="kubernetes">kubernetes</span><span class="case-tag" data-t="quality">quality</span><span class="case-tag" data-t="multi-brand">multi-brand</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -1107,15 +1358,38 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Spring-Boot microservices · APIGEE · AWS · Oracle · Splunk · AppDynamics · Apache Ignite · Elasticsearch · ActiveMQ · DynamoDB · Tableau · Kubernetes</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>T-Mobile.com and My.T-Mobile.com ran on a monolithic e-commerce stack that couldn't scale to modern experimentation or personalization needs. Digital Commerce Platform (DCP) migrated the web channels to a headless microservices architecture on AWS — powered by APIGEE + Elasticsearch + DynamoDB + Apache Ignite. Established DevOps culture (Shift-Left/Right, on-call, observability) alongside the technical migration.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>Headless-first from day one</b> — not migration-then-headless. Trade-off: harder initial coordination vs. no legacy debt carried forward.</li><li><b>APIGEE as the API management layer</b> instead of API Gateway direct. Trade-off: extra integration cost vs. enterprise-wide policy and rate-limit consistency across channels.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>Cart-performance improvements (~700ms) came from Elasticsearch tuning and connection pooling — not architectural changes. Sometimes the payoff is in the observability, not the redesign.</li><li>DevOps culture change lagged the technical migration by ~6 months. You can't ship culture — teams have to adopt it in cycles.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
-      <article class="case" data-case="trimble-edc">
+      <article class="case" data-case="trimble-edc" data-tags="microservices aws revenue global">
         <button class="case-head" onclick="CASES.toggle(this)" aria-expanded="false">
           <div class="case-meta">
             <div class="case-company mono">Trimble</div>
             <div class="case-period mono">10/2014 – 06/2016</div>
           </div>
-          <h3 class="case-title">Enterprise Digital e-Commerce Platform</h3>
+          <div>
+            <h3 class="case-title">Enterprise Digital e-Commerce Platform</h3>
+            <div class="case-tag-row"><span class="case-tag" data-t="microservices">microservices</span><span class="case-tag" data-t="aws">aws</span><span class="case-tag" data-t="revenue">revenue</span><span class="case-tag" data-t="global">global</span></div>
+          </div>
           <span class="case-chev" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
@@ -1137,6 +1411,26 @@ body.view-classic .tl-bar.is-active{color:#fff}
             <div class="case-label">Tech</div>
             <p class="mono muted">Spring-Boot · Cortex · Aria · Safe-Net · WSO2 · CyberSource · Vertex · AWS EC2 · Oracle RDS · S3 · Cassandra</p>
           </div>
+          
+          <div class="case-deep" hidden>
+            <div class="deep-divider"><span class="deep-divider-line"></span><span class="deep-divider-label mono">deep dive</span><span class="deep-divider-line"></span></div>
+            <div class="case-block">
+              <div class="case-label">Context</div>
+              <p>Trimble needed a unified enterprise commerce platform to launch SaaS products globally across multiple business units. Delivered on Cortex 1.13 (commerce engine) + Aria (billing & subscription) + Safe-Net (entitlement) + WSO2 (ESB / API-M / Identity), integrated with CyberSource for payments and Vertex for tax.</p>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Key Decisions & Trade-offs</div>
+              <ul class="deep-decisions"><li><b>Elastic Path (Cortex) over Commercetools</b> — Commercetools was less mature at the time. Trade-off: more custom integration work vs. proven track record in complex B2B subscription commerce.</li></ul>
+            </div>
+            <div class="case-block">
+              <div class="case-label">Lessons Learned</div>
+              <ul class="deep-lessons"><li>Every SaaS commerce stack needs tax integration earlier than teams think — Vertex integration should have started in month 2, not month 6.</li></ul>
+            </div>
+          </div>
+          <button type="button" class="deep-toggle" onclick="CASES.toggleDeep(this)" aria-expanded="false">
+            <span class="deep-toggle-label">Read the deep dive</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
       </article>
     </div>
@@ -1380,13 +1674,75 @@ const Timeline = {
   }
 };
 
-// ---- Cases (expand/collapse) ----
+// ---- Cases (expand/collapse + deep dive + filters) ----
 const CASES = {
+  activeFilters: {},  // { tech: Set, outcome: Set, scale: Set }
   toggle(btn){
     const open = btn.getAttribute('aria-expanded')==='true';
     btn.setAttribute('aria-expanded', open? 'false':'true');
     const body = btn.parentElement.querySelector('.case-body');
     if(body) body.hidden = open;
+  },
+  toggleDeep(btn){
+    const open = btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded', open? 'false':'true');
+    const deep = btn.parentElement.querySelector('.case-deep');
+    if(deep) deep.hidden = open;
+    btn.querySelector('.deep-toggle-label').textContent = open ? 'Read the deep dive' : 'Read the deep dive';
+  },
+  filter(chip){
+    const group = chip.dataset.group; const val = chip.dataset.value;
+    this.activeFilters[group] ||= new Set();
+    if(this.activeFilters[group].has(val)){
+      this.activeFilters[group].delete(val); chip.classList.remove('is-on');
+    } else {
+      this.activeFilters[group].add(val); chip.classList.add('is-on');
+    }
+    this.apply();
+  },
+  clearFilters(){
+    this.activeFilters = {};
+    document.querySelectorAll('.filter-chip.is-on').forEach(c=>c.classList.remove('is-on'));
+    this.apply();
+  },
+  apply(){
+    const anyActive = Object.values(this.activeFilters).some(s=>s && s.size);
+    const cases = document.querySelectorAll('.case');
+    let shown = 0;
+    cases.forEach(card=>{
+      const tags = (card.dataset.tags||'').split(/\s+/);
+      let match = true;
+      // Every group with active filters requires AT LEAST ONE tag match (OR within group, AND across groups)
+      for(const g of Object.keys(this.activeFilters)){
+        const set = this.activeFilters[g];
+        if(!set || !set.size) continue;
+        let groupMatch = false;
+        set.forEach(v=>{ if(tags.includes(v)) groupMatch = true; });
+        if(!groupMatch){ match = false; break; }
+      }
+      card.classList.toggle('is-filtered-out', !match);
+      // Highlight matching tags
+      card.querySelectorAll('.case-tag').forEach(el=>{
+        const on = anyActive && [].concat(...Object.values(this.activeFilters).map(s=>[...s])).includes(el.dataset.t);
+        el.classList.toggle('is-highlighted', on);
+      });
+      if(match) shown++;
+    });
+    const cnt = document.getElementById('filter-count');
+    if(cnt) cnt.textContent = anyActive ? `${shown} of ${cases.length} shown` : `${cases.length} of ${cases.length} shown`;
+  }
+};
+
+// ---- Print controller ----
+const PRINT = {
+  onePager(){
+    document.body.classList.add('print-onepager');
+    // Give the browser a tick to apply styles before opening the print dialog
+    setTimeout(()=>{
+      window.print();
+      // Remove the class shortly after the dialog closes (works across most browsers)
+      setTimeout(()=>document.body.classList.remove('print-onepager'), 1500);
+    }, 60);
   }
 };
 

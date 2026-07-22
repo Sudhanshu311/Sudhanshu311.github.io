@@ -176,6 +176,22 @@ PROGRAMS = [
             "In flight — outcomes will be updated as programs land",
         ],
         "tech": "Global Merchandising platforms · Product line planning · Assortment & seasonal-expression systems · Cloud · Data & Analytics · Machine Learning · Demand Forecasting · Agile/TPM governance",
+        "tags": {
+            "tech":    ["cloud", "data-ml", "governance"],
+            "outcome": ["strategic"],
+            "scale":   ["global"],
+        },
+        "deep_dive": {
+            "context": "Global Merchandising at Nike sits at the intersection of one of the largest consumer product organizations on the planet and its technology stack — determining what gets designed, produced, allocated, and sold across seasons, regions, and channels. The systems behind those decisions span product line planning, assortment optimization, seasonal expression, inventory allocation, and demand forecasting — each with its own data pipelines, cross-functional dependencies, and downstream commerce impact.",
+            "decisions": [
+                "<b>End-to-end architecture ownership</b> — chose to own the full technical roadmap for the CP&I Merchandising portfolio rather than delegate to workstream-specific owners. Trade-off: heavier personal coordination load vs. tight strategic coherence across sub-programs.",
+                "<b>Governance before delivery velocity</b> — investing early cycles in RACI, dependency mapping, and risk registers on multi-million-dollar initiatives, even at the cost of some short-term throughput. Trade-off: 4–6 week slower start vs. avoiding the churn that kills scaled programs later.",
+                "<b>ML integration on plan</b> — data + analytics + ML capabilities on the roadmap for inventory efficiency, demand forecasting, and consumer-right allocation. Trade-off: complexity of getting model-serving right vs. compounded merchandising accuracy gains.",
+            ],
+            "lessons": [
+                "Milestones will populate here as programs land — this is a Q1 2026 role and the story is still being written.",
+            ],
+        },
     },
     {
         "id": "lulu-b2b",
@@ -192,6 +208,25 @@ PROGRAMS = [
             "99.99% availability, zero revenue impact on legacy → next-gen migration",
         ],
         "tech": "Commercetools · Frontastic · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Node · APIGEE · CyberSource · Vertex · Amazon Bedrock · LangChain · Datadog · Splunk · Python",
+        "tags": {
+            "tech":    ["composable", "genai", "aws", "kafka"],
+            "outcome": ["revenue", "quality"],
+            "scale":   ["global"],
+        },
+        "deep_dive": {
+            "context": "Two parallel workstreams under one Principal-TPM program: (1) a $5M+ B2B commerce transformation moving Lululemon's B2B business off a legacy monolith onto a composable, API-first, headless architecture on Commercetools + Frontastic; and (2) a global POS Infrastructure program spanning 1000+ stores across NA / EMEA / APAC / CA — Oracle Xstore & Xcenter version upgrades, security patching, and vulnerability remediation on a quarterly cadence.",
+            "decisions": [
+                "<b>Composable over monolithic</b> — chose Commercetools instead of customizing the legacy platform. Trade-off: higher upfront integration effort vs. dramatically better future flexibility on channel/vendor swaps.",
+                "<b>GenAI Bulk Order Assistant on Bedrock + LangChain</b> — used Amazon Bedrock foundation models rather than a fine-tuned custom model. Trade-off: less model control vs. faster time-to-value and zero ML-ops burden.",
+                "<b>Governance-first rollout</b> — RACI + change-request process established before line-1 of code. Trade-off: 4–6 week upfront investment vs. avoiding the churn that kills most enterprise programs downstream.",
+                "<b>Quarterly upgrade cadence for POS</b> — predictable rhythm over event-driven. Trade-off: some peak-window maintenance vs. compounded regional-coordination cost of ad-hoc upgrades.",
+            ],
+            "lessons": [
+                "Executive sponsorship + a real governance model beats every other program tool combined.",
+                "GenAI 'wow' features (Bulk Order Assistant) accelerated adoption of the underlying platform more than any pure-migration story could have.",
+                "Vulnerability remediation across 1000+ endpoints needs per-region cadence — not a single global timeline.",
+            ],
+        },
     },
     {
         "id": "nord-ciam",
@@ -208,6 +243,23 @@ PROGRAMS = [
             "95% of program milestones met",
         ],
         "tech": "Spring-Boot microservices · AWS (DynamoDB, Lambda, S3, API Gateway, EKS) · Kafka · React · Go · Splunk · New-Relic · Tableau · Optimizely · Shape",
+        "tags": {
+            "tech":    ["microservices", "aws", "security"],
+            "outcome": ["quality", "cost"],
+            "scale":   ["multi-brand"],
+        },
+        "deep_dive": {
+            "context": "Customer Identity & Access Management across four brands — Nordstrom, Nordstrom Rack, Store, Credit. Prior state: fragmented credential stores, inconsistent fraud posture, and no unified customer view across brand boundaries. Target state: cross-brand credential unification with SOC 2 + ISO 27001 alignment and material fraud reduction.",
+            "decisions": [
+                "<b>Three hats — Product Owner, Scrum Master, and TPM</b> — instead of hiring specialists. Trade-off: harder personal load vs. faster stakeholder alignment in a matrixed org.",
+                "<b>Spring-Boot microservices on EKS</b> instead of serverless. Trade-off: heavier ops footprint vs. team familiarity and easier debugging in a security-critical domain.",
+                "<b>Cross-brand credential store as a shared platform</b> rather than merging brand stores. Trade-off: schema-harmonization pain vs. clean architectural boundaries.",
+            ],
+            "lessons": [
+                "35% ticket reduction came from removing customer-journey friction — not from ML. Sometimes the answer is fewer screens, not smarter software.",
+                "SOC 2 and ISO 27001 alignment is a byproduct of governance discipline, not a separate workstream. Build for compliance later and you'll build it twice.",
+            ],
+        },
     },
     {
         "id": "amzn-vap",
@@ -223,6 +275,23 @@ PROGRAMS = [
             "100% on-time milestone delivery",
         ],
         "tech": "Spring-Boot microservices · AWS (SNS, DynamoDB, Lambda, S3, API Gateway) · React",
+        "tags": {
+            "tech":    ["microservices", "aws"],
+            "outcome": ["revenue", "cost"],
+            "scale":   ["global"],
+        },
+        "deep_dive": {
+            "context": "Amazon Business needed to offer competitive small-quantity pricing to B2B customers WITHOUT rebate or long-term-commitment programs. Solution: Volume-Aware Pricing (VAP) — a real-time engine computing discount tiers based on a customer's trailing-12-month order history. Rolled out across 8 geographies with regional payment validation, currency, tax, and legal considerations.",
+            "decisions": [
+                "<b>Real-time computation over batch precomputation</b>. Trade-off: higher runtime cost vs. dramatically better customer experience and zero stale-pricing risk.",
+                "<b>Phased 8-country launch</b> (US first, then EU cluster, then JP, CA). Trade-off: longer overall timeline vs. lower blast radius and per-region compliance headroom.",
+                "<b>Held launch to fix a $40M/yr discount-stacking edge case</b> found at launch-blocker review. Trade-off: schedule slip vs. avoiding a very public revenue leak.",
+            ],
+            "lessons": [
+                "The best launch-blocker discovery is the one you find yourself — not the one the exec review finds for you.",
+                "8-country rollouts fail on tax, currency, and legal — not on engineering. Budget 40% of the timeline for the non-code work.",
+            ],
+        },
     },
     {
         "id": "tmo-dcp",
@@ -237,6 +306,22 @@ PROGRAMS = [
             "DevOps + agile maturity established across the org",
         ],
         "tech": "Spring-Boot microservices · APIGEE · AWS · Oracle · Splunk · AppDynamics · Apache Ignite · Elasticsearch · ActiveMQ · DynamoDB · Tableau · Kubernetes",
+        "tags": {
+            "tech":    ["microservices", "aws", "kubernetes", "composable"],
+            "outcome": ["quality", "revenue"],
+            "scale":   ["multi-brand"],
+        },
+        "deep_dive": {
+            "context": "T-Mobile.com and My.T-Mobile.com ran on a monolithic e-commerce stack that couldn't scale to modern experimentation or personalization needs. Digital Commerce Platform (DCP) migrated the web channels to a headless microservices architecture on AWS — powered by APIGEE + Elasticsearch + DynamoDB + Apache Ignite. Established DevOps culture (Shift-Left/Right, on-call, observability) alongside the technical migration.",
+            "decisions": [
+                "<b>Headless-first from day one</b> — not migration-then-headless. Trade-off: harder initial coordination vs. no legacy debt carried forward.",
+                "<b>APIGEE as the API management layer</b> instead of API Gateway direct. Trade-off: extra integration cost vs. enterprise-wide policy and rate-limit consistency across channels.",
+            ],
+            "lessons": [
+                "Cart-performance improvements (~700ms) came from Elasticsearch tuning and connection pooling — not architectural changes. Sometimes the payoff is in the observability, not the redesign.",
+                "DevOps culture change lagged the technical migration by ~6 months. You can't ship culture — teams have to adopt it in cycles.",
+            ],
+        },
     },
     {
         "id": "trimble-edc",
@@ -250,6 +335,58 @@ PROGRAMS = [
             "Multi-region billing + entitlement + tax integration operational",
         ],
         "tech": "Spring-Boot · Cortex · Aria · Safe-Net · WSO2 · CyberSource · Vertex · AWS EC2 · Oracle RDS · S3 · Cassandra",
+        "tags": {
+            "tech":    ["microservices", "aws"],
+            "outcome": ["revenue"],
+            "scale":   ["global"],
+        },
+        "deep_dive": {
+            "context": "Trimble needed a unified enterprise commerce platform to launch SaaS products globally across multiple business units. Delivered on Cortex 1.13 (commerce engine) + Aria (billing & subscription) + Safe-Net (entitlement) + WSO2 (ESB / API-M / Identity), integrated with CyberSource for payments and Vertex for tax.",
+            "decisions": [
+                "<b>Elastic Path (Cortex) over Commercetools</b> — Commercetools was less mature at the time. Trade-off: more custom integration work vs. proven track record in complex B2B subscription commerce.",
+            ],
+            "lessons": [
+                "Every SaaS commerce stack needs tax integration earlier than teams think — Vertex integration should have started in month 2, not month 6.",
+            ],
+        },
+    },
+]
+
+# Filter definitions used by the UI. Keep values aligned with program tags above.
+FILTER_GROUPS = [
+    {
+        "id": "tech",
+        "label": "Tech",
+        "options": [
+            ("cloud",         "Cloud"),
+            ("aws",           "AWS"),
+            ("kubernetes",    "Kubernetes"),
+            ("microservices", "Microservices"),
+            ("composable",    "Composable / Headless"),
+            ("genai",         "GenAI / LLM"),
+            ("data-ml",       "Data · ML"),
+            ("kafka",         "Kafka / Streaming"),
+            ("security",      "Identity · Security"),
+            ("governance",    "Governance"),
+        ],
+    },
+    {
+        "id": "outcome",
+        "label": "Outcome",
+        "options": [
+            ("revenue",   "Revenue"),
+            ("cost",      "Cost / Savings"),
+            ("quality",   "Quality · Reliability"),
+            ("strategic", "Strategic"),
+        ],
+    },
+    {
+        "id": "scale",
+        "label": "Scale",
+        "options": [
+            ("global",       "Global (multi-country)"),
+            ("multi-brand",  "Multi-brand / Multi-channel"),
+        ],
     },
 ]
 
