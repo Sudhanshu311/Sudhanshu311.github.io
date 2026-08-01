@@ -10,6 +10,7 @@ from data import (
     PROFILE, METRICS, ROLES, PROGRAMS, SKILL_RADAR, TECH_HEATMAP,
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
     FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO,
+    RECRUITER, IMPACT_PILLARS, TESTIMONIALS,
 )
 
 OUT = Path(__file__).resolve().parent.parent / "index.html"
@@ -149,7 +150,7 @@ def render_working():
     return f'''
   <section class="working-section" id="working">
     <h2 class="section-h">
-      <span class="section-num">07</span>
+      <span class="section-num">09</span>
       <span class="section-name">Working Style & Values</span>
       <span class="section-hint">how I run programs · editable in build/generate.py</span>
     </h2>
@@ -163,7 +164,7 @@ def render_repl():
     return '''
   <section class="repl-section" id="terminal">
     <h2 class="section-h">
-      <span class="section-num">02</span>
+      <span class="section-num">03</span>
       <span class="section-name">Interactive Terminal</span>
       <span class="section-hint mono">try: help · whoami · experience · programs · skills · contact · resume · theme</span>
     </h2>
@@ -244,7 +245,7 @@ def render_timeline():
     return f'''
   <section class="timeline-section" id="career">
     <h2 class="section-h">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-name">Career Timeline</span>
       <span class="section-hint">{epoch} → present · {end_year - epoch}+ years · click any bar</span>
     </h2>
@@ -352,7 +353,7 @@ def render_cases():
     return f'''
   <section class="cases-section" id="programs">
     <h2 class="section-h">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <span class="section-name">Flagship Programs</span>
       <span class="section-hint">{len(PROGRAMS)} case studies · filter, expand, read the deep dive</span>
     </h2>
@@ -423,7 +424,7 @@ def render_skills():
     return f'''
   <section class="skills-section" id="skills">
     <h2 class="section-h">
-      <span class="section-num">05</span>
+      <span class="section-num">07</span>
       <span class="section-name">Skills & Technology</span>
       <span class="section-hint">where I've spent my time</span>
     </h2>
@@ -454,7 +455,7 @@ def render_chat():
     return f'''
   <section class="chat-section" id="ask">
     <h2 class="section-h">
-      <span class="section-num">06</span>
+      <span class="section-num">08</span>
       <span class="section-name">Ask Me Anything</span>
       <span class="section-hint">keyword-driven · no AI API cost · try a suggestion</span>
     </h2>
@@ -471,6 +472,133 @@ def render_chat():
         <button class="chat-send btn btn-primary" type="submit">Ask</button>
       </form>
     </div>
+  </section>'''
+
+
+def render_recruiter():
+    """Compact recruiter cheat-sheet — section 02, right after About."""
+    role_pills = "".join(
+        f'<span class="rec-role-pill">{r}</span>' for r in RECRUITER["roles"]
+    )
+    geo_rows = "".join(
+        f'''<div class="rec-geo-row">
+              <span class="rec-geo-k mono">{k}</span>
+              <span class="rec-geo-v">{v}</span>
+            </div>''' for k, v in RECRUITER["geography"]
+    )
+    must_cards = "".join(
+        f'''<div class="rec-must">
+              <div class="rec-must-t">{title}</div>
+              <div class="rec-must-b">{body}</div>
+            </div>''' for title, body in RECRUITER["must_haves"]
+    )
+    return f'''
+  <section class="recruiter-section" id="recruiter">
+    <h2 class="section-h">
+      <span class="section-num">02</span>
+      <span class="section-name">For Recruiters &amp; Hiring Partners</span>
+      <span class="section-hint mono">$ cat recruiter.md — the 30-second brief</span>
+    </h2>
+    <div class="rec-grid">
+      <div class="rec-cell rec-cell--roles">
+        <div class="rec-h mono"><span class="rec-h-key">next_role</span> = [</div>
+        <div class="rec-roles">{role_pills}</div>
+        <div class="rec-h mono">]</div>
+      </div>
+      <div class="rec-cell rec-cell--geo">
+        <div class="rec-h mono"><span class="rec-h-key">location</span></div>
+        <div class="rec-geo">{geo_rows}</div>
+      </div>
+      <div class="rec-cell rec-cell--must">
+        <div class="rec-h mono"><span class="rec-h-key">must_haves</span> = [</div>
+        <div class="rec-must-grid">{must_cards}</div>
+        <div class="rec-h mono">]</div>
+      </div>
+    </div>
+    <div class="rec-cta mono">
+      <span class="rec-cta-prompt">$</span> {RECRUITER["cta"]}
+      <a class="rec-cta-btn" href="#contact">Jump to contact →</a>
+    </div>
+  </section>'''
+
+
+def render_impact():
+    """Impact dashboard — quantified outcomes grouped by pillar. Section 06."""
+    tiles = []
+    for pillar in IMPACT_PILLARS:
+        items_html = "".join(
+            f'''<div class="ip-row">
+                  <div class="ip-value mono">{it["value"]}</div>
+                  <div class="ip-body">
+                    <div class="ip-label">{it["label"]}</div>
+                    <div class="ip-ctx mono">{it["context"]}</div>
+                  </div>
+                </div>''' for it in pillar["items"]
+        )
+        tiles.append(f'''
+      <article class="ip-tile" data-pillar="{pillar["id"]}">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">{pillar["icon"]}</span>
+          <div class="ip-head-text">
+            <div class="ip-h">{pillar["label"]}</div>
+            <div class="ip-h-hint mono">{pillar["hint"]}</div>
+          </div>
+        </header>
+        <div class="ip-items">{items_html}</div>
+      </article>''')
+    total_metrics = sum(len(p["items"]) for p in IMPACT_PILLARS)
+    return f'''
+  <section class="impact-section" id="impact">
+    <h2 class="section-h">
+      <span class="section-num">06</span>
+      <span class="section-name">Impact Dashboard</span>
+      <span class="section-hint">{total_metrics} quantified outcomes · grouped by pillar</span>
+    </h2>
+    <div class="ip-grid">{"".join(tiles)}</div>
+  </section>'''
+
+
+def render_testimonials():
+    """Testimonials from LinkedIn recommendations. Section 10."""
+    cards = []
+    for t in TESTIMONIALS:
+        is_ph = t.get("placeholder")
+        featured = ' t-card--featured' if t.get("featured") else ''
+        placeholder = ' t-card--placeholder' if is_ph else ''
+        initials = "".join(w[0] for w in t["author"].replace('[', '').replace(']', '').split()[:2]).upper() or "??"
+        attribution = t["author"]
+        if t.get("title") and not is_ph:
+            attribution += f' · <span class="t-title">{t["title"]}'
+            if t.get("company"):
+                attribution += f' · {t["company"]}'
+            attribution += '</span>'
+        elif t.get("title") and is_ph:
+            attribution += f' · {t["title"]}'
+            if t.get("company"):
+                attribution += f' · {t["company"]}'
+        source_pill = f'<span class="t-source mono">{t.get("source","")}</span>' if t.get("source") else ''
+        cards.append(f'''
+      <figure class="t-card{featured}{placeholder}">
+        <div class="t-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote class="t-quote">{t["quote"]}</blockquote>
+        <figcaption class="t-attrib">
+          <span class="t-avatar" aria-hidden="true">{initials}</span>
+          <div class="t-who">
+            <div class="t-author">{attribution}</div>
+          </div>
+          {source_pill}
+        </figcaption>
+      </figure>''')
+    real_count = sum(1 for t in TESTIMONIALS if not t.get("placeholder"))
+    total_available = 10  # LinkedIn shows "10 people have recommended"
+    return f'''
+  <section class="testimonials-section" id="testimonials">
+    <h2 class="section-h">
+      <span class="section-num">10</span>
+      <span class="section-name">Testimonials</span>
+      <span class="section-hint">from <a href="{PROFILE["linkedin"]}" target="_blank" rel="noopener">LinkedIn recommendations</a> · {real_count} of {total_available} shown</span>
+    </h2>
+    <div class="t-grid">{"".join(cards)}</div>
   </section>'''
 
 
@@ -500,7 +628,7 @@ def render_aiml():
     return f'''
   <section class="aiml-section" id="aiml">
     <h2 class="section-h">
-      <span class="section-num">08</span>
+      <span class="section-num">10</span>
       <span class="section-name">AI/ML Portfolio</span>
       <span class="section-hint">{n} projects · McCombs PGP in AI &amp; ML · full code on GitHub</span>
     </h2>
@@ -525,7 +653,7 @@ def render_creds():
     return f'''
   <section class="creds-section" id="credentials">
     <h2 class="section-h">
-      <span class="section-num">09</span>
+      <span class="section-num">11</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -545,7 +673,7 @@ def render_contact():
     return f'''
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">10</span>
+      <span class="section-num">12</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -617,6 +745,11 @@ def render_head():
             "AI/ML", "GenAI", "Amazon Bedrock", "LangChain", "RAG",
             "Global Merchandising", "Demand Forecasting", "SAFe", "Agile", "PgMP", "PMP",
         ],
+        "seeks": {
+            "@type": "Demand",
+            "name": " · ".join(RECRUITER["roles"]),
+            "description": "Open to Principal / Sr Principal TPM and Director / Sr Director of Program Management roles. Seattle-based, hybrid, willing to travel monthly to HQ.",
+        },
     }
     return f'''
 <!DOCTYPE html>
@@ -647,6 +780,7 @@ def render_head():
   <meta name="twitter:image" content="{PROFILE["site"]}assets/og-image.png"/>
 
   <link rel="canonical" href="{PROFILE["site"]}"/>
+  <link rel="alternate" type="application/json" title="JSON Resume (jsonresume.org schema)" href="{PROFILE["site"]}resume.json"/>
   <link rel="shortcut icon" href="favicon.ico"/>
   <link rel="manifest" href="manifest.json"/>
 
@@ -1086,6 +1220,114 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .aiml-repo-url{color:var(--ink-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .aiml-card:hover .aiml-repo-url{color:var(--ink)}
 .aiml-card:hover .aiml-repo svg{color:var(--accent)}
+
+/* ===== For Recruiters section ===== */
+.recruiter-section{}
+.rec-grid{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:14px;margin-bottom:14px;
+}
+@media (max-width:960px){.rec-grid{grid-template-columns:1fr}}
+.rec-cell{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;position:relative;
+}
+.rec-cell--must{grid-column:1 / -1}
+.rec-h{font:600 12px/1.4 var(--mono);color:var(--ink-3);letter-spacing:.5px;margin-bottom:10px}
+.rec-h-key{color:var(--accent);font-weight:700}
+.rec-roles{display:flex;flex-wrap:wrap;gap:8px;padding-left:14px;margin-bottom:8px}
+.rec-role-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;
+  background:var(--panel-hi);border:1px solid var(--line);border-radius:999px;
+  font:600 13px/1 var(--mono);color:var(--ink);
+}
+.rec-role-pill::before{content:"›";color:var(--accent);font-weight:700;font-size:16px;line-height:0.8}
+.rec-geo{display:grid;gap:8px}
+.rec-geo-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
+.rec-geo-row:last-child{border-bottom:0}
+.rec-geo-k{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.5px}
+.rec-geo-v{font-size:13.5px;color:var(--ink);font-weight:500;line-height:1.4}
+.rec-must-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;padding-left:14px;margin-bottom:8px}
+.rec-must{
+  padding:12px 14px;background:var(--panel-hi);border:1px solid var(--line);border-radius:6px;
+  border-left:3px solid var(--accent);
+}
+.rec-must-t{font:600 13px/1.3 var(--sans, inherit);color:var(--ink);margin-bottom:4px}
+.rec-must-b{font-size:12px;line-height:1.5;color:var(--ink-2)}
+.rec-cta{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding:14px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  font-size:13.5px;color:var(--ink-2);
+}
+.rec-cta-prompt{color:var(--accent);font-weight:700;margin-right:8px}
+.rec-cta-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 16px;
+  background:var(--accent);color:var(--panel);text-decoration:none;
+  border-radius:6px;font:600 12.5px/1 var(--mono);letter-spacing:.5px;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.rec-cta-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-1);text-decoration:none;color:var(--panel)}
+
+/* ===== Impact Dashboard ===== */
+.ip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.ip-tile{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;position:relative;overflow:hidden;
+}
+.ip-tile::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.6;
+}
+.ip-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.ip-icon{font-size:26px;line-height:1}
+.ip-head-text{flex:1;min-width:0}
+.ip-h{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.2}
+.ip-h-hint{font-size:10.5px;color:var(--ink-3);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.ip-items{display:grid;gap:12px}
+.ip-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.ip-value{
+  font-size:20px;font-weight:700;color:var(--accent);
+  min-width:80px;line-height:1;letter-spacing:-.5px;
+}
+.ip-body{min-width:0}
+.ip-label{font-size:12.5px;color:var(--ink);line-height:1.4;font-weight:500}
+.ip-ctx{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+
+/* ===== Testimonials ===== */
+.t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.t-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px 18px;position:relative;margin:0;
+  display:flex;flex-direction:column;
+}
+.t-card--featured{border-color:var(--line)}
+.t-card--placeholder{border-style:dashed;opacity:.6}
+.t-card--placeholder .t-quote{font-style:italic;color:var(--ink-3)}
+.t-mark{
+  position:absolute;top:-6px;left:14px;
+  font:900 56px/1 Georgia,serif;color:var(--accent);opacity:.45;
+}
+.t-quote{
+  margin:16px 0 16px 0;padding:0;
+  font-size:13.5px;line-height:1.6;color:var(--ink-2);
+  border:0;font-style:normal;
+}
+.t-attrib{
+  display:flex;align-items:center;gap:10px;
+  padding-top:12px;border-top:1px dashed var(--line);
+  margin-top:auto;
+}
+.t-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--panel-hi);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font:700 12px/1 var(--mono);color:var(--accent);letter-spacing:.5px;flex-shrink:0;
+}
+.t-who{flex:1;min-width:0}
+.t-author{font-size:12.5px;color:var(--ink);font-weight:600;line-height:1.35}
+.t-title{color:var(--ink-3);font-weight:400}
+.t-source{
+  font-size:10px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;
+  color:var(--ink-3);letter-spacing:.5px;text-transform:uppercase;
+}
 .edu-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
 .edu-school{font-size:12.5px;color:var(--ink-2)}
 .edu-period{font-size:11.5px;margin-top:2px}
@@ -1121,14 +1363,15 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
-  .aiml-card{color:#111 !important}
-  .aiml-title{color:#111 !important}
-  .aiml-body{color:#333 !important}
-  .aiml-pill{background:#0969da !important;color:#fff !important}
+  .aiml-card,.t-card,.rec-cell,.ip-tile{color:#111 !important}
+  .aiml-title,.ip-h,.rec-must-t,.t-author{color:#111 !important}
+  .aiml-body,.ip-label,.rec-must-b,.t-quote{color:#333 !important}
+  .aiml-pill,.rec-cta-btn{background:#0969da !important;color:#fff !important}
+  .rec-role-pill,.rec-must{background:#f6f8fa !important;border-color:#ddd !important}
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
   .case-deep[hidden]{display:grid !important}
@@ -1148,6 +1391,9 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .timeline-section,
   body.print-onepager .working-section,
   body.print-onepager .aiml-section,
+  body.print-onepager .testimonials-section,
+  body.print-onepager .recruiter-section,
+  body.print-onepager .impact-section .ip-h-hint,
   body.print-onepager .filters,
   body.print-onepager .case-body,
   body.print-onepager .case-deep,
@@ -1289,7 +1535,7 @@ const Counters = {{
 const Reveal = {{
   init(){{
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{{
       entries.forEach(e=>{{
         if(e.isIntersecting){{ e.target.classList.add('is-shown'); io.unobserve(e.target); }}
@@ -1585,11 +1831,11 @@ def render_nav():
     <div class="tb-spacer"></div>
     <div class="tb-nav">
       <a href="#about">About</a>
+      <a href="#recruiter">Recruiters</a>
       <a href="#career">Career</a>
       <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
       <a href="#skills">Skills</a>
-      <a href="#ask">Ask</a>
-      <a href="#working">Values</a>
       <a href="#aiml">AI/ML</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1608,6 +1854,94 @@ def render_footer():
 </footer>'''
 
 
+# ---------- JSON Resume (jsonresume.org v1.0.0 schema) ----------
+def write_json_resume():
+    """
+    Emit /resume/resume.json in the jsonresume.org v1.0.0 schema.
+    Optimized for ATS parsers, AI screener bots, and portable tooling.
+    """
+    work = []
+    for r in ROLES:
+        # Strip HTML tags from highlights for JSON consumption
+        highlights = [re.sub(r'<[^>]+>', '', h) for h in r["highlights"]]
+        work.append({
+            "name": r["company"],
+            "position": r["role"],
+            "location": r.get("location", ""),
+            "startDate": r["start"] + "-01",
+            "endDate": None if r["current"] else r["end"] + "-01",
+            "highlights": highlights,
+        })
+
+    education = [{
+        "institution": e["school"],
+        "area": e["title"].replace("Post Graduate Program in ", "").replace("Bachelor of Engineering, ", ""),
+        "studyType": e["title"].split(",")[0] if "," in e["title"] else e["title"],
+        "startDate": e["period"].split(" – ")[0] if " – " in e["period"] else e["period"].split(" - ")[0],
+        "endDate":   e["period"].split(" – ")[-1] if " – " in e["period"] else e["period"].split(" - ")[-1],
+    } for e in EDUCATION]
+
+    certificates = [{"name": c, "issuer": ""} for c in CERTIFICATIONS]
+
+    projects = [{
+        "name": p["title"],
+        "description": p["problem"],
+        "highlights": p["outcome"],
+        "keywords": p["tech"].split(" · "),
+        "startDate": p["period"].split(" – ")[0].strip() if " – " in p["period"] else "",
+        "endDate":   p["period"].split(" – ")[-1].strip() if " – " in p["period"] else "",
+    } for p in PROGRAMS]
+
+    aiml = [{
+        "name": p["title"],
+        "description": p["one_liner"],
+        "keywords": [p["domain"]] + p.get("tech", []),
+        "url": f"https://github.com/Sudhanshu311/{p['slug']}",
+        "type": "AI/ML Portfolio",
+    } for p in AIML_PROJECTS]
+
+    # Testimonials/references deferred — will be added once quotes are curated.
+    references = []
+
+    resume = {
+        "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+        "basics": {
+            "name": PROFILE["name"],
+            "label": PROFILE["title"],
+            "email": PROFILE["email"],
+            "phone": PROFILE["phone"],
+            "url": PROFILE["site"],
+            "summary": PROFILE["tagline"],
+            "location": {"city": "Seattle", "region": "WA", "countryCode": "US"},
+            "profiles": [
+                {"network": "LinkedIn", "username": "sudhanshubhatnagar", "url": PROFILE["linkedin"]},
+                {"network": "GitHub",   "username": "Sudhanshu311",       "url": PROFILE["github"]},
+            ],
+        },
+        "work": work,
+        "education": education,
+        "certificates": certificates,
+        "projects": projects + aiml,
+        "skills": [
+            {"name": name, "level": f"{years}+ years"}
+            for name, years in TECH_HEATMAP[:15]
+        ],
+        "languages": [{"language": "English", "fluency": "Native"}, {"language": "Hindi", "fluency": "Native"}],
+        "references": references,
+        "meta": {
+            "canonical": PROFILE["site"] + "resume.json",
+            "version": "v1.0.0",
+            "lastModified": date.today().isoformat(),
+            "note": "Generated from build/data.py. See PROFILE.site for the interactive HTML resume.",
+            "seeks": [{"role": r} for r in RECRUITER["roles"]],
+        },
+    }
+
+    out_path = Path(__file__).resolve().parent.parent / "resume.json"
+    out_path.write_text(json.dumps(resume, indent=2, ensure_ascii=False), encoding='utf-8')
+    print(f"wrote {out_path} ({out_path.stat().st_size:,} bytes)")
+
+
 # ---------- Assemble ----------
 def main():
     head = render_head()
@@ -1616,12 +1950,15 @@ def main():
         '<main class="container">',
         render_hero(),
         render_about(),
+        render_recruiter(),
         render_repl(),
         render_timeline(),
         render_cases(),
+        render_impact(),
         render_skills(),
         render_chat(),
         render_working(),
+        # render_testimonials(),  # deferred — bring back once quotes are curated
         render_aiml(),
         render_creds(),
         render_contact(),
@@ -1631,6 +1968,7 @@ def main():
     html = head + '\n<body class="view-terminal">\n' + body + '\n<script>' + js_bundle() + '</script>\n</body>\n</html>'
     OUT.write_text(html, encoding='utf-8')
     print(f"wrote {OUT} ({len(html)} bytes, {html.count(chr(10))+1} lines)")
+    write_json_resume()
 
 
 if __name__ == "__main__":

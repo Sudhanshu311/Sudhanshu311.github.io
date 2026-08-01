@@ -27,6 +27,7 @@
   <meta name="twitter:image" content="https://sudhanshu311.github.io/resume/assets/og-image.png"/>
 
   <link rel="canonical" href="https://sudhanshu311.github.io/resume/"/>
+  <link rel="alternate" type="application/json" title="JSON Resume (jsonresume.org schema)" href="https://sudhanshu311.github.io/resume/resume.json"/>
   <link rel="shortcut icon" href="favicon.ico"/>
   <link rel="manifest" href="manifest.json"/>
 
@@ -217,7 +218,12 @@
     "Agile",
     "PgMP",
     "PMP"
-  ]
+  ],
+  "seeks": {
+    "@type": "Demand",
+    "name": "Principal / Sr. Principal Technical Program Manager \u00b7 Director / Sr. Director of Program Management",
+    "description": "Open to Principal / Sr Principal TPM and Director / Sr Director of Program Management roles. Seattle-based, hybrid, willing to travel monthly to HQ."
+  }
 }
   </script>
   <style>
@@ -644,6 +650,114 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .aiml-repo-url{color:var(--ink-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .aiml-card:hover .aiml-repo-url{color:var(--ink)}
 .aiml-card:hover .aiml-repo svg{color:var(--accent)}
+
+/* ===== For Recruiters section ===== */
+.recruiter-section{}
+.rec-grid{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:14px;margin-bottom:14px;
+}
+@media (max-width:960px){.rec-grid{grid-template-columns:1fr}}
+.rec-cell{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;position:relative;
+}
+.rec-cell--must{grid-column:1 / -1}
+.rec-h{font:600 12px/1.4 var(--mono);color:var(--ink-3);letter-spacing:.5px;margin-bottom:10px}
+.rec-h-key{color:var(--accent);font-weight:700}
+.rec-roles{display:flex;flex-wrap:wrap;gap:8px;padding-left:14px;margin-bottom:8px}
+.rec-role-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;
+  background:var(--panel-hi);border:1px solid var(--line);border-radius:999px;
+  font:600 13px/1 var(--mono);color:var(--ink);
+}
+.rec-role-pill::before{content:"›";color:var(--accent);font-weight:700;font-size:16px;line-height:0.8}
+.rec-geo{display:grid;gap:8px}
+.rec-geo-row{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
+.rec-geo-row:last-child{border-bottom:0}
+.rec-geo-k{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:.5px}
+.rec-geo-v{font-size:13.5px;color:var(--ink);font-weight:500;line-height:1.4}
+.rec-must-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;padding-left:14px;margin-bottom:8px}
+.rec-must{
+  padding:12px 14px;background:var(--panel-hi);border:1px solid var(--line);border-radius:6px;
+  border-left:3px solid var(--accent);
+}
+.rec-must-t{font:600 13px/1.3 var(--sans, inherit);color:var(--ink);margin-bottom:4px}
+.rec-must-b{font-size:12px;line-height:1.5;color:var(--ink-2)}
+.rec-cta{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding:14px 18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  font-size:13.5px;color:var(--ink-2);
+}
+.rec-cta-prompt{color:var(--accent);font-weight:700;margin-right:8px}
+.rec-cta-btn{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 16px;
+  background:var(--accent);color:var(--panel);text-decoration:none;
+  border-radius:6px;font:600 12.5px/1 var(--mono);letter-spacing:.5px;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.rec-cta-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-1);text-decoration:none;color:var(--panel)}
+
+/* ===== Impact Dashboard ===== */
+.ip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.ip-tile{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;position:relative;overflow:hidden;
+}
+.ip-tile::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.6;
+}
+.ip-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--line)}
+.ip-icon{font-size:26px;line-height:1}
+.ip-head-text{flex:1;min-width:0}
+.ip-h{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.2}
+.ip-h-hint{font-size:10.5px;color:var(--ink-3);letter-spacing:1px;text-transform:uppercase;margin-top:3px}
+.ip-items{display:grid;gap:12px}
+.ip-row{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline}
+.ip-value{
+  font-size:20px;font-weight:700;color:var(--accent);
+  min-width:80px;line-height:1;letter-spacing:-.5px;
+}
+.ip-body{min-width:0}
+.ip-label{font-size:12.5px;color:var(--ink);line-height:1.4;font-weight:500}
+.ip-ctx{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+
+/* ===== Testimonials ===== */
+.t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.t-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px 18px;position:relative;margin:0;
+  display:flex;flex-direction:column;
+}
+.t-card--featured{border-color:var(--line)}
+.t-card--placeholder{border-style:dashed;opacity:.6}
+.t-card--placeholder .t-quote{font-style:italic;color:var(--ink-3)}
+.t-mark{
+  position:absolute;top:-6px;left:14px;
+  font:900 56px/1 Georgia,serif;color:var(--accent);opacity:.45;
+}
+.t-quote{
+  margin:16px 0 16px 0;padding:0;
+  font-size:13.5px;line-height:1.6;color:var(--ink-2);
+  border:0;font-style:normal;
+}
+.t-attrib{
+  display:flex;align-items:center;gap:10px;
+  padding-top:12px;border-top:1px dashed var(--line);
+  margin-top:auto;
+}
+.t-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--panel-hi);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font:700 12px/1 var(--mono);color:var(--accent);letter-spacing:.5px;flex-shrink:0;
+}
+.t-who{flex:1;min-width:0}
+.t-author{font-size:12.5px;color:var(--ink);font-weight:600;line-height:1.35}
+.t-title{color:var(--ink-3);font-weight:400}
+.t-source{
+  font-size:10px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;
+  color:var(--ink-3);letter-spacing:.5px;text-transform:uppercase;
+}
 .edu-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
 .edu-school{font-size:12.5px;color:var(--ink-2)}
 .edu-period{font-size:11.5px;margin-top:2px}
@@ -679,14 +793,15 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
-  .aiml-card{color:#111 !important}
-  .aiml-title{color:#111 !important}
-  .aiml-body{color:#333 !important}
-  .aiml-pill{background:#0969da !important;color:#fff !important}
+  .aiml-card,.t-card,.rec-cell,.ip-tile{color:#111 !important}
+  .aiml-title,.ip-h,.rec-must-t,.t-author{color:#111 !important}
+  .aiml-body,.ip-label,.rec-must-b,.t-quote{color:#333 !important}
+  .aiml-pill,.rec-cta-btn{background:#0969da !important;color:#fff !important}
+  .rec-role-pill,.rec-must{background:#f6f8fa !important;border-color:#ddd !important}
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
   .case-deep[hidden]{display:grid !important}
@@ -706,6 +821,9 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .timeline-section,
   body.print-onepager .working-section,
   body.print-onepager .aiml-section,
+  body.print-onepager .testimonials-section,
+  body.print-onepager .recruiter-section,
+  body.print-onepager .impact-section .ip-h-hint,
   body.print-onepager .filters,
   body.print-onepager .case-body,
   body.print-onepager .case-deep,
@@ -795,11 +913,11 @@ body.view-classic .filter-chip.is-on{color:#fff}
     <div class="tb-spacer"></div>
     <div class="tb-nav">
       <a href="#about">About</a>
+      <a href="#recruiter">Recruiters</a>
       <a href="#career">Career</a>
       <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
       <a href="#skills">Skills</a>
-      <a href="#ask">Ask</a>
-      <a href="#working">Values</a>
       <a href="#aiml">AI/ML</a>
       <a href="#contact">Contact</a>
     </div>
@@ -906,9 +1024,64 @@ body.view-classic .filter-chip.is-on{color:#fff}
     </div>
   </section>
 
-  <section class="repl-section" id="terminal">
+  <section class="recruiter-section" id="recruiter">
     <h2 class="section-h">
       <span class="section-num">02</span>
+      <span class="section-name">For Recruiters &amp; Hiring Partners</span>
+      <span class="section-hint mono">$ cat recruiter.md — the 30-second brief</span>
+    </h2>
+    <div class="rec-grid">
+      <div class="rec-cell rec-cell--roles">
+        <div class="rec-h mono"><span class="rec-h-key">next_role</span> = [</div>
+        <div class="rec-roles"><span class="rec-role-pill">Principal / Sr. Principal Technical Program Manager</span><span class="rec-role-pill">Director / Sr. Director of Program Management</span></div>
+        <div class="rec-h mono">]</div>
+      </div>
+      <div class="rec-cell rec-cell--geo">
+        <div class="rec-h mono"><span class="rec-h-key">location</span></div>
+        <div class="rec-geo"><div class="rec-geo-row">
+              <span class="rec-geo-k mono">$ location</span>
+              <span class="rec-geo-v">Seattle, WA</span>
+            </div><div class="rec-geo-row">
+              <span class="rec-geo-k mono">$ modality</span>
+              <span class="rec-geo-v">Hybrid — 2–3 days/week in-office</span>
+            </div><div class="rec-geo-row">
+              <span class="rec-geo-k mono">$ travel</span>
+              <span class="rec-geo-v">Willing to travel monthly to HQ (Bay Area · PDX · NYC)</span>
+            </div></div>
+      </div>
+      <div class="rec-cell rec-cell--must">
+        <div class="rec-h mono"><span class="rec-h-key">must_haves</span> = [</div>
+        <div class="rec-must-grid"><div class="rec-must">
+              <div class="rec-must-t">AI/ML at the center</div>
+              <div class="rec-must-b">GenAI, agentic AI, or ML embedded in the product / operating model — not a side project</div>
+            </div><div class="rec-must">
+              <div class="rec-must-t">Composable / MACH commerce</div>
+              <div class="rec-must-b">Or a platform-modernization mandate on API-first, cloud-native architecture</div>
+            </div><div class="rec-must">
+              <div class="rec-must-t">Meaningful scale</div>
+              <div class="rec-must-b">Large org (1,000+ engineers) with real cross-functional dependencies to orchestrate</div>
+            </div><div class="rec-must">
+              <div class="rec-must-t">Team leadership</div>
+              <div class="rec-must-b">Building & mentoring a PM/TPM org — not a solo IC role</div>
+            </div><div class="rec-must">
+              <div class="rec-must-t">Mission-driven, values-aligned</div>
+              <div class="rec-must-b">Product that matters, leadership that operates with integrity</div>
+            </div><div class="rec-must">
+              <div class="rec-must-t">Modern tech stack</div>
+              <div class="rec-must-b">Cloud-native, API-first, event-driven — no green-field-only legacy modernization</div>
+            </div></div>
+        <div class="rec-h mono">]</div>
+      </div>
+    </div>
+    <div class="rec-cta mono">
+      <span class="rec-cta-prompt">$</span> Reaching out is easy — Bhatnagar.Sudhanshu31@gmail.com or LinkedIn DM.
+      <a class="rec-cta-btn" href="#contact">Jump to contact →</a>
+    </div>
+  </section>
+
+  <section class="repl-section" id="terminal">
+    <h2 class="section-h">
+      <span class="section-num">03</span>
       <span class="section-name">Interactive Terminal</span>
       <span class="section-hint mono">try: help · whoami · experience · programs · skills · contact · resume · theme</span>
     </h2>
@@ -944,7 +1117,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="timeline-section" id="career">
     <h2 class="section-h">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <span class="section-name">Career Timeline</span>
       <span class="section-hint">2002 → present · 24+ years · click any bar</span>
     </h2>
@@ -954,7 +1127,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
         <div class="tl-row">
           <div class="tl-label mono">Nike</div>
           <div class="tl-track">
-            <button class="tl-bar" data-role="nike" style="left:96.67%;width:1.50%" title="Nike · Mar 2026 – Present">
+            <button class="tl-bar" data-role="nike" style="left:96.67%;width:1.67%" title="Nike · Mar 2026 – Present">
               <span class="tl-bar-label">Mar 2026 – Present</span>
             </button>
           </div>
@@ -1139,7 +1312,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="cases-section" id="programs">
     <h2 class="section-h">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <span class="section-name">Flagship Programs</span>
       <span class="section-hint">6 case studies · filter, expand, read the deep dive</span>
     </h2>
@@ -1485,9 +1658,188 @@ body.view-classic .filter-chip.is-on{color:#fff}
     </div>
   </section>
 
+  <section class="impact-section" id="impact">
+    <h2 class="section-h">
+      <span class="section-num">06</span>
+      <span class="section-name">Impact Dashboard</span>
+      <span class="section-hint">20 quantified outcomes · grouped by pillar</span>
+    </h2>
+    <div class="ip-grid">
+      <article class="ip-tile" data-pillar="revenue">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">💰</span>
+          <div class="ip-head-text">
+            <div class="ip-h">Revenue & Business Impact</div>
+            <div class="ip-h-hint mono">money made or saved</div>
+          </div>
+        </header>
+        <div class="ip-items"><div class="ip-row">
+                  <div class="ip-value mono">$40M</div>
+                  <div class="ip-body">
+                    <div class="ip-label">discount-stacking issue solved</div>
+                    <div class="ip-ctx mono">Amazon B2B — Volume-Aware Pricing</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">$5M+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">B2B platform transformation</div>
+                    <div class="ip-ctx mono">Lululemon</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">30%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">checkout success uplift</div>
+                    <div class="ip-ctx mono">Lululemon B2B</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">$10M+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">annual budget managed</div>
+                    <div class="ip-ctx mono">HCL Technologies</div>
+                  </div>
+                </div></div>
+      </article>
+      <article class="ip-tile" data-pillar="efficiency">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">⚡</span>
+          <div class="ip-head-text">
+            <div class="ip-h">Efficiency & Speed</div>
+            <div class="ip-h-hint mono">cycle time, cost, effort</div>
+          </div>
+        </header>
+        <div class="ip-items"><div class="ip-row">
+                  <div class="ip-value mono">50%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">bulk-order cart-build time reduction</div>
+                    <div class="ip-ctx mono">GenAI Bulk Order Assistant · Bedrock + LangChain</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">35%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">CIAM support-ticket reduction</div>
+                    <div class="ip-ctx mono">Nordstrom CIAM</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">20%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">program-delay reduction via governance</div>
+                    <div class="ip-ctx mono">Lululemon</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">30%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">improvement in B2B onboarding</div>
+                    <div class="ip-ctx mono">Lululemon</div>
+                  </div>
+                </div></div>
+      </article>
+      <article class="ip-tile" data-pillar="scale">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">🌐</span>
+          <div class="ip-head-text">
+            <div class="ip-h">Scale</div>
+            <div class="ip-h-hint mono">size of the system delivered</div>
+          </div>
+        </header>
+        <div class="ip-items"><div class="ip-row">
+                  <div class="ip-value mono">1,000+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">retail stores under POS ops</div>
+                    <div class="ip-ctx mono">Lululemon · NA / EMEA / APAC / CA</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">8</div>
+                  <div class="ip-body">
+                    <div class="ip-label">countries — real-time pricing launch</div>
+                    <div class="ip-ctx mono">Amazon VAP</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">20+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">cross-functional teams orchestrated</div>
+                    <div class="ip-ctx mono">Nike · Lululemon · Nordstrom</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">4</div>
+                  <div class="ip-body">
+                    <div class="ip-label">e-commerce platforms shipped end-to-end</div>
+                    <div class="ip-ctx mono">Lululemon · T-Mobile · Trimble · Amazon</div>
+                  </div>
+                </div></div>
+      </article>
+      <article class="ip-tile" data-pillar="quality">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">🛡️</span>
+          <div class="ip-head-text">
+            <div class="ip-h">Quality & Compliance</div>
+            <div class="ip-h-hint mono">resilience and controls</div>
+          </div>
+        </header>
+        <div class="ip-items"><div class="ip-row">
+                  <div class="ip-value mono">99.99%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">availability delivered</div>
+                    <div class="ip-ctx mono">Lululemon B2B platform</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">0</div>
+                  <div class="ip-body">
+                    <div class="ip-label">revenue-impact incidents on migration</div>
+                    <div class="ip-ctx mono">Lululemon monolith → composable</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">100%</div>
+                  <div class="ip-body">
+                    <div class="ip-label">program deadlines met · 95% on-time milestones</div>
+                    <div class="ip-ctx mono">Lululemon</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">SOC 2 · ISO 27001</div>
+                  <div class="ip-body">
+                    <div class="ip-label">controls alignment</div>
+                    <div class="ip-ctx mono">Nordstrom CIAM</div>
+                  </div>
+                </div></div>
+      </article>
+      <article class="ip-tile" data-pillar="team">
+        <header class="ip-head">
+          <span class="ip-icon" aria-hidden="true">🤝</span>
+          <div class="ip-head-text">
+            <div class="ip-h">Team & Leadership</div>
+            <div class="ip-h-hint mono">the people side of the job</div>
+          </div>
+        </header>
+        <div class="ip-items"><div class="ip-row">
+                  <div class="ip-value mono">65</div>
+                  <div class="ip-body">
+                    <div class="ip-label">people led at peak</div>
+                    <div class="ip-ctx mono">HCL Technologies</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">20+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">cross-functional teams orchestrated</div>
+                    <div class="ip-ctx mono">Nike · Lululemon · Nordstrom</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">22+</div>
+                  <div class="ip-body">
+                    <div class="ip-label">years shipping enterprise programs</div>
+                    <div class="ip-ctx mono">Career-long</div>
+                  </div>
+                </div><div class="ip-row">
+                  <div class="ip-value mono">4</div>
+                  <div class="ip-body">
+                    <div class="ip-label">global regions — NA · EMEA · APAC · CA</div>
+                    <div class="ip-ctx mono">Lululemon POS</div>
+                  </div>
+                </div></div>
+      </article></div>
+  </section>
+
   <section class="skills-section" id="skills">
     <h2 class="section-h">
-      <span class="section-num">05</span>
+      <span class="section-num">07</span>
       <span class="section-name">Skills & Technology</span>
       <span class="section-hint">where I've spent my time</span>
     </h2>
@@ -1511,7 +1863,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="chat-section" id="ask">
     <h2 class="section-h">
-      <span class="section-num">06</span>
+      <span class="section-num">08</span>
       <span class="section-name">Ask Me Anything</span>
       <span class="section-hint">keyword-driven · no AI API cost · try a suggestion</span>
     </h2>
@@ -1532,7 +1884,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="working-section" id="working">
     <h2 class="section-h">
-      <span class="section-num">07</span>
+      <span class="section-num">09</span>
       <span class="section-name">Working Style & Values</span>
       <span class="section-hint">how I run programs · editable in build/generate.py</span>
     </h2>
@@ -1573,7 +1925,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="aiml-section" id="aiml">
     <h2 class="section-h">
-      <span class="section-num">08</span>
+      <span class="section-num">10</span>
       <span class="section-name">AI/ML Portfolio</span>
       <span class="section-hint">6 projects · McCombs PGP in AI &amp; ML · full code on GitHub</span>
     </h2>
@@ -1672,7 +2024,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="creds-section" id="credentials">
     <h2 class="section-h">
-      <span class="section-num">09</span>
+      <span class="section-num">11</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -1699,7 +2051,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">10</span>
+      <span class="section-num">12</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -1783,7 +2135,7 @@ const Counters = {
 const Reveal = {
   init(){
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('is-shown'); io.unobserve(e.target); }

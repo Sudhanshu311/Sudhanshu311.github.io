@@ -1,0 +1,504 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Sudhanshu Bhatnagar",
+    "label": "Principal Technical Program Manager @ Nike",
+    "email": "Bhatnagar.Sudhanshu31@gmail.com",
+    "phone": "310-754-6162",
+    "url": "https://sudhanshu311.github.io/resume/",
+    "summary": "Principal TPM at Nike — Global Merchandising (Consumer Product & Innovation). 22+ years shipping cloud, composable commerce, and AI/ML programs. Previously Lululemon, Nordstrom, Amazon, and T-Mobile.",
+    "location": {
+      "city": "Seattle",
+      "region": "WA",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "sudhanshubhatnagar",
+        "url": "https://www.linkedin.com/in/sudhanshubhatnagar/"
+      },
+      {
+        "network": "GitHub",
+        "username": "Sudhanshu311",
+        "url": "https://github.com/Sudhanshu311"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Nike",
+      "position": "Principal Technical Program Manager · Global Merchandising",
+      "location": "Beaverton, OR",
+      "startDate": "2026-03-01",
+      "endDate": null,
+      "highlights": [
+        "Strategic technical leadership — end-to-end technical execution and architecture of high-scale enterprise programs within Global Merchandising; aligning technical roadmaps with Nike's consumer product innovation goals",
+        "Cross-functional orchestration — leading engineering and product teams to design, build, and deploy digital capabilities that optimize product line planning, assortment, and seasonal expression",
+        "Scale & innovation — driving integration of advanced data, analytics, and ML into merchandising systems for inventory efficiency, demand forecasting, and consumer-right product allocation",
+        "Stakeholder management — primary technical liaison between executive merchandising leadership and engineering; translating complex business vision into scalable, high-performance systems",
+        "Process excellence & mentorship — Agile/TPM governance frameworks that accelerate delivery velocity, manage dependencies, and mitigate risks across multi-million-dollar global initiatives; mentoring senior technical talent"
+      ]
+    },
+    {
+      "name": "Lululemon",
+      "position": "Principal Technical Program Manager",
+      "location": "Seattle, WA",
+      "startDate": "2023-07-01",
+      "endDate": "2026-02-01",
+      "highlights": [
+        "$5M+ B2B e-Commerce platform transformation; 30% improvement in onboarding",
+        "Global POS Infrastructure across 1000+ stores (NA · EMEA · APAC · CA) — Oracle Xstore/Xcenter upgrades, security patching, vulnerability remediation",
+        "20+ cross-functional teams aligned across Product · UX · QA · Security · Legal",
+        "99.99% availability delivered on next-gen migration with zero revenue impact",
+        "GenAI Bulk Order Assistant on Amazon Bedrock + LangChain — 50% cart-build reduction, 30% checkout uplift"
+      ]
+    },
+    {
+      "name": "Nordstrom",
+      "position": "Sr. Technical Program Manager",
+      "location": "Seattle, WA",
+      "startDate": "2021-07-01",
+      "endDate": "2023-05-01",
+      "highlights": [
+        "Customer Identity & Access Management across Nordstrom, Nordstrom Rack, Store, Credit",
+        "35% reduction in customer service tickets; 20% faster response times",
+        "SOC 2 · ISO 27001 · internal audit alignment for cloud architecture",
+        "20% delivery speed improvement across 5+ cross-functional teams"
+      ]
+    },
+    {
+      "name": "Amazon",
+      "position": "Sr. Technical Program Manager",
+      "location": "Seattle, WA",
+      "startDate": "2019-03-01",
+      "endDate": "2021-07-01",
+      "highlights": [
+        "Volume Aware Pricing (VAP) launched across 8 countries — US · UK · IT · FR · ES · DE · JP · CA",
+        "Real-time payment validation improved pricing accuracy by 40%",
+        "Resolved $40M/yr discount-stacking issue on Amazon Business",
+        "Coordinated 25+ cross-functional teams; strategically avoided launch blocker"
+      ]
+    },
+    {
+      "name": "T-Mobile (via HCL)",
+      "position": "Enterprise Technical Program Manager / Sr. Manager",
+      "location": "Bellevue, WA",
+      "startDate": "2016-06-01",
+      "endDate": "2019-03-01",
+      "highlights": [
+        "Digital Commerce Platform — headless, microservices-based, deployed on AWS",
+        "Monolith → microservices migration for T-Mobile web channels",
+        "700ms improvement in cart performance",
+        "Established DevOps (Shift Left/Right, on-call) and end-to-end agile"
+      ]
+    },
+    {
+      "name": "Trimble (via HCL)",
+      "position": "Sr. Technical Program Manager / Sr. Software Development Manager",
+      "location": "India · US",
+      "startDate": "2014-10-01",
+      "endDate": "2016-06-01",
+      "highlights": [
+        "Enterprise Digital e-Commerce Platform with Cortex, Aria billing, Safe-Net entitlement",
+        "WSO2 ESB · API-M · Identity; AWS EC2 · Oracle RDS · S3 · Cassandra",
+        "Payment: CyberSource · Vertex tax integration"
+      ]
+    },
+    {
+      "name": "Norton / Symantec (via HCL)",
+      "position": "Software Development Manager",
+      "location": "India",
+      "startDate": "2011-08-01",
+      "endDate": "2014-10-01",
+      "highlights": [
+        "One.Norton.com · Manage.Norton.com · MobileSecurity.Norton.com",
+        ".NET 4.0 · MVC · WCF · REST · Fortify · Selenium · Splunk · Omniture"
+      ]
+    },
+    {
+      "name": "Cambridge University Assessments (via HCL)",
+      "position": "Sr. Technical Lead",
+      "location": "India · UK",
+      "startDate": "2009-09-01",
+      "endDate": "2011-07-01",
+      "highlights": [
+        "Shop.Cambridge.org on Microsoft Commerce Server 2009",
+        ".NET 3.5 · WCF · SharePoint · Barclays ePDQ payment gateway"
+      ]
+    },
+    {
+      "name": "Elsevier (via HCL)",
+      "position": "Technical Lead → Sr. Software Engineer → Software Engineer",
+      "location": "India",
+      "startDate": "2005-03-01",
+      "endDate": "2009-09-01",
+      "highlights": [
+        "Annual Invoicing and Royalty (2007–2009)",
+        "Textbooks.Elsevier.com and Books.Elsevier.com (2005–2007)",
+        "Electronic Field Notebook (2005)"
+      ]
+    },
+    {
+      "name": "CMC · Technosys · Connect Technologies",
+      "position": "System Integrator · Assistant Software Consultant · Software Programmer",
+      "location": "India",
+      "startDate": "2002-07-01",
+      "endDate": "2005-03-01",
+      "highlights": [
+        "First 3 years of career — systems integration and software development in India"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "McCombs School of Business — University of Texas at Austin",
+      "area": "Artificial Intelligence & Machine Learning",
+      "studyType": "Post Graduate Program in Artificial Intelligence & Machine Learning",
+      "startDate": "May 2024",
+      "endDate": "Feb 2025"
+    },
+    {
+      "institution": "Rajiv Gandhi Technical University, India",
+      "area": "Computer Science & Engineering",
+      "studyType": "Bachelor of Engineering",
+      "startDate": "1998",
+      "endDate": "2002"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Program Management Professional (PgMP)",
+      "issuer": ""
+    },
+    {
+      "name": "Project Management Professional (PMP)",
+      "issuer": ""
+    },
+    {
+      "name": "Scrum Master · Scrum Product Owner",
+      "issuer": ""
+    },
+    {
+      "name": "SAFe — Leading SAFe",
+      "issuer": ""
+    },
+    {
+      "name": "AWS Certified Solutions Architect — Associate",
+      "issuer": ""
+    },
+    {
+      "name": "Architecting Microsoft Azure Solutions (70-535)",
+      "issuer": ""
+    },
+    {
+      "name": "Product Manager Certification — Indian School of Business",
+      "issuer": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Global Merchandising Technology — Consumer Product & Innovation",
+      "description": "Nike's Global Merchandising organization drives consumer-facing decisions on product line planning, assortment, and seasonal expression at massive global scale. The underlying technology needs a unifying strategic architecture, tighter alignment to consumer product innovation goals, and modern data + ML capabilities across inventory, demand forecasting, and consumer-right allocation.",
+      "highlights": [
+        "Technical roadmap aligned with Nike's consumer product innovation goals",
+        "Cross-functional orchestration across engineering, product, and executive merchandising leadership",
+        "Data + analytics + ML integration path defined for inventory efficiency, demand forecasting, and consumer-right allocation",
+        "Agile/TPM governance operationalized across global initiatives",
+        "In flight — outcomes will be updated as programs land"
+      ],
+      "keywords": [
+        "Global Merchandising platforms",
+        "Product line planning",
+        "Assortment & seasonal-expression systems",
+        "Cloud",
+        "Data & Analytics",
+        "Machine Learning",
+        "Demand Forecasting",
+        "Agile/TPM governance"
+      ],
+      "startDate": "03/2026",
+      "endDate": "Present"
+    },
+    {
+      "name": "B2B e-Commerce Platform + Global POS Infrastructure",
+      "description": "Legacy B2B commerce and 1000+ store POS platforms lacked composable architecture, slowing new-market rollouts and creating operational risk across 4 global regions (NA, EMEA, APAC, CA).",
+      "highlights": [
+        "100% program deadlines met · 95% milestone targets on-time",
+        "20% reduction in program delays via governance",
+        "50% reduction in bulk-order cart-build time (GenAI Assistant)",
+        "30% improvement in checkout success rate",
+        "99.99% availability, zero revenue impact on legacy → next-gen migration"
+      ],
+      "keywords": [
+        "Commercetools",
+        "Frontastic",
+        "AWS (DynamoDB, Lambda, S3, API Gateway, EKS)",
+        "Kafka",
+        "React",
+        "Node",
+        "APIGEE",
+        "CyberSource",
+        "Vertex",
+        "Amazon Bedrock",
+        "LangChain",
+        "Datadog",
+        "Splunk",
+        "Python"
+      ],
+      "startDate": "07/2023",
+      "endDate": "02/2026"
+    },
+    {
+      "name": "Customer Identity & Access Management",
+      "description": "Fragmented identity across Nordstrom, Nordstrom Rack, Store, and Credit created customer friction, fraud exposure, and audit gaps.",
+      "highlights": [
+        "35% reduction in customer service tickets",
+        "20% faster response times",
+        "20% improvement in delivery speed, 15% in team performance",
+        "100% strategic-objective alignment across 5+ teams",
+        "95% of program milestones met"
+      ],
+      "keywords": [
+        "Spring-Boot microservices",
+        "AWS (DynamoDB, Lambda, S3, API Gateway, EKS)",
+        "Kafka",
+        "React",
+        "Go",
+        "Splunk",
+        "New-Relic",
+        "Tableau",
+        "Optimizely",
+        "Shape"
+      ],
+      "startDate": "07/2021",
+      "endDate": "05/2023"
+    },
+    {
+      "name": "Volume-Aware Pricing (VAP) — Amazon B2B",
+      "description": "Amazon Business needed competitive small-quantity pricing without long-term rebate commitments — a real-time trailing-12-month discount engine across 8 geographies.",
+      "highlights": [
+        "Launched in US · UK · IT · FR · ES · DE · JP · CA",
+        "40% improvement in pricing accuracy (real-time payment validation)",
+        "Resolved $40M/yr discount-stacking issue",
+        "100% on-time milestone delivery"
+      ],
+      "keywords": [
+        "Spring-Boot microservices",
+        "AWS (SNS, DynamoDB, Lambda, S3, API Gateway)",
+        "React"
+      ],
+      "startDate": "03/2019",
+      "endDate": "07/2021"
+    },
+    {
+      "name": "Digital Commerce Platform (DCP) — Headless Migration",
+      "description": "T-Mobile's monolithic web-channel commerce couldn't scale to modern experimentation velocity or personalization needs.",
+      "highlights": [
+        "Headless e-Commerce platform live on AWS",
+        "700ms improvement in cart performance",
+        "DevOps + agile maturity established across the org"
+      ],
+      "keywords": [
+        "Spring-Boot microservices",
+        "APIGEE",
+        "AWS",
+        "Oracle",
+        "Splunk",
+        "AppDynamics",
+        "Apache Ignite",
+        "Elasticsearch",
+        "ActiveMQ",
+        "DynamoDB",
+        "Tableau",
+        "Kubernetes"
+      ],
+      "startDate": "06/2016",
+      "endDate": "03/2019"
+    },
+    {
+      "name": "Enterprise Digital e-Commerce Platform",
+      "description": "Trimble needed a global e-commerce platform with subscription billing, entitlement, and tax integration to launch SaaS products at scale.",
+      "highlights": [
+        "Enterprise SaaS commerce live on AWS",
+        "Multi-region billing + entitlement + tax integration operational"
+      ],
+      "keywords": [
+        "Spring-Boot",
+        "Cortex",
+        "Aria",
+        "Safe-Net",
+        "WSO2",
+        "CyberSource",
+        "Vertex",
+        "AWS EC2",
+        "Oracle RDS",
+        "S3",
+        "Cassandra"
+      ],
+      "startDate": "10/2014",
+      "endDate": "06/2016"
+    },
+    {
+      "name": "FoodHub Agentic Chatbot",
+      "description": "LangChain SQL agent answering customer order queries from a SQLite DB, with input/output guardrails and human-escalation.",
+      "keywords": [
+        "Agentic AI",
+        "LangChain",
+        "OpenAI",
+        "SQL agent",
+        "guardrails"
+      ],
+      "url": "https://github.com/Sudhanshu311/foodhub-agentic-sql-chatbot",
+      "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "Plant Seedlings CNN",
+      "description": "12-class Keras CNN classifier for plant-seedling images — an agriculture use case with augmentation + LR scheduling.",
+      "keywords": [
+        "Computer Vision",
+        "Keras",
+        "TensorFlow",
+        "OpenCV",
+        "CNN"
+      ],
+      "url": "https://github.com/Sudhanshu311/plant-seedlings-cnn",
+      "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "Bank Churn Neural Net",
+      "description": "Feed-forward NN for 6-month bank customer churn, with SMOTE for imbalance and SHAP for per-feature explainability.",
+      "keywords": [
+        "Deep Learning",
+        "Keras",
+        "TensorFlow",
+        "SHAP",
+        "imbalanced-learn"
+      ],
+      "url": "https://github.com/Sudhanshu311/bank-churn-neural-network",
+      "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "EdTech Attrition — Ensembles",
+      "description": "Bagging · Boosting · XGBoost with RandomizedSearchCV tuning to predict which trained candidates will leave the company.",
+      "keywords": [
+        "Ensemble ML",
+        "XGBoost",
+        "scikit-learn",
+        "SMOTE"
+      ],
+      "url": "https://github.com/Sudhanshu311/edtech-candidate-attrition-ensemble",
+      "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "Personal Loan Campaign",
+      "description": "Tuned Decision Tree that identifies liability customers most likely to accept a personal-loan offer.",
+      "keywords": [
+        "Classification",
+        "scikit-learn",
+        "GridSearchCV"
+      ],
+      "url": "https://github.com/Sudhanshu311/personal-loan-decision-tree",
+      "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "FoodHub NYC — EDA",
+      "description": "End-to-end exploratory analysis of ~1,900 NYC food-delivery orders — cuisines, cost tiers, weekday demand, delivery time.",
+      "keywords": [
+        "Python · EDA",
+        "pandas",
+        "seaborn",
+        "matplotlib"
+      ],
+      "url": "https://github.com/Sudhanshu311/foodhub-eda-nyc",
+      "type": "AI/ML Portfolio"
+    }
+  ],
+  "skills": [
+    {
+      "name": "AWS (EC2, S3, Lambda, DynamoDB, API GW, EKS)",
+      "level": "8+ years"
+    },
+    {
+      "name": "Composable Commerce (Commercetools, Elastic Path)",
+      "level": "6+ years"
+    },
+    {
+      "name": "Microservices (Spring-Boot, Node)",
+      "level": "10+ years"
+    },
+    {
+      "name": "Kafka · Event streaming",
+      "level": "6+ years"
+    },
+    {
+      "name": "Kubernetes / EKS",
+      "level": "5+ years"
+    },
+    {
+      "name": "React · Node.js",
+      "level": "7+ years"
+    },
+    {
+      "name": "APIGEE · API Gateway",
+      "level": "6+ years"
+    },
+    {
+      "name": "Payment: CyberSource · Vertex",
+      "level": "8+ years"
+    },
+    {
+      "name": "Observability: Splunk · Datadog · New-Relic · AppDynamics",
+      "level": "10+ years"
+    },
+    {
+      "name": "Data: Python · SQL · Tableau · Grafana",
+      "level": "9+ years"
+    },
+    {
+      "name": "AI/ML: Bedrock · LangChain · RAG · LLM",
+      "level": "2+ years"
+    },
+    {
+      "name": "Merchandising · Line Planning · Assortment",
+      "level": "1+ years"
+    },
+    {
+      "name": "ML: Demand Forecasting · Inventory · Allocation",
+      "level": "1+ years"
+    },
+    {
+      "name": "Azure (Solutions Architect)",
+      "level": "5+ years"
+    },
+    {
+      "name": ".NET · C# · MVC · WCF",
+      "level": "14+ years"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Hindi",
+      "fluency": "Native"
+    }
+  ],
+  "references": [],
+  "meta": {
+    "canonical": "https://sudhanshu311.github.io/resume/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-08-01",
+    "note": "Generated from build/data.py. See PROFILE.site for the interactive HTML resume.",
+    "seeks": [
+      {
+        "role": "Principal / Sr. Principal Technical Program Manager"
+      },
+      {
+        "role": "Director / Sr. Director of Program Management"
+      }
+    ]
+  }
+}

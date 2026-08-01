@@ -431,6 +431,146 @@ CERTIFICATIONS = [
     "Product Manager Certification — Indian School of Business",
 ]
 
+# =============================================================================
+# For Recruiters — compact cheat-sheet block for search partners and hiring mgrs.
+# Kept intentionally minimal: role fit + geography + must-haves. No comp,
+# no availability, no dealbreakers per owner preference.
+# =============================================================================
+RECRUITER = {
+    "roles": [
+        "Principal / Sr. Principal Technical Program Manager",
+        "Director / Sr. Director of Program Management",
+    ],
+    "geography": [
+        ("$ location",   "Seattle, WA"),
+        ("$ modality",   "Hybrid — 2–3 days/week in-office"),
+        ("$ travel",     "Willing to travel monthly to HQ (Bay Area · PDX · NYC)"),
+    ],
+    "must_haves": [
+        ("AI/ML at the center", "GenAI, agentic AI, or ML embedded in the product / operating model — not a side project"),
+        ("Composable / MACH commerce",  "Or a platform-modernization mandate on API-first, cloud-native architecture"),
+        ("Meaningful scale",            "Large org (1,000+ engineers) with real cross-functional dependencies to orchestrate"),
+        ("Team leadership",             "Building & mentoring a PM/TPM org — not a solo IC role"),
+        ("Mission-driven, values-aligned", "Product that matters, leadership that operates with integrity"),
+        ("Modern tech stack",           "Cloud-native, API-first, event-driven — no green-field-only legacy modernization"),
+    ],
+    "cta": "Reaching out is easy — Bhatnagar.Sudhanshu31@gmail.com or LinkedIn DM.",
+}
+
+# =============================================================================
+# Impact Dashboard — quantified outcomes grouped by pillar. Each entry:
+#   metric, unit, label, source (role/program).
+# Grouped visualization; each pillar renders as its own tile.
+# =============================================================================
+IMPACT_PILLARS = [
+    {
+        "id": "revenue",
+        "icon": "💰",
+        "label": "Revenue & Business Impact",
+        "hint": "money made or saved",
+        "items": [
+            {"value": "$40M",  "label": "discount-stacking issue solved",  "context": "Amazon B2B — Volume-Aware Pricing"},
+            {"value": "$5M+",  "label": "B2B platform transformation",     "context": "Lululemon"},
+            {"value": "30%",   "label": "checkout success uplift",         "context": "Lululemon B2B"},
+            {"value": "$10M+", "label": "annual budget managed",           "context": "HCL Technologies"},
+        ],
+    },
+    {
+        "id": "efficiency",
+        "icon": "⚡",
+        "label": "Efficiency & Speed",
+        "hint": "cycle time, cost, effort",
+        "items": [
+            {"value": "50%", "label": "bulk-order cart-build time reduction", "context": "GenAI Bulk Order Assistant · Bedrock + LangChain"},
+            {"value": "35%", "label": "CIAM support-ticket reduction",         "context": "Nordstrom CIAM"},
+            {"value": "20%", "label": "program-delay reduction via governance", "context": "Lululemon"},
+            {"value": "30%", "label": "improvement in B2B onboarding",         "context": "Lululemon"},
+        ],
+    },
+    {
+        "id": "scale",
+        "icon": "🌐",
+        "label": "Scale",
+        "hint": "size of the system delivered",
+        "items": [
+            {"value": "1,000+", "label": "retail stores under POS ops",       "context": "Lululemon · NA / EMEA / APAC / CA"},
+            {"value": "8",      "label": "countries — real-time pricing launch", "context": "Amazon VAP"},
+            {"value": "20+",    "label": "cross-functional teams orchestrated", "context": "Nike · Lululemon · Nordstrom"},
+            {"value": "4",      "label": "e-commerce platforms shipped end-to-end", "context": "Lululemon · T-Mobile · Trimble · Amazon"},
+        ],
+    },
+    {
+        "id": "quality",
+        "icon": "🛡️",
+        "label": "Quality & Compliance",
+        "hint": "resilience and controls",
+        "items": [
+            {"value": "99.99%",  "label": "availability delivered",            "context": "Lululemon B2B platform"},
+            {"value": "0",       "label": "revenue-impact incidents on migration", "context": "Lululemon monolith → composable"},
+            {"value": "100%",    "label": "program deadlines met · 95% on-time milestones", "context": "Lululemon"},
+            {"value": "SOC 2 · ISO 27001", "label": "controls alignment", "context": "Nordstrom CIAM"},
+        ],
+    },
+    {
+        "id": "team",
+        "icon": "🤝",
+        "label": "Team & Leadership",
+        "hint": "the people side of the job",
+        "items": [
+            {"value": "65",  "label": "people led at peak",                       "context": "HCL Technologies"},
+            {"value": "20+", "label": "cross-functional teams orchestrated",       "context": "Nike · Lululemon · Nordstrom"},
+            {"value": "22+", "label": "years shipping enterprise programs",        "context": "Career-long"},
+            {"value": "4",   "label": "global regions — NA · EMEA · APAC · CA",   "context": "Lululemon POS"},
+        ],
+    },
+]
+
+# =============================================================================
+# Testimonials — sourced from LinkedIn public recommendations at
+# https://www.linkedin.com/in/sudhanshubhatnagar/  ("Recommendations received").
+# LinkedIn shows 2 publicly (out of 10 total). Add the rest by pasting them here.
+# =============================================================================
+TESTIMONIALS = [
+    {
+        "quote": (
+            "Sudhanshu is a pleasure to work with. He is highly organized, communicates "
+            "clearly, remains calm under pressure, and he's always open to compromise if "
+            "it is for the greater good. He's a strong Technical Program Manager with a "
+            "good focus on best practices and team health."
+        ),
+        "author": "James B.",
+        "title":  "Senior Engineering Leader",  # TODO: replace with full title from LinkedIn
+        "company": "",                            # TODO: replace with company from LinkedIn
+        "source": "LinkedIn",
+        "featured": True,
+    },
+    {
+        "quote": (
+            "Sudhanshu and I got to know each other when Sudhanshu worked on customer "
+            "access management that drives identity for all customers across Nordstrom. "
+            "As a TPM, he is a strategic thinker, collaborative and great communicator. "
+            "He is always willing to listen to feedback gathered from areas beyond what "
+            "the features asked for and translate those into future product features. "
+            "I definitely enjoy working with Sudhanshu and strongly recommend him."
+        ),
+        "author": "Angshu K.",
+        "title":  "Product Leader",  # TODO: replace with full title from LinkedIn
+        "company": "Nordstrom",       # inferred from context
+        "source": "LinkedIn",
+        "featured": True,
+    },
+    # ---- TODO: paste 1-3 more LinkedIn recommendations below to fill the grid ----
+    {
+        "quote": "[PLACEHOLDER — paste your LinkedIn recommendation here. LinkedIn shows 10 total; add 1-3 more of your favorites and delete this placeholder.]",
+        "author": "[Name]",
+        "title":  "[Title]",
+        "company": "[Company]",
+        "source": "LinkedIn",
+        "featured": False,
+        "placeholder": True,
+    },
+]
+
 # Featured AI/ML & Agentic AI projects — built during the McCombs PGP program,
 # hosted on github.com/Sudhanshu311. Ordered most-advanced first.
 AIML_PROJECTS = [
