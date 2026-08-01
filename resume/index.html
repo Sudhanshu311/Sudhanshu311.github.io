@@ -601,6 +601,49 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .creds-h{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:14px;font-family:var(--mono);letter-spacing:.5px}
 .edu-card{padding:12px 0;border-bottom:1px dashed var(--line)}
 .edu-card:last-child{border-bottom:0}
+
+/* AI/ML Portfolio */
+.aiml-intro{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 18px;margin-bottom:16px;font-size:13.5px;color:var(--ink-2);
+}
+.aiml-intro .aiml-prompt{color:var(--accent);font-weight:700;margin-right:8px}
+.aiml-index-link{color:var(--accent);text-decoration:none;font-weight:600}
+.aiml-index-link:hover{text-decoration:underline}
+.aiml-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
+}
+.aiml-card{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px 14px;position:relative;overflow:hidden;
+  transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+.aiml-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-1);text-decoration:none}
+.aiml-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--line);
+}
+.aiml-card--featured::before{background:var(--accent);opacity:.85}
+.aiml-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.aiml-domain{font:600 10.5px/1 var(--mono);color:var(--accent);letter-spacing:2px;text-transform:uppercase}
+.aiml-pill{font:600 9.5px/1 var(--mono);color:var(--panel);background:var(--accent);padding:4px 8px;border-radius:999px;letter-spacing:1.5px;text-transform:uppercase}
+.aiml-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.aiml-body{font-size:13px;line-height:1.55;color:var(--ink-2);margin:0 0 10px 0}
+.aiml-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.aiml-chip{
+  font-size:10.5px;padding:3px 7px;border:1px solid var(--line);border-radius:4px;
+  color:var(--ink-3);background:transparent;
+}
+.aiml-repo{
+  display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-3);
+  padding-top:10px;border-top:1px dashed var(--line);
+}
+.aiml-repo-cmd{color:var(--accent);font-weight:700}
+.aiml-repo-url{color:var(--ink-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aiml-card:hover .aiml-repo-url{color:var(--ink)}
+.aiml-card:hover .aiml-repo svg{color:var(--accent)}
 .edu-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
 .edu-school{font-size:12.5px;color:var(--ink-2)}
 .edu-period{font-size:11.5px;margin-top:2px}
@@ -636,10 +679,14 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
+  .aiml-card{color:#111 !important}
+  .aiml-title{color:#111 !important}
+  .aiml-body{color:#333 !important}
+  .aiml-pill{background:#0969da !important;color:#fff !important}
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
   .case-deep[hidden]{display:grid !important}
@@ -658,6 +705,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .chat-section,
   body.print-onepager .timeline-section,
   body.print-onepager .working-section,
+  body.print-onepager .aiml-section,
   body.print-onepager .filters,
   body.print-onepager .case-body,
   body.print-onepager .case-deep,
@@ -752,6 +800,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
       <a href="#skills">Skills</a>
       <a href="#ask">Ask</a>
       <a href="#working">Values</a>
+      <a href="#aiml">AI/ML</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="view-switch" role="group" aria-label="View theme">
@@ -1522,9 +1571,108 @@ body.view-classic .filter-chip.is-on{color:#fff}
     </div>
   </section>
 
-  <section class="creds-section" id="credentials">
+  <section class="aiml-section" id="aiml">
     <h2 class="section-h">
       <span class="section-num">08</span>
+      <span class="section-name">AI/ML Portfolio</span>
+      <span class="section-hint">6 projects · McCombs PGP in AI &amp; ML · full code on GitHub</span>
+    </h2>
+    <div class="aiml-intro mono">
+      <span class="aiml-prompt">$</span> pip list --user | grep sbhatnagar
+      <a class="aiml-index-link" href="https://github.com/Sudhanshu311/aiml-portfolio" target="_blank" rel="noopener">
+        → browse the full index
+      </a>
+    </div>
+    <div class="aiml-grid">
+      <a class="aiml-card aiml-card--featured" href="https://github.com/Sudhanshu311/foodhub-agentic-sql-chatbot" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Agentic AI</div>
+          <span class="aiml-pill">Featured</span>
+        </div>
+        <div class="aiml-title">FoodHub Agentic Chatbot</div>
+        <p class="aiml-body">LangChain SQL agent answering customer order queries from a SQLite DB, with input/output guardrails and human-escalation.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">LangChain</span><span class="aiml-chip mono">OpenAI</span><span class="aiml-chip mono">SQL agent</span><span class="aiml-chip mono">guardrails</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/foodhub-agentic-sql-chatbot</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a class="aiml-card aiml-card--featured" href="https://github.com/Sudhanshu311/plant-seedlings-cnn" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Computer Vision</div>
+          <span class="aiml-pill">Featured</span>
+        </div>
+        <div class="aiml-title">Plant Seedlings CNN</div>
+        <p class="aiml-body">12-class Keras CNN classifier for plant-seedling images — an agriculture use case with augmentation + LR scheduling.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">Keras</span><span class="aiml-chip mono">TensorFlow</span><span class="aiml-chip mono">OpenCV</span><span class="aiml-chip mono">CNN</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/plant-seedlings-cnn</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a class="aiml-card aiml-card--featured" href="https://github.com/Sudhanshu311/bank-churn-neural-network" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Deep Learning</div>
+          <span class="aiml-pill">Featured</span>
+        </div>
+        <div class="aiml-title">Bank Churn Neural Net</div>
+        <p class="aiml-body">Feed-forward NN for 6-month bank customer churn, with SMOTE for imbalance and SHAP for per-feature explainability.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">Keras</span><span class="aiml-chip mono">TensorFlow</span><span class="aiml-chip mono">SHAP</span><span class="aiml-chip mono">imbalanced-learn</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/bank-churn-neural-network</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a class="aiml-card aiml-card--featured" href="https://github.com/Sudhanshu311/edtech-candidate-attrition-ensemble" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Ensemble ML</div>
+          <span class="aiml-pill">Featured</span>
+        </div>
+        <div class="aiml-title">EdTech Attrition — Ensembles</div>
+        <p class="aiml-body">Bagging · Boosting · XGBoost with RandomizedSearchCV tuning to predict which trained candidates will leave the company.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">XGBoost</span><span class="aiml-chip mono">scikit-learn</span><span class="aiml-chip mono">SMOTE</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/edtech-candidate-attrition-ensemble</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a class="aiml-card" href="https://github.com/Sudhanshu311/personal-loan-decision-tree" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Classification</div>
+          
+        </div>
+        <div class="aiml-title">Personal Loan Campaign</div>
+        <p class="aiml-body">Tuned Decision Tree that identifies liability customers most likely to accept a personal-loan offer.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">scikit-learn</span><span class="aiml-chip mono">GridSearchCV</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/personal-loan-decision-tree</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>
+      <a class="aiml-card" href="https://github.com/Sudhanshu311/foodhub-eda-nyc" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">Python · EDA</div>
+          
+        </div>
+        <div class="aiml-title">FoodHub NYC — EDA</div>
+        <p class="aiml-body">End-to-end exploratory analysis of ~1,900 NYC food-delivery orders — cuisines, cost tiers, weekday demand, delivery time.</p>
+        <div class="aiml-chips"><span class="aiml-chip mono">pandas</span><span class="aiml-chip mono">seaborn</span><span class="aiml-chip mono">matplotlib</span></div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/foodhub-eda-nyc</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a></div>
+  </section>
+
+  <section class="creds-section" id="credentials">
+    <h2 class="section-h">
+      <span class="section-num">09</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -1551,7 +1699,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">09</span>
+      <span class="section-num">10</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -1635,7 +1783,7 @@ const Counters = {
 const Reveal = {
   init(){
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('is-shown'); io.unobserve(e.target); }
@@ -1866,7 +2014,7 @@ const REPL = {
 
 // ---- Chat (static Q&A) ----
 const CHAT = {
-  qa: [[["genai", "gen ai", "bedrock", "langchain", "llm", "rag"], "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain \u2014 natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 \u2013 Feb 2025)."], [["ai", "ml", "machine learning", "artificial intelligence"], "AI/ML background is post-grad from McCombs (UT Austin, 2024\u20132025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems \u2014 demand forecasting, inventory efficiency, and consumer-right product allocation. Areas of interest: LLM-assisted enterprise workflows, RAG over program artifacts, ML-driven merchandising signals."], [["aws", "amazon web services"], "8+ years hands-on AWS across the stack \u2014 EC2, S3, Lambda, DynamoDB, API Gateway, ECS/EKS, SNS. Certified Solutions Architect \u2013 Associate. Delivered platforms on AWS at Lululemon, Nordstrom, T-Mobile, Trimble, and Amazon (VAP)."], [["azure", "microsoft cloud"], "5 years Azure \u2014 certified in Architecting Microsoft Azure Solutions (70-535). Multi-cloud awareness informed the composable-commerce architecture choices at Lululemon and Trimble."], [["composable", "mach", "commercetools", "headless"], "Composable / MACH commerce is my sweet spot \u2014 Commercetools + Frontastic at Lululemon, headless migration at T-Mobile (DCP), Elastic Path + Cortex at Trimble. API-first, cloud-native, headless is the through-line."], [["b2b", "commerce", "ecommerce", "e-commerce"], "B2B e-commerce leadership across Lululemon ($5M+ platform transformation, 20+ teams), Amazon (VAP in 8 countries, $40M savings), T-Mobile (headless DCP), and Trimble. Composable + governance-first is the pattern I run."], [["pos", "point of sale", "retail store", "xstore", "xcenter"], "Owned global POS infrastructure at Lululemon across 1000+ stores (NA, EMEA, APAC, CA) \u2014 Oracle Xstore/Xcenter version upgrades, security patching, vulnerability remediation, quarterly upgrade cadence with regional teams."], [["identity", "iam", "ciam", "auth", "authentication", "fraud"], "Led CIAM at Nordstrom across Nordstrom, Nordstrom Rack, Store, and Credit \u2014 35% reduction in support tickets, SOC 2 + ISO 27001 alignment, cross-brand credential unification."], [["scale", "large-scale", "global", "countries"], "Global scale delivery: 1000+ stores at Lululemon, 8-country rollout at Amazon (VAP), monolith\u2192microservices at T-Mobile handling web-channel commerce."], [["team", "led", "people", "manage", "headcount"], "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). Across Nike, Lululemon, and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."], [["agile", "scrum", "safe", "pmp", "pgmp"], "Certifications: PgMP \u00b7 PMP \u00b7 SAFe (Leading SAFe) \u00b7 Scrum Master \u00b7 Product Owner \u00b7 AWS Solutions Architect \u00b7 Azure Solutions Architect (70-535) \u00b7 Product Manager (ISB). 15+ years running SAFe/Scrum/Kanban delivery at scale."], [["contact", "email", "phone", "reach"], "Best way to reach me: <a href='mailto:Bhatnagar.Sudhanshu31@gmail.com'>Bhatnagar.Sudhanshu31@gmail.com</a> \u00b7 <a href='https://www.linkedin.com/in/sudhanshubhatnagar/' target='_blank' rel='noopener'>LinkedIn</a> \u00b7 phone 310-754-6162 \u00b7 based in Seattle, WA."], [["resume", "cv", "pdf", "download"], "PDF resume is one click away \u2014 <a href='assets/files/Sudhanshu-Bhatnagar.pdf' target='_blank'>Download PDF</a>."], [["role", "title", "position", "job", "looking"], "Currently Principal Technical Program Manager at <b>Nike</b> \u2014 Consumer Product & Innovation, Merchandising (Beaverton, OR \u2014 Seattle-based, remote-friendly). Started March 2026. Prior: Lululemon, Nordstrom, Amazon, T-Mobile."], [["merchandising", "assortment", "line planning", "seasonal", "allocation", "forecast"], "At Nike, driving the technical roadmap for <b>Global Merchandising</b> \u2014 product line planning, assortment, seasonal expression, and consumer-right product allocation. Also integrating data, analytics, and ML into merchandising systems for inventory efficiency and demand forecasting."], [["nike"], "Joined <b>Nike</b> in March 2026 as Principal Technical Program Manager in <em>Global Merchandising \u2014 Consumer Product & Innovation</em>. Five focus areas:<br>  1. <em>Strategic technical leadership</em> \u2014 end-to-end execution + architecture of enterprise Merchandising programs<br>  2. <em>Cross-functional orchestration</em> \u2014 engineering + product teams shipping product line planning, assortment, and seasonal-expression capabilities<br>  3. <em>Scale & innovation</em> \u2014 data, analytics, and ML into merchandising for inventory, forecasting, and allocation<br>  4. <em>Stakeholder management</em> \u2014 primary technical liaison between executive merchandising leadership and engineering<br>  5. <em>Process excellence & mentorship</em> \u2014 Agile/TPM governance on multi-million-dollar global initiatives, mentoring senior technical talent"], [["education", "degree", "school", "university"], "PGP in AI/ML from McCombs School of Business (UT Austin), May 2024 \u2013 Feb 2025. Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998\u20132002)."]],
+  qa: [[["genai", "gen ai", "bedrock", "langchain", "llm", "rag"], "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain \u2014 natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 \u2013 Feb 2025)."], [["ai", "ml", "machine learning", "artificial intelligence"], "AI/ML background is post-grad from McCombs (UT Austin, 2024\u20132025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems \u2014 demand forecasting, inventory efficiency, and consumer-right product allocation. See the <a href='#aiml'>AI/ML Portfolio</a> section for six hands-on projects (Agentic AI chatbot, CNN, neural nets, ensemble ML) \u2014 full code on <a href='https://github.com/Sudhanshu311/aiml-portfolio' target='_blank' rel='noopener'>github.com/Sudhanshu311/aiml-portfolio</a>."], [["aws", "amazon web services"], "8+ years hands-on AWS across the stack \u2014 EC2, S3, Lambda, DynamoDB, API Gateway, ECS/EKS, SNS. Certified Solutions Architect \u2013 Associate. Delivered platforms on AWS at Lululemon, Nordstrom, T-Mobile, Trimble, and Amazon (VAP)."], [["azure", "microsoft cloud"], "5 years Azure \u2014 certified in Architecting Microsoft Azure Solutions (70-535). Multi-cloud awareness informed the composable-commerce architecture choices at Lululemon and Trimble."], [["composable", "mach", "commercetools", "headless"], "Composable / MACH commerce is my sweet spot \u2014 Commercetools + Frontastic at Lululemon, headless migration at T-Mobile (DCP), Elastic Path + Cortex at Trimble. API-first, cloud-native, headless is the through-line."], [["b2b", "commerce", "ecommerce", "e-commerce"], "B2B e-commerce leadership across Lululemon ($5M+ platform transformation, 20+ teams), Amazon (VAP in 8 countries, $40M savings), T-Mobile (headless DCP), and Trimble. Composable + governance-first is the pattern I run."], [["pos", "point of sale", "retail store", "xstore", "xcenter"], "Owned global POS infrastructure at Lululemon across 1000+ stores (NA, EMEA, APAC, CA) \u2014 Oracle Xstore/Xcenter version upgrades, security patching, vulnerability remediation, quarterly upgrade cadence with regional teams."], [["identity", "iam", "ciam", "auth", "authentication", "fraud"], "Led CIAM at Nordstrom across Nordstrom, Nordstrom Rack, Store, and Credit \u2014 35% reduction in support tickets, SOC 2 + ISO 27001 alignment, cross-brand credential unification."], [["scale", "large-scale", "global", "countries"], "Global scale delivery: 1000+ stores at Lululemon, 8-country rollout at Amazon (VAP), monolith\u2192microservices at T-Mobile handling web-channel commerce."], [["team", "led", "people", "manage", "headcount"], "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). Across Nike, Lululemon, and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."], [["agile", "scrum", "safe", "pmp", "pgmp"], "Certifications: PgMP \u00b7 PMP \u00b7 SAFe (Leading SAFe) \u00b7 Scrum Master \u00b7 Product Owner \u00b7 AWS Solutions Architect \u00b7 Azure Solutions Architect (70-535) \u00b7 Product Manager (ISB). 15+ years running SAFe/Scrum/Kanban delivery at scale."], [["contact", "email", "phone", "reach"], "Best way to reach me: <a href='mailto:Bhatnagar.Sudhanshu31@gmail.com'>Bhatnagar.Sudhanshu31@gmail.com</a> \u00b7 <a href='https://www.linkedin.com/in/sudhanshubhatnagar/' target='_blank' rel='noopener'>LinkedIn</a> \u00b7 phone 310-754-6162 \u00b7 based in Seattle, WA."], [["resume", "cv", "pdf", "download"], "PDF resume is one click away \u2014 <a href='assets/files/Sudhanshu-Bhatnagar.pdf' target='_blank'>Download PDF</a>."], [["role", "title", "position", "job", "looking"], "Currently Principal Technical Program Manager at <b>Nike</b> \u2014 Consumer Product & Innovation, Merchandising (Beaverton, OR \u2014 Seattle-based, remote-friendly). Started March 2026. Prior: Lululemon, Nordstrom, Amazon, T-Mobile."], [["merchandising", "assortment", "line planning", "seasonal", "allocation", "forecast"], "At Nike, driving the technical roadmap for <b>Global Merchandising</b> \u2014 product line planning, assortment, seasonal expression, and consumer-right product allocation. Also integrating data, analytics, and ML into merchandising systems for inventory efficiency and demand forecasting."], [["nike"], "Joined <b>Nike</b> in March 2026 as Principal Technical Program Manager in <em>Global Merchandising \u2014 Consumer Product & Innovation</em>. Five focus areas:<br>  1. <em>Strategic technical leadership</em> \u2014 end-to-end execution + architecture of enterprise Merchandising programs<br>  2. <em>Cross-functional orchestration</em> \u2014 engineering + product teams shipping product line planning, assortment, and seasonal-expression capabilities<br>  3. <em>Scale & innovation</em> \u2014 data, analytics, and ML into merchandising for inventory, forecasting, and allocation<br>  4. <em>Stakeholder management</em> \u2014 primary technical liaison between executive merchandising leadership and engineering<br>  5. <em>Process excellence & mentorship</em> \u2014 Agile/TPM governance on multi-million-dollar global initiatives, mentoring senior technical talent"], [["education", "degree", "school", "university"], "PGP in AI/ML from McCombs School of Business (UT Austin), May 2024 \u2013 Feb 2025. Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998\u20132002)."]],
   init(){
     this.log = document.getElementById('chat-log');
     this.input = document.querySelector('.chat-input');

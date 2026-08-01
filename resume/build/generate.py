@@ -9,7 +9,7 @@ from pathlib import Path
 from data import (
     PROFILE, METRICS, ROLES, PROGRAMS, SKILL_RADAR, TECH_HEATMAP,
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
-    FILTER_GROUPS,
+    FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO,
 )
 
 OUT = Path(__file__).resolve().parent.parent / "index.html"
@@ -474,6 +474,46 @@ def render_chat():
   </section>'''
 
 
+def render_aiml():
+    """AI/ML & Agentic AI project portfolio — cards linking to github.com/Sudhanshu311."""
+    def _card(p):
+        featured_cls = ' aiml-card--featured' if p.get('featured') else ''
+        featured_pill = '<span class="aiml-pill">Featured</span>' if p.get('featured') else ''
+        tech_chips = ''.join(f'<span class="aiml-chip mono">{t}</span>' for t in p.get('tech', []))
+        return f'''
+      <a class="aiml-card{featured_cls}" href="https://github.com/Sudhanshu311/{p["slug"]}" target="_blank" rel="noopener">
+        <div class="aiml-card-head">
+          <div class="aiml-domain mono">{p["domain"]}</div>
+          {featured_pill}
+        </div>
+        <div class="aiml-title">{p["title"]}</div>
+        <p class="aiml-body">{p["one_liner"]}</p>
+        <div class="aiml-chips">{tech_chips}</div>
+        <div class="aiml-repo mono">
+          <span class="aiml-repo-cmd">$ git clone</span>
+          <span class="aiml-repo-url">github.com/Sudhanshu311/{p["slug"]}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </div>
+      </a>'''
+    cards = "".join(_card(p) for p in AIML_PROJECTS)
+    n = len(AIML_PROJECTS)
+    return f'''
+  <section class="aiml-section" id="aiml">
+    <h2 class="section-h">
+      <span class="section-num">08</span>
+      <span class="section-name">AI/ML Portfolio</span>
+      <span class="section-hint">{n} projects · McCombs PGP in AI &amp; ML · full code on GitHub</span>
+    </h2>
+    <div class="aiml-intro mono">
+      <span class="aiml-prompt">$</span> pip list --user | grep sbhatnagar
+      <a class="aiml-index-link" href="https://github.com/Sudhanshu311/{AIML_INDEX_REPO}" target="_blank" rel="noopener">
+        → browse the full index
+      </a>
+    </div>
+    <div class="aiml-grid">{cards}</div>
+  </section>'''
+
+
 def render_creds():
     cert_html = "".join(f'<li>{c}</li>' for c in CERTIFICATIONS)
     edu_html = "".join(f'''
@@ -485,7 +525,7 @@ def render_creds():
     return f'''
   <section class="creds-section" id="credentials">
     <h2 class="section-h">
-      <span class="section-num">08</span>
+      <span class="section-num">09</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -505,7 +545,7 @@ def render_contact():
     return f'''
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">09</span>
+      <span class="section-num">10</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -1003,6 +1043,49 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .creds-h{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:14px;font-family:var(--mono);letter-spacing:.5px}
 .edu-card{padding:12px 0;border-bottom:1px dashed var(--line)}
 .edu-card:last-child{border-bottom:0}
+
+/* AI/ML Portfolio */
+.aiml-intro{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:12px 18px;margin-bottom:16px;font-size:13.5px;color:var(--ink-2);
+}
+.aiml-intro .aiml-prompt{color:var(--accent);font-weight:700;margin-right:8px}
+.aiml-index-link{color:var(--accent);text-decoration:none;font-weight:600}
+.aiml-index-link:hover{text-decoration:underline}
+.aiml-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
+}
+.aiml-card{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px 14px;position:relative;overflow:hidden;
+  transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;
+}
+.aiml-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-1);text-decoration:none}
+.aiml-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--line);
+}
+.aiml-card--featured::before{background:var(--accent);opacity:.85}
+.aiml-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.aiml-domain{font:600 10.5px/1 var(--mono);color:var(--accent);letter-spacing:2px;text-transform:uppercase}
+.aiml-pill{font:600 9.5px/1 var(--mono);color:var(--panel);background:var(--accent);padding:4px 8px;border-radius:999px;letter-spacing:1.5px;text-transform:uppercase}
+.aiml-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.3}
+.aiml-body{font-size:13px;line-height:1.55;color:var(--ink-2);margin:0 0 10px 0}
+.aiml-chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.aiml-chip{
+  font-size:10.5px;padding:3px 7px;border:1px solid var(--line);border-radius:4px;
+  color:var(--ink-3);background:transparent;
+}
+.aiml-repo{
+  display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-3);
+  padding-top:10px;border-top:1px dashed var(--line);
+}
+.aiml-repo-cmd{color:var(--accent);font-weight:700}
+.aiml-repo-url{color:var(--ink-2);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aiml-card:hover .aiml-repo-url{color:var(--ink)}
+.aiml-card:hover .aiml-repo svg{color:var(--accent)}
 .edu-title{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
 .edu-school{font-size:12.5px;color:var(--ink-2)}
 .edu-period{font-size:11.5px;margin-top:2px}
@@ -1038,10 +1121,14 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
+  .aiml-card{color:#111 !important}
+  .aiml-title{color:#111 !important}
+  .aiml-body{color:#333 !important}
+  .aiml-pill{background:#0969da !important;color:#fff !important}
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
   .case-deep[hidden]{display:grid !important}
@@ -1060,6 +1147,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .chat-section,
   body.print-onepager .timeline-section,
   body.print-onepager .working-section,
+  body.print-onepager .aiml-section,
   body.print-onepager .filters,
   body.print-onepager .case-body,
   body.print-onepager .case-deep,
@@ -1201,7 +1289,7 @@ const Counters = {{
 const Reveal = {{
   init(){{
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{{
       entries.forEach(e=>{{
         if(e.isIntersecting){{ e.target.classList.add('is-shown'); io.unobserve(e.target); }}
@@ -1502,6 +1590,7 @@ def render_nav():
       <a href="#skills">Skills</a>
       <a href="#ask">Ask</a>
       <a href="#working">Values</a>
+      <a href="#aiml">AI/ML</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="view-switch" role="group" aria-label="View theme">
@@ -1533,6 +1622,7 @@ def main():
         render_skills(),
         render_chat(),
         render_working(),
+        render_aiml(),
         render_creds(),
         render_contact(),
         '</main>',

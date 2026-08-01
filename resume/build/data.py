@@ -431,6 +431,59 @@ CERTIFICATIONS = [
     "Product Manager Certification — Indian School of Business",
 ]
 
+# Featured AI/ML & Agentic AI projects — built during the McCombs PGP program,
+# hosted on github.com/Sudhanshu311. Ordered most-advanced first.
+AIML_PROJECTS = [
+    {
+        "slug": "foodhub-agentic-sql-chatbot",
+        "title": "FoodHub Agentic Chatbot",
+        "domain": "Agentic AI",
+        "one_liner": "LangChain SQL agent answering customer order queries from a SQLite DB, with input/output guardrails and human-escalation.",
+        "tech": ["LangChain", "OpenAI", "SQL agent", "guardrails"],
+        "featured": True,
+    },
+    {
+        "slug": "plant-seedlings-cnn",
+        "title": "Plant Seedlings CNN",
+        "domain": "Computer Vision",
+        "one_liner": "12-class Keras CNN classifier for plant-seedling images — an agriculture use case with augmentation + LR scheduling.",
+        "tech": ["Keras", "TensorFlow", "OpenCV", "CNN"],
+        "featured": True,
+    },
+    {
+        "slug": "bank-churn-neural-network",
+        "title": "Bank Churn Neural Net",
+        "domain": "Deep Learning",
+        "one_liner": "Feed-forward NN for 6-month bank customer churn, with SMOTE for imbalance and SHAP for per-feature explainability.",
+        "tech": ["Keras", "TensorFlow", "SHAP", "imbalanced-learn"],
+        "featured": True,
+    },
+    {
+        "slug": "edtech-candidate-attrition-ensemble",
+        "title": "EdTech Attrition — Ensembles",
+        "domain": "Ensemble ML",
+        "one_liner": "Bagging · Boosting · XGBoost with RandomizedSearchCV tuning to predict which trained candidates will leave the company.",
+        "tech": ["XGBoost", "scikit-learn", "SMOTE"],
+        "featured": True,
+    },
+    {
+        "slug": "personal-loan-decision-tree",
+        "title": "Personal Loan Campaign",
+        "domain": "Classification",
+        "one_liner": "Tuned Decision Tree that identifies liability customers most likely to accept a personal-loan offer.",
+        "tech": ["scikit-learn", "GridSearchCV"],
+    },
+    {
+        "slug": "foodhub-eda-nyc",
+        "title": "FoodHub NYC — EDA",
+        "domain": "Python · EDA",
+        "one_liner": "End-to-end exploratory analysis of ~1,900 NYC food-delivery orders — cuisines, cost tiers, weekday demand, delivery time.",
+        "tech": ["pandas", "seaborn", "matplotlib"],
+    },
+]
+
+AIML_INDEX_REPO = "aiml-portfolio"
+
 EDUCATION = [
     {
         "title": "Post Graduate Program in Artificial Intelligence & Machine Learning",
@@ -450,7 +503,9 @@ QA = [
     (["genai", "gen ai", "bedrock", "langchain", "llm", "rag"],
      "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain — natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 – Feb 2025)."),
     (["ai", "ml", "machine learning", "artificial intelligence"],
-     "AI/ML background is post-grad from McCombs (UT Austin, 2024–2025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. Areas of interest: LLM-assisted enterprise workflows, RAG over program artifacts, ML-driven merchandising signals."),
+     "AI/ML background is post-grad from McCombs (UT Austin, 2024–2025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. "
+     "See the <a href='#aiml'>AI/ML Portfolio</a> section for six hands-on projects (Agentic AI chatbot, CNN, neural nets, ensemble ML) — full code on "
+     "<a href='https://github.com/Sudhanshu311/aiml-portfolio' target='_blank' rel='noopener'>github.com/Sudhanshu311/aiml-portfolio</a>."),
     (["aws", "amazon web services"],
      "8+ years hands-on AWS across the stack — EC2, S3, Lambda, DynamoDB, API Gateway, ECS/EKS, SNS. Certified Solutions Architect – Associate. Delivered platforms on AWS at Lululemon, Nordstrom, T-Mobile, Trimble, and Amazon (VAP)."),
     (["azure", "microsoft cloud"],
