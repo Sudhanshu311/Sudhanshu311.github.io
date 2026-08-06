@@ -1,9 +1,10 @@
 // Service worker for offline caching of the interactive resume.
-const CACHE = 'sb-resume-v2';
+const CACHE = 'sb-resume-v3';  // bumped to force refresh of old cached favicon
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './favicon.svg',
   './favicon.ico',
   './assets/images/Sudhanshu.jpeg',
   './assets/files/Sudhanshu-Bhatnagar.pdf',
