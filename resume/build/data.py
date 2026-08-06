@@ -436,6 +436,55 @@ CERTIFICATIONS = [
 # Kept intentionally minimal: role fit + geography + must-haves. No comp,
 # no availability, no dealbreakers per owner preference.
 # =============================================================================
+# =============================================================================
+# Core Principles — Sudhanshu's personal 3-word creed.
+# These are the LOAD-BEARING values; the 6 tactical rules in generate.py's
+# render_working() are downstream manifestations of these three.
+# =============================================================================
+CORE_PRINCIPLES = [
+    {
+        "id": "discipline",
+        "word": "Discipline",
+        "tagline": "Governance before velocity.",
+        "elaboration": (
+            "Every enterprise program earns its outcome by refusing to skip the boring parts — "
+            "real RACI, change control, dependency maps, decision logs. The $5M+ B2B transformation "
+            "at Lululemon, the 1,000+ store POS operation, the $10M+ annual budget at HCL — all "
+            "delivered because discipline compounds. It's the least glamorous investment I make, "
+            "and consistently the highest-return one."
+        ),
+        # Which of the 6 tactical Working-Style values this principle parents
+        "downstream": ["Governance first, artifact last", "Data-driven or opinion-labeled"],
+    },
+    {
+        "id": "anticipate",
+        "word": "Anticipate",
+        "tagline": "See the risk before it lands.",
+        "elaboration": (
+            "The difference between a Principal TPM and a good project manager is pattern "
+            "recognition. 22 years across matrixed programs at Nike, Lululemon, Nordstrom, Amazon, "
+            "and T-Mobile taught me to spot the dependency before it slips, the exec question "
+            "before it's asked, the architecture trap two releases ahead. Every launch gets a "
+            "pre-mortem. Every stakeholder gets a proactive brief."
+        ),
+        "downstream": ["Executive brevity, engineering depth", "Servant leader, honest signal"],
+    },
+    {
+        "id": "build",
+        "word": "Build",
+        "tagline": "Platforms, teams, trust — in that order.",
+        "elaboration": (
+            "I've shipped four e-commerce platforms end-to-end — composable, API-first, "
+            "cloud-native — because features are downstream of the platforms that host them. "
+            "I've led 65 people at peak because programs are downstream of the teams that run "
+            "them. And I keep learning at every rung — most recently the McCombs Post-Graduate "
+            "Program in AI/ML, 20 years into my career — because credibility is downstream of "
+            "curiosity."
+        ),
+        "downstream": ["Composable > monolithic", "Ship > perfect"],
+    },
+]
+
 RECRUITER = {
     "roles": [
         "Principal / Sr. Principal Technical Program Manager",
@@ -642,6 +691,12 @@ EDUCATION = [
 QA = [
     (["genai", "gen ai", "bedrock", "langchain", "llm", "rag"],
      "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain — natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Also completed the Post Graduate Program in AI/ML at McCombs School of Business (May 2024 – Feb 2025)."),
+    (["principles", "values", "creed", "discipline", "anticipate", "build", "core principles", "operating principles"],
+     "My personal creed is three words: <b>Discipline · Anticipate · Build</b>. "
+     "<b>Discipline</b> — governance before velocity; the boring parts (RACI, change control, decision logs) are where enterprise programs are won or lost. "
+     "<b>Anticipate</b> — see the risk / dependency / exec question before it lands; pre-mortems on every launch, proactive briefs for every stakeholder. "
+     "<b>Build</b> — platforms, teams, trust, in that order. Four e-commerce platforms shipped end-to-end. 65 people led at peak. Still learning at 22 years in (recent PGP in AI/ML at McCombs). "
+     "See the <a href='#creed'>Core Principles</a> section for the full elaboration."),
     (["ai", "ml", "machine learning", "artificial intelligence"],
      "AI/ML background is post-grad from McCombs (UT Austin, 2024–2025) plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. "
      "See the <a href='#aiml'>AI/ML Portfolio</a> section for six hands-on projects (Agentic AI chatbot, CNN, neural nets, ensemble ML) — full code on "
@@ -684,7 +739,7 @@ QA = [
 ]
 
 # Suggested chat prompts (surfaced as buttons)
-QA_SUGGESTIONS = ["AWS experience?", "AI/ML work?", "Team size?", "Composable commerce?", "Global scale?", "Contact?"]
+QA_SUGGESTIONS = ["Core principles?", "AWS experience?", "AI/ML work?", "Team size?", "Composable commerce?", "Contact?"]
 
 # Fun terminal commands beyond the obvious ones
 EASTER_EGGS = {

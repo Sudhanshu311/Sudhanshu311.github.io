@@ -10,7 +10,7 @@ from data import (
     PROFILE, METRICS, ROLES, PROGRAMS, SKILL_RADAR, TECH_HEATMAP,
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
     FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO,
-    RECRUITER, IMPACT_PILLARS, TESTIMONIALS,
+    RECRUITER, IMPACT_PILLARS, TESTIMONIALS, CORE_PRINCIPLES,
 )
 
 OUT = Path(__file__).resolve().parent.parent / "index.html"
@@ -35,6 +35,33 @@ def fmt_range(role):
 
 
 # ---------- Section renderers ----------
+def render_creed():
+    """Personal 3-word manifesto — rendered as a billboard right after the hero.
+    No section-number: this is a brand strip, not a section."""
+    tiles = "".join(
+        f'''
+      <div class="creed-tile" data-word="{p["id"]}">
+        <div class="creed-num mono">0{i+1}</div>
+        <div class="creed-word">{p["word"]}<span class="creed-word-dot">.</span></div>
+        <div class="creed-tag">{p["tagline"]}</div>
+      </div>''' for i, p in enumerate(CORE_PRINCIPLES)
+    )
+    return f'''
+  <section class="creed-section" id="creed" aria-label="Core principles">
+    <div class="creed-shell">
+      <div class="creed-prompt mono">
+        <span class="creed-prompt-key">$</span>
+        <span>echo $CORE_PRINCIPLES</span>
+        <span class="creed-caret" aria-hidden="true">▍</span>
+      </div>
+      <div class="creed-tiles">{tiles}</div>
+      <div class="creed-foot mono">
+        <a href="#working" class="creed-more">→ how these show up day-to-day</a>
+      </div>
+    </div>
+  </section>'''
+
+
 def render_hero():
     metric_html = []
     for m in METRICS:
@@ -147,13 +174,36 @@ def render_working():
         <p class="value-body">{body}</p>
       </article>''' for n, title, body in values
     )
+    principle_cards = "".join(
+        f'''
+      <article class="principle-card" data-word="{p["id"]}">
+        <header class="principle-head">
+          <div class="principle-word">{p["word"]}</div>
+          <div class="principle-tag">{p["tagline"]}</div>
+        </header>
+        <p class="principle-body">{p["elaboration"]}</p>
+        <div class="principle-downstream mono">
+          <span class="pd-label">manifests as →</span>
+          {" · ".join(f'<span class="pd-item">{d}</span>' for d in p["downstream"])}
+        </div>
+      </article>''' for p in CORE_PRINCIPLES
+    )
     return f'''
   <section class="working-section" id="working">
     <h2 class="section-h">
       <span class="section-num">09</span>
       <span class="section-name">Working Style & Values</span>
-      <span class="section-hint">how I run programs · editable in build/generate.py</span>
+      <span class="section-hint">3 core principles &middot; 6 tactical rules downstream</span>
     </h2>
+    <div class="principles-band">
+      <div class="principles-h mono">
+        <span class="principles-h-key">$</span> cat ~/.principles &mdash; the load-bearing three
+      </div>
+      <div class="principles-grid">{principle_cards}</div>
+    </div>
+    <div class="values-tactical-header mono">
+      <span class="vt-key">$</span> ls ./day-to-day &mdash; the six tactical rules that follow
+    </div>
     <div class="values-grid">
       {cards}
     </div>
@@ -1221,6 +1271,88 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .aiml-card:hover .aiml-repo-url{color:var(--ink)}
 .aiml-card:hover .aiml-repo svg{color:var(--accent)}
 
+/* ===== Personal Creed (billboard between Hero and About) ===== */
+.creed-section{margin:24px 0}
+.creed-shell{
+  background:linear-gradient(135deg, var(--panel) 0%, var(--panel-hi) 100%);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 24px 20px;position:relative;overflow:hidden;
+}
+.creed-shell::before{
+  content:"";position:absolute;left:0;top:0;right:0;height:3px;
+  background:linear-gradient(90deg, var(--accent) 0%, var(--accent) 33%, transparent 33%, transparent 33.5%,
+              var(--accent) 33.5%, var(--accent) 66.5%, transparent 66.5%, transparent 67%,
+              var(--accent) 67%, var(--accent) 100%);
+  opacity:.7;
+}
+.creed-prompt{
+  display:flex;align-items:center;gap:8px;
+  font-size:12.5px;color:var(--ink-3);margin-bottom:16px;letter-spacing:.3px;
+}
+.creed-prompt-key{color:var(--accent);font-weight:700}
+.creed-caret{color:var(--accent);animation:creed-blink 1.1s step-end infinite;margin-left:2px}
+@keyframes creed-blink{50%{opacity:0}}
+.creed-tiles{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;
+}
+@media (max-width:780px){.creed-tiles{grid-template-columns:1fr}}
+.creed-tile{
+  padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  position:relative;transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.creed-tile:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow-1)}
+.creed-num{
+  position:absolute;top:12px;right:14px;font-size:10.5px;color:var(--ink-3);letter-spacing:1.5px;opacity:.6;
+}
+.creed-word{
+  font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-.5px;margin-bottom:6px;line-height:1;
+}
+.creed-word-dot{color:var(--accent);margin-left:1px}
+.creed-tag{
+  font-size:13px;color:var(--ink-2);line-height:1.4;font-weight:500;
+}
+.creed-foot{margin-top:16px;font-size:12px;text-align:right}
+.creed-more{color:var(--accent);text-decoration:none;font-weight:600}
+.creed-more:hover{text-decoration:underline}
+
+/* ===== Principle cards inside Working Style section ===== */
+.principles-band{
+  margin-bottom:24px;padding-bottom:24px;border-bottom:1px dashed var(--line);
+}
+.principles-h{
+  font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:.3px;
+}
+.principles-h-key{color:var(--accent);font-weight:700}
+.principles-grid{
+  display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;
+}
+@media (max-width:960px){.principles-grid{grid-template-columns:1fr}}
+.principle-card{
+  padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  border-top:3px solid var(--accent);
+  display:flex;flex-direction:column;gap:10px;
+}
+.principle-head{margin-bottom:2px}
+.principle-word{
+  font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.3px;line-height:1;
+}
+.principle-tag{
+  font-size:12px;color:var(--accent);font-weight:600;margin-top:4px;letter-spacing:.2px;
+}
+.principle-body{
+  font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:0;flex:1;
+}
+.principle-downstream{
+  font-size:10.5px;color:var(--ink-3);padding-top:10px;border-top:1px dashed var(--line);
+  display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;
+}
+.pd-label{color:var(--accent);font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.pd-item{color:var(--ink-2)}
+.values-tactical-header{
+  font-size:12px;color:var(--ink-3);margin-bottom:12px;letter-spacing:.3px;
+}
+.vt-key{color:var(--accent);font-weight:700}
+
 /* ===== For Recruiters section ===== */
 .recruiter-section{}
 .rec-grid{
@@ -1363,15 +1495,17 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card,.creed-tile,.creed-shell,.principle-card{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
-  .aiml-card,.t-card,.rec-cell,.ip-tile{color:#111 !important}
-  .aiml-title,.ip-h,.rec-must-t,.t-author{color:#111 !important}
-  .aiml-body,.ip-label,.rec-must-b,.t-quote{color:#333 !important}
+  .aiml-card,.t-card,.rec-cell,.ip-tile,.creed-tile,.principle-card{color:#111 !important}
+  .aiml-title,.ip-h,.rec-must-t,.t-author,.creed-word,.principle-word{color:#111 !important}
+  .aiml-body,.ip-label,.rec-must-b,.t-quote,.creed-tag,.principle-body{color:#333 !important}
   .aiml-pill,.rec-cta-btn{background:#0969da !important;color:#fff !important}
   .rec-role-pill,.rec-must{background:#f6f8fa !important;border-color:#ddd !important}
+  .creed-word-dot,.principle-tag,.pd-label{color:#0969da !important}
+  .creed-shell::before{display:none}
   .case-body{display:grid !important}
   .case-body[hidden]{display:grid !important}
   .case-deep[hidden]{display:grid !important}
@@ -1394,6 +1528,8 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .testimonials-section,
   body.print-onepager .recruiter-section,
   body.print-onepager .impact-section .ip-h-hint,
+  body.print-onepager .creed-prompt,
+  body.print-onepager .creed-foot,
   body.print-onepager .filters,
   body.print-onepager .case-body,
   body.print-onepager .case-deep,
@@ -1438,6 +1574,15 @@ body.view-classic .filter-chip.is-on{color:#fff}
   body.print-onepager .heat-title{font-size:7.5pt;margin-bottom:5px}
   body.print-onepager .heat-tag{font-size:7.5pt !important;padding:2px 6px !important}
   body.print-onepager .heat-yr{font-size:7pt}
+  /* Personal creed — compact one-line render for the one-pager */
+  body.print-onepager .creed-section{margin:4px 0 6px}
+  body.print-onepager .creed-shell{padding:6px 10px;background:#f6f8fa !important;border:1px solid #ccc !important}
+  body.print-onepager .creed-shell::before{display:none}
+  body.print-onepager .creed-tiles{grid-template-columns:repeat(3, 1fr) !important;gap:6px}
+  body.print-onepager .creed-tile{padding:5px 8px !important;border:1px solid #ddd !important}
+  body.print-onepager .creed-num{display:none}
+  body.print-onepager .creed-word{font-size:11pt;margin-bottom:1px}
+  body.print-onepager .creed-tag{font-size:7.5pt;line-height:1.25}
   body.print-onepager .creds-grid{gap:6px}
   body.print-onepager .creds-cell{padding:8px 12px}
   body.print-onepager .creds-h{font-size:9pt;margin-bottom:5px}
@@ -1535,7 +1680,7 @@ const Counters = {{
 const Reveal = {{
   init(){{
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell, .creed-tile, .principle-card').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{{
       entries.forEach(e=>{{
         if(e.isIntersecting){{ e.target.classList.add('is-shown'); io.unobserve(e.target); }}
@@ -1830,6 +1975,7 @@ def render_nav():
     </div>
     <div class="tb-spacer"></div>
     <div class="tb-nav">
+      <a href="#creed">Principles</a>
       <a href="#about">About</a>
       <a href="#recruiter">Recruiters</a>
       <a href="#career">Career</a>
@@ -1934,6 +2080,10 @@ def write_json_resume():
             "lastModified": date.today().isoformat(),
             "note": "Generated from build/data.py. See PROFILE.site for the interactive HTML resume.",
             "seeks": [{"role": r} for r in RECRUITER["roles"]],
+            "creed": [
+                {"word": p["word"], "tagline": p["tagline"], "elaboration": p["elaboration"]}
+                for p in CORE_PRINCIPLES
+            ],
         },
     }
 
@@ -1949,6 +2099,7 @@ def main():
         render_nav(),
         '<main class="container">',
         render_hero(),
+        render_creed(),
         render_about(),
         render_recruiter(),
         render_repl(),
