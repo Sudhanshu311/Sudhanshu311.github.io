@@ -831,7 +831,9 @@ def render_head():
 
   <link rel="canonical" href="{PROFILE["site"]}"/>
   <link rel="alternate" type="application/json" title="JSON Resume (jsonresume.org schema)" href="{PROFILE["site"]}resume.json"/>
-  <link rel="shortcut icon" href="favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="apple-touch-icon" href="assets/images/Sudhanshu.jpeg"/>
   <link rel="manifest" href="manifest.json"/>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
