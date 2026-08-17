@@ -1,5 +1,16 @@
 """Single source of truth for all resume content. Consumed by generate.py."""
 
+# =============================================================================
+# Analytics — Google Analytics 4.
+# Set MEASUREMENT_ID to your GA4 property's "G-XXXXXXXXXX" identifier once you
+# have it. Leave empty to disable GA4 entirely (no script tags emitted at all).
+# See build/generate.py::render_head() for the injection point.
+# =============================================================================
+ANALYTICS = {
+    "ga4_measurement_id": "G-WBRLKDFDR4",
+    "respect_dnt": True,        # If True, don't load GA4 for users with Do-Not-Track on
+}
+
 PROFILE = {
     "name": "Sudhanshu Bhatnagar",
     "title": "Principal Technical Program Manager @ Nike",

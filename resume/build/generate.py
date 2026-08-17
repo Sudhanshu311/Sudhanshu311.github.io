@@ -11,6 +11,7 @@ from data import (
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
     FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO,
     RECRUITER, IMPACT_PILLARS, TESTIMONIALS, CORE_PRINCIPLES,
+    ANALYTICS,
 )
 
 OUT = Path(__file__).resolve().parent.parent / "index.html"
@@ -747,6 +748,42 @@ def render_contact():
   </section>'''
 
 
+# ---------- Analytics ----------
+def render_analytics():
+    """
+    Emit the Google Analytics 4 snippet ONLY if a measurement ID is configured
+    in data.py::ANALYTICS. Otherwise returns an empty string — zero bytes,
+    zero external requests.
+
+    Honors navigator.doNotTrack when ANALYTICS['respect_dnt'] is True: users
+    with Do-Not-Track enabled in their browser won't be tracked.
+    """
+    mid = ANALYTICS.get("ga4_measurement_id", "").strip()
+    if not mid:
+        return "  <!-- Analytics: disabled (no ga4_measurement_id set in data.py) -->"
+
+    dnt_guard = ""
+    if ANALYTICS.get("respect_dnt", True):
+        dnt_guard = (
+            "  if (navigator.doNotTrack === '1' || window.doNotTrack === '1' || "
+            "navigator.msDoNotTrack === '1') { return; }\n"
+        )
+    return f'''  <!-- Google Analytics 4 · configured via build/data.py::ANALYTICS -->
+  <script>
+  (function() {{
+{dnt_guard}    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id={mid}';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{ dataLayer.push(arguments); }}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', '{mid}', {{ anonymize_ip: true }});
+  }})();
+  </script>'''
+
+
 # ---------- HEAD (SEO / OG / PWA / JSON-LD) ----------
 def render_head():
     # Build a rich work-experience array — most-recent-first
@@ -840,6 +877,7 @@ def render_head():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
+{render_analytics()}
   <script type="application/ld+json">
 {json.dumps(person_ld, indent=2)}
   </script>
