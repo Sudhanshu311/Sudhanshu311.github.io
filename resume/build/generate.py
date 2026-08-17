@@ -660,7 +660,12 @@ def render_aiml():
         featured_pill = '<span class="aiml-pill">Featured</span>' if p.get('featured') else ''
         tech_chips = ''.join(f'<span class="aiml-chip mono">{t}</span>' for t in p.get('tech', []))
         return f'''
-      <a class="aiml-card{featured_cls}" href="https://github.com/Sudhanshu311/{p["slug"]}" target="_blank" rel="noopener">
+      <a class="aiml-card{featured_cls}" href="https://github.com/Sudhanshu311/{p["slug"]}" target="_blank" rel="noopener"
+         data-track="aiml_project_click"
+         data-project-slug="{p["slug"]}"
+         data-project-title="{p["title"]}"
+         data-project-domain="{p["domain"]}"
+         data-project-featured="{'true' if p.get('featured') else 'false'}">
         <div class="aiml-card-head">
           <div class="aiml-domain mono">{p["domain"]}</div>
           {featured_pill}
@@ -685,7 +690,10 @@ def render_aiml():
     </h2>
     <div class="aiml-intro mono">
       <span class="aiml-prompt">$</span> pip list --user | grep sbhatnagar
-      <a class="aiml-index-link" href="https://github.com/Sudhanshu311/{AIML_INDEX_REPO}" target="_blank" rel="noopener">
+      <a class="aiml-index-link" href="https://github.com/Sudhanshu311/{AIML_INDEX_REPO}" target="_blank" rel="noopener"
+         data-track="aiml_index_click"
+         data-project-slug="{AIML_INDEX_REPO}"
+         data-project-title="AI/ML Portfolio Index">
         → browse the full index
       </a>
     </div>
@@ -1988,6 +1996,40 @@ if('serviceWorker' in navigator){{
   }});
 }}
 
+// ---- Analytics event tracking ----
+// Delegates on any element with data-track="<event_name>" and forwards the
+// data-* attributes as GA4 event params. No-op if gtag isn't loaded (DNT users,
+// ad-blockers, offline). Because target="_blank" opens in a new tab, we don't
+// need to delay the navigation to guarantee the beacon fires.
+const Track = {{
+  init(){{
+    document.addEventListener('click', (e) => {{
+      const el = e.target.closest('[data-track]');
+      if (!el) return;
+      const eventName = el.dataset.track;
+      if (!eventName) return;
+      // Collect data-project-* into params (strip the 'project' prefix, snake_case)
+      const params = {{}};
+      for (const [k, v] of Object.entries(el.dataset)) {{
+        if (k === 'track') continue;
+        // camelCase -> snake_case (projectSlug -> project_slug)
+        const snake = k.replace(/([A-Z])/g, '_$1').toLowerCase();
+        params[snake] = v;
+      }}
+      // Add link_url for GA4's standard link taxonomy
+      if (el.href) params.link_url = el.href;
+      // Fire — no-op if gtag not loaded
+      if (typeof window.gtag === 'function') {{
+        window.gtag('event', eventName, params);
+      }}
+      // Also log to console during dev — safe & useful
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {{
+        console.log('[track]', eventName, params);
+      }}
+    }}, true);  // capture-phase so we beat any preventDefault
+  }}
+}};
+
 // ---- Boot ----
 document.addEventListener('DOMContentLoaded',()=>{{
   View.init();
@@ -1997,6 +2039,7 @@ document.addEventListener('DOMContentLoaded',()=>{{
   Timeline.init();
   REPL.init();
   CHAT.init();
+  Track.init();
 }});
 """
 
