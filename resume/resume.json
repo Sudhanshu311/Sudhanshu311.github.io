@@ -433,6 +433,18 @@
       "type": "AI Practice & Tooling"
     },
     {
+      "name": "JIRA Program Report (vibe-coded)",
+      "description": "JIRA Program Report (JPR) — vibe-coded a multi-program Jira analytics tool in Cursor for my day job. Turns JQL queries into self-contained interactive HTML reports across 14 programs (~330 MB of Jira data, SQLite-indexed, Chart.js visuals). Ships KPI tiles, sprint forecasts with P10/P50/P90 confidence bands, an Epic × Status × Story-Points 3-D pivot, Risk Radar (hygiene + bus-factor), bug ingress/egress, scope-drift trends, and per-program snapshot history. Bundled 3-sprint chatbot: deterministic intent classifier → optional Claude / OpenAI tool-use with grounded citations &amp; multi-turn memory → write actions (snapshot, draft-comment) behind an allow_writes guardrail. Data acquisition via Atlassian MCP. Python stdlib only — zero pip deps.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
       "name": "Agentic dev workflow",
       "description": "Agentic development workflow (Cursor + Claude / GPT / Composer) as a production coding partner across multi-file refactors, GitHub REST API orchestration, sanitization pipelines, and shell automation. Compressed multi-week solo builds into single sessions; treat AI as a peer developer, not autocomplete.",
       "keywords": [

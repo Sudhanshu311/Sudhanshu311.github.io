@@ -707,6 +707,23 @@ AI_PRACTICE = [
         ),
     },
     {
+        "icon": "◈",
+        "label": "JIRA Program Report (vibe-coded)",
+        "body": (
+            "<b>JIRA Program Report (JPR)</b> — vibe-coded a multi-program Jira analytics "
+            "tool in Cursor for my day job. Turns JQL queries into self-contained interactive "
+            "HTML reports across <b>14 programs</b> (~330 MB of Jira data, SQLite-indexed, "
+            "Chart.js visuals). Ships KPI tiles, <b>sprint forecasts with P10/P50/P90 "
+            "confidence bands</b>, an Epic × Status × Story-Points 3-D pivot, "
+            "<b>Risk Radar</b> (hygiene + bus-factor), bug ingress/egress, scope-drift "
+            "trends, and per-program snapshot history. Bundled <b>3-sprint chatbot</b>: "
+            "deterministic intent classifier → optional Claude / OpenAI tool-use with "
+            "grounded citations &amp; multi-turn memory → write actions (snapshot, "
+            "draft-comment) behind an <span class='mono'>allow_writes</span> guardrail. "
+            "Data acquisition via <b>Atlassian MCP</b>. Python stdlib only — zero pip deps."
+        ),
+    },
+    {
         "icon": "◆",
         "label": "Agentic dev workflow",
         "body": (
@@ -812,6 +829,8 @@ QA = [
      "Team leadership: 65 people at peak (HCL Technologies, $10M+ annual budget). Across Nike, Lululemon, and Nordstrom, coordinating 20+ cross-functional teams (Product, UX, QA, Security, Legal). Approach: RACI + governance + high-touch executive communication."),
     (["agile", "scrum", "safe", "pmp", "pgmp"],
      "Certifications: PgMP · PMP · SAFe (Leading SAFe) · Scrum Master · Product Owner · AWS Solutions Architect · Azure Solutions Architect (70-535) · Product Manager (ISB). 15+ years running SAFe/Scrum/Kanban delivery at scale."),
+    (["jira", "backlog", "jpr", "program report", "vibe", "vibe coding", "vibe-coded"],
+     "<b>JIRA Program Report (JPR)</b> — a multi-program Jira analytics tool I vibe-coded in Cursor for my day job. Turns JQL queries into self-contained HTML reports across 14 programs (~330 MB data, SQLite-indexed). Ships sprint forecasts with P10/P50/P90 confidence bands, Risk Radar, bug ingress/egress, scope-drift, run-over-run trends, and a 3-sprint chatbot (deterministic → Claude/OpenAI tool-use → write actions behind an <span class='mono'>allow_writes</span> guardrail). Python stdlib only, Atlassian MCP for data. See the <a href='#ai-practice'>AI Practice &amp; Tooling</a> section."),
     (["contact", "email", "phone", "reach"],
      "Best way to reach me: <a href='mailto:Bhatnagar.Sudhanshu31@gmail.com'>Bhatnagar.Sudhanshu31@gmail.com</a> · <a href='https://www.linkedin.com/in/sudhanshubhatnagar/' target='_blank' rel='noopener'>LinkedIn</a> · phone 310-754-6162 · based in Seattle, WA."),
     (["resume", "cv", "pdf", "download"],
@@ -832,7 +851,7 @@ QA = [
 ]
 
 # Suggested chat prompts (surfaced as buttons)
-QA_SUGGESTIONS = ["Core principles?", "AWS experience?", "AI/ML work?", "Team size?", "Composable commerce?", "Contact?"]
+QA_SUGGESTIONS = ["Core principles?", "AI/ML work?", "JIRA tool?", "AWS experience?", "Team size?", "Composable commerce?", "Contact?"]
 
 # Fun terminal commands beyond the obvious ones
 EASTER_EGGS = {
