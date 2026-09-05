@@ -9,7 +9,7 @@ from pathlib import Path
 from data import (
     PROFILE, METRICS, ROLES, PROGRAMS, SKILL_RADAR, TECH_HEATMAP,
     CERTIFICATIONS, EDUCATION, QA, QA_SUGGESTIONS, EASTER_EGGS,
-    FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO,
+    FILTER_GROUPS, AIML_PROJECTS, AIML_INDEX_REPO, AI_PRACTICE,
     RECRUITER, IMPACT_PILLARS, TESTIMONIALS, CORE_PRINCIPLES,
     ANALYTICS,
 )
@@ -701,6 +701,33 @@ def render_aiml():
   </section>'''
 
 
+def render_ai_practice():
+    """AI Practice & Tooling — hands-on agentic-AI work (Cursor + MCP + Claude).
+    Section 11 — sits between the AI/ML Portfolio (10) and Credentials (12).
+    Distinct from the formal McCombs coursework: this is 'how I work with AI
+    day-to-day' evidence, not academic projects."""
+    tiles = "".join(f'''
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">{item["icon"]}</span>
+          <div class="ap-label mono">{item["label"]}</div>
+        </div>
+        <p class="ap-body">{item["body"]}</p>
+      </article>''' for item in AI_PRACTICE)
+    return f'''
+  <section class="ai-practice-section" id="ai-practice">
+    <h2 class="section-h">
+      <span class="section-num">11</span>
+      <span class="section-name">AI Practice &amp; Tooling</span>
+      <span class="section-hint">hands-on with Cursor, MCP, and agentic AI · 2025–2026</span>
+    </h2>
+    <div class="ap-intro mono">
+      <span class="ap-prompt">$</span> how i actually work with AI — artifacts &amp; leverage, not slideware
+    </div>
+    <div class="ap-grid">{tiles}</div>
+  </section>'''
+
+
 def render_creds():
     cert_html = "".join(f'<li>{c}</li>' for c in CERTIFICATIONS)
     edu_html = "".join(f'''
@@ -712,7 +739,7 @@ def render_creds():
     return f'''
   <section class="creds-section" id="credentials">
     <h2 class="section-h">
-      <span class="section-num">11</span>
+      <span class="section-num">12</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -732,7 +759,7 @@ def render_contact():
     return f'''
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">12</span>
+      <span class="section-num">13</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -1319,6 +1346,45 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .aiml-card:hover .aiml-repo-url{color:var(--ink)}
 .aiml-card:hover .aiml-repo svg{color:var(--accent)}
 
+/* ===== AI Practice & Tooling (Section 11) ===== */
+.ai-practice-section{margin:36px 0}
+.ap-intro{
+  padding:12px 16px;background:var(--panel);border:1px dashed var(--line);
+  border-radius:8px;margin-bottom:20px;font-size:13px;color:var(--ink-2);
+}
+.ap-prompt{color:var(--accent);font-weight:700;margin-right:6px}
+.ap-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:16px;
+}
+.ap-tile{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;position:relative;transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.ap-tile:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.ap-tile::before{
+  content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;
+  border-radius:0 2px 2px 0;background:var(--accent);opacity:.55;
+}
+.ap-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ap-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:6px;
+  background:rgba(0,255,157,.08);color:var(--accent);
+  font-size:14px;line-height:1;
+}
+.ap-label{
+  font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent);font-weight:700;
+}
+.ap-body{
+  margin:0;font-size:14px;line-height:1.6;color:var(--ink);
+}
+.ap-body a{color:var(--accent);text-decoration:none;font-weight:600}
+.ap-body a:hover{text-decoration:underline}
+.ap-body b{color:var(--ink);font-weight:700}
+.ap-body .mono{font-size:12.5px;color:var(--ink-2);background:rgba(255,255,255,.03);padding:1px 5px;border-radius:3px}
+
 /* ===== Personal Creed (billboard between Hero and About) ===== */
 .creed-section{margin:24px 0}
 .creed-shell{
@@ -1543,11 +1609,13 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card,.creed-tile,.creed-shell,.principle-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card,.creed-tile,.creed-shell,.principle-card,.ap-tile,.ap-intro{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
-  .aiml-card,.t-card,.rec-cell,.ip-tile,.creed-tile,.principle-card{color:#111 !important}
+  .aiml-card,.t-card,.rec-cell,.ip-tile,.creed-tile,.principle-card,.ap-tile{color:#111 !important}
+  .ap-label{color:#0969da !important}
+  .ap-body{color:#333 !important}
   .aiml-title,.ip-h,.rec-must-t,.t-author,.creed-word,.principle-word{color:#111 !important}
   .aiml-body,.ip-label,.rec-must-b,.t-quote,.creed-tag,.principle-body{color:#333 !important}
   .aiml-pill,.rec-cta-btn{background:#0969da !important;color:#fff !important}
@@ -1728,7 +1796,7 @@ const Counters = {{
 const Reveal = {{
   init(){{
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell, .creed-tile, .principle-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell, .creed-tile, .principle-card, .ap-tile').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{{
       entries.forEach(e=>{{
         if(e.isIntersecting){{ e.target.classList.add('is-shown'); io.unobserve(e.target); }}
@@ -2066,6 +2134,7 @@ def render_nav():
       <a href="#impact">Impact</a>
       <a href="#skills">Skills</a>
       <a href="#aiml">AI/ML</a>
+      <a href="#ai-practice">AI Tools</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="view-switch" role="group" aria-label="View theme">
@@ -2129,6 +2198,14 @@ def write_json_resume():
         "type": "AI/ML Portfolio",
     } for p in AIML_PROJECTS]
 
+    ai_practice = [{
+        "name": item["label"],
+        # Strip HTML for JSON — plain-text summary for ATS/LLM parsers
+        "description": re.sub(r'<[^>]+>', '', item["body"]),
+        "keywords": ["Cursor", "Agentic AI", "MCP", "Claude", "GenAI Tooling"],
+        "type": "AI Practice & Tooling",
+    } for item in AI_PRACTICE]
+
     # Testimonials/references deferred — will be added once quotes are curated.
     references = []
 
@@ -2150,7 +2227,7 @@ def write_json_resume():
         "work": work,
         "education": education,
         "certificates": certificates,
-        "projects": projects + aiml,
+        "projects": projects + aiml + ai_practice,
         "skills": [
             {"name": name, "level": f"{years}+ years"}
             for name, years in TECH_HEATMAP[:15]
@@ -2194,6 +2271,7 @@ def main():
         render_working(),
         # render_testimonials(),  # deferred — bring back once quotes are curated
         render_aiml(),
+        render_ai_practice(),
         render_creds(),
         render_contact(),
         '</main>',

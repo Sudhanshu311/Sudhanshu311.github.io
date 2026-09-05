@@ -684,6 +684,83 @@ AIML_PROJECTS = [
 
 AIML_INDEX_REPO = "aiml-portfolio"
 
+
+# =============================================================================
+# AI Practice & Tooling — hands-on, agentic-AI-native work I'm doing personally
+# with tools like Cursor, Claude, MCP, and Cursor Automations. Distinct from the
+# formal McCombs AIML coursework above — this is the "how I actually work with
+# AI day-to-day" section. Each item pairs an artifact + capability signal so
+# recruiters can see both craft and leverage.
+# =============================================================================
+AI_PRACTICE = [
+    {
+        "icon": "▲",
+        "label": "AI-instrumented personal site",
+        "body": (
+            "Shipped an AI-instrumented personal site at "
+            "<a href='https://sudhanshu311.github.io/resume/' target='_blank' rel='noopener'>sudhanshu311.github.io/resume</a> — "
+            "12-section, ~2,700-line responsive resume generated from a single Python "
+            "source-of-truth (<span class='mono'>data.py</span> → HTML + <span class='mono'>resume.json</span> + print PDF). "
+            "Includes in-page chatbot (~20 intents), Terminal + Classic view modes, "
+            "JSON-LD (<span class='mono'>schema.org</span> Person/Review/Seeks) for AI crawlers, "
+            "PWA service worker, and GA4 with custom per-project click-attribution events."
+        ),
+    },
+    {
+        "icon": "◆",
+        "label": "Agentic dev workflow",
+        "body": (
+            "Agentic development workflow (<b>Cursor</b> + Claude / GPT / Composer) as a "
+            "production coding partner across multi-file refactors, GitHub REST API "
+            "orchestration, sanitization pipelines, and shell automation. "
+            "Compressed multi-week solo builds into single sessions; treat AI as a "
+            "peer developer, not autocomplete."
+        ),
+    },
+    {
+        "icon": "●",
+        "label": "Automated portfolio publication",
+        "body": (
+            "Automated my AI/ML portfolio publication — Python + GitHub REST script "
+            "that provisioned <b>8 repos</b> on my personal GitHub (topics, MIT license, "
+            "READMEs), then pushed 6 sanitized ML/GenAI project codebases from "
+            "McCombs PGPs in a single run. Owner-based auto-routing between "
+            "enterprise and personal PATs."
+        ),
+    },
+    {
+        "icon": "◇",
+        "label": "Notebook sanitization pipeline",
+        "body": (
+            "Notebook sanitization pipeline — regex-based Python tool that strips "
+            "Google Drive paths, execution counts, and heavy binary outputs from "
+            "Jupyter notebooks and rewrites cloud paths to a portable "
+            "<span class='mono'>DATA_DIR</span> pattern. Made six coursework notebooks "
+            "GitHub-safe (100 MB+ compliance)."
+        ),
+    },
+    {
+        "icon": "▶",
+        "label": "Internal GitHub CLI extension",
+        "body": (
+            "Extended an internal GitHub CLI (<span class='mono'>cpi github</span>) with "
+            "multi-account token aliases and owner-based auto-routing so a single "
+            "command works transparently across enterprise + personal accounts. "
+            "~120 LOC + health check."
+        ),
+    },
+    {
+        "icon": "▣",
+        "label": "MCP + skills + hooks + automations",
+        "body": (
+            "Active <b>MCP / skills / hooks</b> user — Model Context Protocol servers "
+            "wired for Atlassian, Box, Datadog, GitHub; custom Cursor skills for "
+            "strategy curation, meeting minutes, weekly status reports, and "
+            "action-item tracking; Cursor Automations for recurring reviews."
+        ),
+    },
+]
+
 EDUCATION = [
     {
         "title": "Post Graduate Program in Generative AI for Business Applications",

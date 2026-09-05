@@ -672,6 +672,45 @@ body.view-classic .filter-chip.is-on{color:#fff}
 .aiml-card:hover .aiml-repo-url{color:var(--ink)}
 .aiml-card:hover .aiml-repo svg{color:var(--accent)}
 
+/* ===== AI Practice & Tooling (Section 11) ===== */
+.ai-practice-section{margin:36px 0}
+.ap-intro{
+  padding:12px 16px;background:var(--panel);border:1px dashed var(--line);
+  border-radius:8px;margin-bottom:20px;font-size:13px;color:var(--ink-2);
+}
+.ap-prompt{color:var(--accent);font-weight:700;margin-right:6px}
+.ap-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:16px;
+}
+.ap-tile{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;position:relative;transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.ap-tile:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.ap-tile::before{
+  content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;
+  border-radius:0 2px 2px 0;background:var(--accent);opacity:.55;
+}
+.ap-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ap-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:6px;
+  background:rgba(0,255,157,.08);color:var(--accent);
+  font-size:14px;line-height:1;
+}
+.ap-label{
+  font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--accent);font-weight:700;
+}
+.ap-body{
+  margin:0;font-size:14px;line-height:1.6;color:var(--ink);
+}
+.ap-body a{color:var(--accent);text-decoration:none;font-weight:600}
+.ap-body a:hover{text-decoration:underline}
+.ap-body b{color:var(--ink);font-weight:700}
+.ap-body .mono{font-size:12.5px;color:var(--ink-2);background:rgba(255,255,255,.03);padding:1px 5px;border-radius:3px}
+
 /* ===== Personal Creed (billboard between Hero and About) ===== */
 .creed-section{margin:24px 0}
 .creed-shell{
@@ -896,11 +935,13 @@ body.view-classic .filter-chip.is-on{color:#fff}
   .section-h{page-break-after:avoid;border-color:#ccc;margin:24px 0 12px}
   .section-name{font-size:20px;color:#111}
   .section-num{background:#eee;color:#333}
-  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card,.creed-tile,.creed-shell,.principle-card{
+  .metric,.about-card,.value-card,.terminal,.timeline,.case,.creds-cell,.skills-radar,.skills-heatmap,.contact-card,.aiml-card,.aiml-intro,.rec-cell,.rec-cta,.ip-tile,.t-card,.creed-tile,.creed-shell,.principle-card,.ap-tile,.ap-intro{
     background:#fff !important;border:1px solid #ddd !important;box-shadow:none !important;
     page-break-inside:avoid;
   }
-  .aiml-card,.t-card,.rec-cell,.ip-tile,.creed-tile,.principle-card{color:#111 !important}
+  .aiml-card,.t-card,.rec-cell,.ip-tile,.creed-tile,.principle-card,.ap-tile{color:#111 !important}
+  .ap-label{color:#0969da !important}
+  .ap-body{color:#333 !important}
   .aiml-title,.ip-h,.rec-must-t,.t-author,.creed-word,.principle-word{color:#111 !important}
   .aiml-body,.ip-label,.rec-must-b,.t-quote,.creed-tag,.principle-body{color:#333 !important}
   .aiml-pill,.rec-cta-btn{background:#0969da !important;color:#fff !important}
@@ -1036,6 +1077,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
       <a href="#impact">Impact</a>
       <a href="#skills">Skills</a>
       <a href="#aiml">AI/ML</a>
+      <a href="#ai-practice">AI Tools</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="view-switch" role="group" aria-label="View theme">
@@ -2243,9 +2285,63 @@ body.view-classic .filter-chip.is-on{color:#fff}
       </a></div>
   </section>
 
-  <section class="creds-section" id="credentials">
+  <section class="ai-practice-section" id="ai-practice">
     <h2 class="section-h">
       <span class="section-num">11</span>
+      <span class="section-name">AI Practice &amp; Tooling</span>
+      <span class="section-hint">hands-on with Cursor, MCP, and agentic AI · 2025–2026</span>
+    </h2>
+    <div class="ap-intro mono">
+      <span class="ap-prompt">$</span> how i actually work with AI — artifacts &amp; leverage, not slideware
+    </div>
+    <div class="ap-grid">
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">▲</span>
+          <div class="ap-label mono">AI-instrumented personal site</div>
+        </div>
+        <p class="ap-body">Shipped an AI-instrumented personal site at <a href='https://sudhanshu311.github.io/resume/' target='_blank' rel='noopener'>sudhanshu311.github.io/resume</a> — 12-section, ~2,700-line responsive resume generated from a single Python source-of-truth (<span class='mono'>data.py</span> → HTML + <span class='mono'>resume.json</span> + print PDF). Includes in-page chatbot (~20 intents), Terminal + Classic view modes, JSON-LD (<span class='mono'>schema.org</span> Person/Review/Seeks) for AI crawlers, PWA service worker, and GA4 with custom per-project click-attribution events.</p>
+      </article>
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">◆</span>
+          <div class="ap-label mono">Agentic dev workflow</div>
+        </div>
+        <p class="ap-body">Agentic development workflow (<b>Cursor</b> + Claude / GPT / Composer) as a production coding partner across multi-file refactors, GitHub REST API orchestration, sanitization pipelines, and shell automation. Compressed multi-week solo builds into single sessions; treat AI as a peer developer, not autocomplete.</p>
+      </article>
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">●</span>
+          <div class="ap-label mono">Automated portfolio publication</div>
+        </div>
+        <p class="ap-body">Automated my AI/ML portfolio publication — Python + GitHub REST script that provisioned <b>8 repos</b> on my personal GitHub (topics, MIT license, READMEs), then pushed 6 sanitized ML/GenAI project codebases from McCombs PGPs in a single run. Owner-based auto-routing between enterprise and personal PATs.</p>
+      </article>
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">◇</span>
+          <div class="ap-label mono">Notebook sanitization pipeline</div>
+        </div>
+        <p class="ap-body">Notebook sanitization pipeline — regex-based Python tool that strips Google Drive paths, execution counts, and heavy binary outputs from Jupyter notebooks and rewrites cloud paths to a portable <span class='mono'>DATA_DIR</span> pattern. Made six coursework notebooks GitHub-safe (100 MB+ compliance).</p>
+      </article>
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">▶</span>
+          <div class="ap-label mono">Internal GitHub CLI extension</div>
+        </div>
+        <p class="ap-body">Extended an internal GitHub CLI (<span class='mono'>cpi github</span>) with multi-account token aliases and owner-based auto-routing so a single command works transparently across enterprise + personal accounts. ~120 LOC + health check.</p>
+      </article>
+      <article class="ap-tile">
+        <div class="ap-head">
+          <span class="ap-icon" aria-hidden="true">▣</span>
+          <div class="ap-label mono">MCP + skills + hooks + automations</div>
+        </div>
+        <p class="ap-body">Active <b>MCP / skills / hooks</b> user — Model Context Protocol servers wired for Atlassian, Box, Datadog, GitHub; custom Cursor skills for strategy curation, meeting minutes, weekly status reports, and action-item tracking; Cursor Automations for recurring reviews.</p>
+      </article></div>
+  </section>
+
+  <section class="creds-section" id="credentials">
+    <h2 class="section-h">
+      <span class="section-num">12</span>
       <span class="section-name">Education & Certifications</span>
     </h2>
     <div class="creds-grid">
@@ -2277,7 +2373,7 @@ body.view-classic .filter-chip.is-on{color:#fff}
 
   <section class="contact-section" id="contact">
     <h2 class="section-h">
-      <span class="section-num">12</span>
+      <span class="section-num">13</span>
       <span class="section-name">Get in Touch</span>
     </h2>
     <div class="contact-grid">
@@ -2361,7 +2457,7 @@ const Counters = {
 const Reveal = {
   init(){
     if(!('IntersectionObserver' in window)) return;
-    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell, .creed-tile, .principle-card').forEach(el=>el.classList.add('reveal'));
+    document.querySelectorAll('section, .case, .creds-cell, .contact-card, .aiml-card, .ip-tile, .t-card, .rec-cell, .creed-tile, .principle-card, .ap-tile').forEach(el=>el.classList.add('reveal'));
     const io = new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){ e.target.classList.add('is-shown'); io.unobserve(e.target); }

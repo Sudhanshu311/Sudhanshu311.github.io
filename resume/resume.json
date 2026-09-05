@@ -419,6 +419,78 @@
       ],
       "url": "https://github.com/Sudhanshu311/foodhub-eda-nyc",
       "type": "AI/ML Portfolio"
+    },
+    {
+      "name": "AI-instrumented personal site",
+      "description": "Shipped an AI-instrumented personal site at sudhanshu311.github.io/resume — 12-section, ~2,700-line responsive resume generated from a single Python source-of-truth (data.py → HTML + resume.json + print PDF). Includes in-page chatbot (~20 intents), Terminal + Classic view modes, JSON-LD (schema.org Person/Review/Seeks) for AI crawlers, PWA service worker, and GA4 with custom per-project click-attribution events.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
+      "name": "Agentic dev workflow",
+      "description": "Agentic development workflow (Cursor + Claude / GPT / Composer) as a production coding partner across multi-file refactors, GitHub REST API orchestration, sanitization pipelines, and shell automation. Compressed multi-week solo builds into single sessions; treat AI as a peer developer, not autocomplete.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
+      "name": "Automated portfolio publication",
+      "description": "Automated my AI/ML portfolio publication — Python + GitHub REST script that provisioned 8 repos on my personal GitHub (topics, MIT license, READMEs), then pushed 6 sanitized ML/GenAI project codebases from McCombs PGPs in a single run. Owner-based auto-routing between enterprise and personal PATs.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
+      "name": "Notebook sanitization pipeline",
+      "description": "Notebook sanitization pipeline — regex-based Python tool that strips Google Drive paths, execution counts, and heavy binary outputs from Jupyter notebooks and rewrites cloud paths to a portable DATA_DIR pattern. Made six coursework notebooks GitHub-safe (100 MB+ compliance).",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
+      "name": "Internal GitHub CLI extension",
+      "description": "Extended an internal GitHub CLI (cpi github) with multi-account token aliases and owner-based auto-routing so a single command works transparently across enterprise + personal accounts. ~120 LOC + health check.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
+    },
+    {
+      "name": "MCP + skills + hooks + automations",
+      "description": "Active MCP / skills / hooks user — Model Context Protocol servers wired for Atlassian, Box, Datadog, GitHub; custom Cursor skills for strategy curation, meeting minutes, weekly status reports, and action-item tracking; Cursor Automations for recurring reviews.",
+      "keywords": [
+        "Cursor",
+        "Agentic AI",
+        "MCP",
+        "Claude",
+        "GenAI Tooling"
+      ],
+      "type": "AI Practice & Tooling"
     }
   ],
   "skills": [
