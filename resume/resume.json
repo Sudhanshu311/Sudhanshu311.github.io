@@ -153,6 +153,13 @@
   "education": [
     {
       "institution": "McCombs School of Business — University of Texas at Austin",
+      "area": "Generative AI for Business Applications",
+      "studyType": "Post Graduate Program in Generative AI for Business Applications",
+      "startDate": "Completed Aug 2025",
+      "endDate": "Completed Aug 2025"
+    },
+    {
+      "institution": "McCombs School of Business — University of Texas at Austin",
       "area": "Artificial Intelligence & Machine Learning",
       "studyType": "Post Graduate Program in Artificial Intelligence & Machine Learning",
       "startDate": "May 2024",
@@ -490,7 +497,7 @@
   "meta": {
     "canonical": "https://sudhanshu311.github.io/resume/resume.json",
     "version": "v1.0.0",
-    "lastModified": "2026-08-06",
+    "lastModified": "2026-09-04",
     "note": "Generated from build/data.py. See PROFILE.site for the interactive HTML resume.",
     "seeks": [
       {
@@ -514,7 +521,7 @@
       {
         "word": "Build",
         "tagline": "Platforms, teams, trust — in that order.",
-        "elaboration": "I've shipped four e-commerce platforms end-to-end — composable, API-first, cloud-native — because features are downstream of the platforms that host them. I've led 65 people at peak because programs are downstream of the teams that run them. And I keep learning at every rung — most recently the McCombs Post-Graduate Program in AI/ML, 20 years into my career — because credibility is downstream of curiosity."
+        "elaboration": "I've shipped four e-commerce platforms end-to-end — composable, API-first, cloud-native — because features are downstream of the platforms that host them. I've led 65 people at peak because programs are downstream of the teams that run them. And I keep learning at every rung — two back-to-back McCombs post-graduate programs (AI/ML, then Generative AI for Business Applications), 20+ years into my career — because credibility is downstream of curiosity."
       }
     ]
   }
