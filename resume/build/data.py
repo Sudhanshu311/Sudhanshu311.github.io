@@ -688,7 +688,7 @@ EDUCATION = [
     {
         "title": "Post Graduate Program in Generative AI for Business Applications",
         "school": "McCombs School of Business — University of Texas at Austin",
-        "period": "Completed Aug 2025",
+        "period": "Completed Aug 2026",
     },
     {
         "title": "Post Graduate Program in Artificial Intelligence & Machine Learning",
@@ -706,15 +706,15 @@ EDUCATION = [
 # Order matters: more specific keys first, generic keys later.
 QA = [
     (["genai", "gen ai", "bedrock", "langchain", "llm", "rag"],
-     "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain — natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Formal grounding: back-to-back McCombs (UT Austin) post-grad programs — <b>PGP in AI/ML</b> (May 2024 – Feb 2025) and <b>PGP in Generative AI for Business Applications</b> (completed Aug 2025)."),
+     "Built the GenAI Bulk Order Assistant at Lululemon on Amazon Bedrock + LangChain — natural-language enterprise bulk orders. Result: 50% cart-build reduction, 30% checkout uplift. Formal grounding: back-to-back McCombs (UT Austin) post-grad programs — <b>PGP in AI/ML</b> (May 2024 – Feb 2025) and <b>PGP in Generative AI for Business Applications</b> (completed Aug 2026)."),
     (["principles", "values", "creed", "discipline", "anticipate", "build", "core principles", "operating principles"],
      "My personal creed is three words: <b>Discipline · Anticipate · Build</b>. "
      "<b>Discipline</b> — governance before velocity; the boring parts (RACI, change control, decision logs) are where enterprise programs are won or lost. "
      "<b>Anticipate</b> — see the risk / dependency / exec question before it lands; pre-mortems on every launch, proactive briefs for every stakeholder. "
-     "<b>Build</b> — platforms, teams, trust, in that order. Four e-commerce platforms shipped end-to-end. 65 people led at peak. Still learning at 22 years in — two back-to-back McCombs PGPs (AI/ML in 2025, GenAI for Business Applications in 2025). "
+     "<b>Build</b> — platforms, teams, trust, in that order. Four e-commerce platforms shipped end-to-end. 65 people led at peak. Still learning at 22 years in — two back-to-back McCombs PGPs (AI/ML in 2025, GenAI for Business Applications in 2026). "
      "See the <a href='#creed'>Core Principles</a> section for the full elaboration."),
     (["ai", "ml", "machine learning", "artificial intelligence"],
-     "AI/ML background is two back-to-back McCombs (UT Austin) post-grad programs — PGP in AI/ML (2024–2025) and PGP in Generative AI for Business Applications (completed Aug 2025) — plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. "
+     "AI/ML background is two back-to-back McCombs (UT Austin) post-grad programs — PGP in AI/ML (2024–2025) and PGP in Generative AI for Business Applications (completed Aug 2026) — plus applied GenAI (Bedrock/LangChain/RAG) shipping the Lululemon Bulk Order Assistant. Now at Nike driving ML integration into merchandising systems — demand forecasting, inventory efficiency, and consumer-right product allocation. "
      "See the <a href='#aiml'>AI/ML Portfolio</a> section for six hands-on projects (Agentic AI chatbot, CNN, neural nets, ensemble ML) — full code on "
      "<a href='https://github.com/Sudhanshu311/aiml-portfolio' target='_blank' rel='noopener'>github.com/Sudhanshu311/aiml-portfolio</a>."),
     (["aws", "amazon web services"],
@@ -751,7 +751,7 @@ QA = [
      "  4. <em>Stakeholder management</em> — primary technical liaison between executive merchandising leadership and engineering<br>"
      "  5. <em>Process excellence & mentorship</em> — Agile/TPM governance on multi-million-dollar global initiatives, mentoring senior technical talent"),
     (["education", "degree", "school", "university"],
-     "Two post-grad programs from McCombs School of Business (UT Austin): PGP in Generative AI for Business Applications (completed Aug 2025) and PGP in AI/ML (May 2024 – Feb 2025). Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998–2002)."),
+     "Two post-grad programs from McCombs School of Business (UT Austin): PGP in Generative AI for Business Applications (completed Aug 2026) and PGP in AI/ML (May 2024 – Feb 2025). Bachelor's in Computer Science & Engineering from Rajiv Gandhi Technical University, India (1998–2002)."),
 ]
 
 # Suggested chat prompts (surfaced as buttons)
