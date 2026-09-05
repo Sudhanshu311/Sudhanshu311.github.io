@@ -694,19 +694,6 @@ AIML_INDEX_REPO = "aiml-portfolio"
 # =============================================================================
 AI_PRACTICE = [
     {
-        "icon": "▲",
-        "label": "AI-instrumented personal site",
-        "body": (
-            "Shipped an AI-instrumented personal site at "
-            "<a href='https://sudhanshu311.github.io/resume/' target='_blank' rel='noopener'>sudhanshu311.github.io/resume</a> — "
-            "12-section, ~2,700-line responsive resume generated from a single Python "
-            "source-of-truth (<span class='mono'>data.py</span> → HTML + <span class='mono'>resume.json</span> + print PDF). "
-            "Includes in-page chatbot (~20 intents), Terminal + Classic view modes, "
-            "JSON-LD (<span class='mono'>schema.org</span> Person/Review/Seeks) for AI crawlers, "
-            "PWA service worker, and GA4 with custom per-project click-attribution events."
-        ),
-    },
-    {
         "icon": "◈",
         "label": "JIRA Program Report (vibe-coded)",
         "body": (
@@ -732,17 +719,6 @@ AI_PRACTICE = [
             "orchestration, sanitization pipelines, and shell automation. "
             "Compressed multi-week solo builds into single sessions; treat AI as a "
             "peer developer, not autocomplete."
-        ),
-    },
-    {
-        "icon": "●",
-        "label": "Automated portfolio publication",
-        "body": (
-            "Automated my AI/ML portfolio publication — Python + GitHub REST script "
-            "that provisioned <b>8 repos</b> on my personal GitHub (topics, MIT license, "
-            "READMEs), then pushed 6 sanitized ML/GenAI project codebases from "
-            "McCombs PGPs in a single run. Owner-based auto-routing between "
-            "enterprise and personal PATs."
         ),
     },
     {
